@@ -1,0 +1,271 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class player2 : MonoBehaviour
+{
+
+    public GameObject player;//プレイヤー
+    public Rigidbody rb;//プレイヤーの当たり判定
+    public int speed;//移動速度
+    public static bool run;//走る
+    public float rotateSpeed = 1.0f;//視点移動速度
+    public bool isGround;//地面
+    public float upForce = 10f;//ジャンプ力
+    public GameObject inventoy;//インベントリ
+    public GameObject SecondInventoy;//チェストのinventory
+    public IncentoryCreate _inventoryCreate;//クラス取得
+    public static char HaveTool = 'N';//持っているツールの種類
+    public static bool a;//inndenntorinoboolstatic
+    public ChestManager _chestManager;
+    // public buttanData _buttondata;
+
+    public GameObject Craft;
+    public GameObject Recipe;
+    public string name;
+    public bool MaineInventory;
+    public int No;
+    public GameObject EscObj;
+    public int count = 0;
+
+
+    public bool inventoy__;
+    public bool Craft_;
+    public GameObject tutorial;
+    public Text name_text;
+    public static int number;
+
+    public static ObjectManager objectManager_;
+    public ObjectManager objectManager;
+
+    public static GameObject obj;
+    public GameObject RunParticle;
+
+    public static Animator anim;
+    public Animator anim_;
+    public Animation jump;
+    private bool b;
+    // Start is called before the first frame update
+
+    //当たり判定
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGround = true;
+        }
+    }
+    void Awake()
+    {
+        objectManager_ = objectManager;
+        anim = anim_;
+    }
+    void Start()
+    {
+        speed = 10;
+        inventoy.SetActive(false);
+        Cursor.visible = false;
+        a = false;
+        EscObj.SetActive(false);
+        Craft.SetActive(false);
+        tutorial.SetActive(true);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        name_text.text = name;
+        //if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    inventoy.SetActive(true);
+        //}
+        if (CameraControll.active_camera == true)
+        {
+            cameramove();
+
+        }
+
+        if (!inventoy.activeSelf) { move(); }
+        if (inventoy__) { inventoy_(); }
+        if (Craft_) { _Craft(); }
+        chest();
+        esc(false);
+        RunParticle.SetActive(run);
+    }
+    public void move()
+    {
+
+        if (Input.GetKey(KeyCode.W) && !run)
+        {
+            transform.position += transform.right * speed * Time.deltaTime;
+            anim.SetBool("walk", true);
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            anim.SetBool("walk", true);
+        }
+        if (!Input.GetKey(KeyCode.W))
+        {
+            anim.SetBool("walk", false);
+        }
+        if (Input.GetKey(KeyCode.S)) { transform.position -= transform.right * speed * Time.deltaTime; }
+        if (Input.GetKey(KeyCode.A)) { transform.position += transform.forward * speed * Time.deltaTime; }
+        if (Input.GetKey(KeyCode.D)) { transform.position -= transform.forward * speed * Time.deltaTime; }
+        if (run) { transform.position += transform.right * speed * 2 * Time.deltaTime; }
+
+        anim.SetBool("run", run);
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && run_sli.run_value > 0f)
+        {
+
+            run = true;
+        }
+        else
+            run = false;
+
+        if (Input.GetKey(KeyCode.Space) && isGround)
+        {
+
+            isGround = false;
+            rb.velocity = Vector3.up * upForce * 10;
+            anim.SetBool("jump", true);
+            b = true;
+        }
+
+        if (isGround && b)
+        {
+            anim.SetBool("jump", false);
+            b = false;
+        }
+
+        if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.W))
+        {
+            anim.SetBool("jump", true);
+            anim.SetBool("walk", true);
+        }
+
+
+    }
+    public void cameramove()
+    {
+        Vector3 angle = new Vector3(Input.GetAxis("Mouse X") * rotateSpeed, Input.GetAxis("Mouse Y") * rotateSpeed, 0);
+        player.transform.RotateAround(player.transform.position, Vector3.up, angle.x);
+    }
+    public void inventoy_()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && (!inventoy.activeSelf) && (!Craft.activeSelf) && (!EscObj.activeSelf))
+        {
+
+            //  Debug.Log("a");
+            inventoy.SetActive(true);
+            //  _inventoryCreate.CloneButton.SetActive(false);
+            Cursor.visible = true;
+            CameraControll.active_camera = false;
+            _inventoryCreate.InventoryCreate();
+            name = "";
+            a = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && (inventoy.activeSelf) && (!Craft.activeSelf) && (!EscObj.activeSelf))
+        {
+
+            _inventoryCreate.DestroyButton();
+
+            Cursor.visible = false;
+            CameraControll.active_camera = true;
+            _inventoryCreate.DestroyButton();
+            //  _inventoryCreate.CloneButton.SetActive(true);
+            inventoy.SetActive(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && (!inventoy.activeSelf) && (Craft.activeSelf) && (!EscObj.activeSelf))
+        {
+
+            Recipe.SetActive(false);
+            Craft.SetActive(false);
+            inventoy.SetActive(true);
+            // _inventoryCreate.CloneButton.SetActive(false);
+            Cursor.visible = true;
+            CameraControll.active_camera = false;
+            _inventoryCreate.InventoryCreate();
+            a = true;
+        }
+
+
+
+    }
+    public void _Craft()
+    {
+        if (Input.GetKeyDown(KeyCode.C) && (!Craft.activeSelf) && (!inventoy.activeSelf) && (!EscObj.activeSelf))
+        {
+            Craft.SetActive(true);
+            Recipe.SetActive(false);
+            Cursor.visible = true;
+            CameraControll.active_camera = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.C) && (Craft.activeSelf) && (!inventoy.activeSelf) && (!EscObj.activeSelf))
+        {
+            Recipe.SetActive(false);
+            Craft.SetActive(false);
+
+            Cursor.visible = false;
+            CameraControll.active_camera = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.C) && (!Craft.activeSelf) && (inventoy.activeSelf) && (!EscObj.activeSelf))
+        {
+            Craft.SetActive(true);
+            Recipe.SetActive(false);
+            _inventoryCreate.DestroyButton();
+
+            Cursor.visible = true;
+            CameraControll.active_camera = false;
+            // _inventoryCreate.DestroyButton();
+            inventoy.SetActive(false);
+        }
+
+
+
+    }
+    public void chest()
+    {
+
+
+    }
+    public void esc(bool button)
+    {
+        if (!Craft.activeSelf && !inventoy.activeSelf && !button)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                count += 1;
+                if (count % 2 == 1)
+                {
+                    EscObj.SetActive(true);
+                    Cursor.visible = true;
+                    CameraControll.active_camera = false;
+                }
+                else
+                {
+                    EscObj.SetActive(false);
+                    count = 0;
+                    Cursor.visible = false;
+                    CameraControll.active_camera = true;
+                }
+            }
+
+
+        }
+        if (button)
+        {
+
+            EscObj.SetActive(false);
+            count = 0;
+            Cursor.visible = false;
+            CameraControll.active_camera = true;
+        }
+    }
+
+
+
+
+
+}
