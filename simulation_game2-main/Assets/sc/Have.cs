@@ -19,10 +19,13 @@ public class Have : MonoBehaviour
     private bool ground;
     private bool mat;
     private Vector3 worldAngle;
+    public CraftManager craftManager;
+    public RecipieButton recipie;
+    private bool removeItem_;
     // Start is called before the first frame update
     void Start()
     {
-
+        have = -1;
     }
 
     // Update is called once per frame
@@ -60,6 +63,8 @@ public class Have : MonoBehaviour
                 Destroy(children[i].GetComponent<BoxCollider>());
                 Destroy(children[i].GetComponent<SphereCollider>());
             }
+            MaterialCollar(true);
+            MaterialCollar(false) ;
 
         }
         //Debug.Log(have + "" + CloneObj != null + "" + !player2_.inventoy.activeSelf);
@@ -77,6 +82,13 @@ public class Have : MonoBehaviour
                 CloneObj.transform.position =  new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
                 CloneObj.transform.eulerAngles = worldAngle;
                 CloneObj = null;
+               RemoveItem(player2_.name);
+                if (removeItem_)
+                {
+                    Destroy(obj);
+                    player2.anim.SetBool("have", false);
+                    have = -1;
+                }
             }
             //Debug.Log("a");
             //Vector3 direction = transform.right;
@@ -99,9 +111,9 @@ public class Have : MonoBehaviour
             //}
             // Debug.Log(ray.bool_);
            // Debug.Log(ray.bool_ + "" + Ray_._hit != null + "" + !player2_.inventoy.activeSelf);
-            if (ray.bool_ && Ray_._hit != null && !player2_.inventoy.activeSelf)
+            if (ray.bool_ && Ray_._hit != null && !player2_.inventoy.activeSelf && CloneObj != null)
             {
-                CloneObj.SetActive(true);
+                     CloneObj.SetActive(true);
 
                 //if (Input.GetAxis("Mouse X") + Input.GetAxis("Mouse Y") != 0)
                // {
@@ -112,30 +124,23 @@ public class Have : MonoBehaviour
                 MaterialCollar(true);
 
                  worldAngle = CloneObj.transform.eulerAngles;
-                if (Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
-                    worldAngle.y += 1.0f;
+                    worldAngle.y += 45.0f;
                 }
-                if (Input.GetKey(KeyCode.RightArrow))
+                if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
-                    worldAngle.y -= 1.0f;
+                    worldAngle.y -= 45.0f;
                 }
-                if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.RightShift))
+                if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
-                    worldAngle.x += 1.0f;
+                    worldAngle.x += 45.0f;
                 }
-                if (Input.GetKey(KeyCode.DownArrow) &&!Input.GetKey(KeyCode.RightShift))
+                if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
-                    worldAngle.x -= 1.0f;
+                    worldAngle.x -= 45.0f;
                 }
-                if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightShift))
-                {
-                    worldAngle.z += 1.0f;
-                }
-                if (Input.GetKey(KeyCode.DownArrow)&& Input.GetKey(KeyCode.RightShift))
-                {
-                    worldAngle.z -= 1.0f;
-                }
+                
                 CloneObj.transform.eulerAngles = worldAngle; // âÒì]äpìxÇê›íË
 
             }
@@ -225,6 +230,26 @@ public class Have : MonoBehaviour
           
         }
     }
-    
+    public void RemoveItem(string name)
+    {
+
+
+        var var_ = recipie.inventoryList.count[recipie.inventoryList.name.IndexOf(name)];
+        recipie.inventoryList.count[recipie.inventoryList.name.IndexOf(name)] -= 1;
+        if (recipie.inventoryList.count[recipie.inventoryList.name.IndexOf(name)] == 0)
+        {
+            int a = recipie.inventoryList.name.IndexOf(name);
+            recipie.inventoryList.name.RemoveAt(a);
+            recipie.inventoryList.count.RemoveAt(a);
+            recipie.inventoryList.obj.RemoveAt(a);
+            removeItem_ = true;
+
+        }
+        else
+            removeItem_ = false;
+
+        
+    }
+
 
 }

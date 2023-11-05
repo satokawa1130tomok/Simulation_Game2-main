@@ -8,6 +8,8 @@ public class CraftManager : MonoBehaviour
     public RecipieButton recipie;
     public bool craft;
 
+    public bool removeItem_;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -116,6 +118,7 @@ public class CraftManager : MonoBehaviour
         var var_ = recipie.inventoryList.count[recipie.inventoryList.name.IndexOf(name)];
         if (var_ == count)
         {
+            removeItem_ = false;
             int a = recipie.inventoryList.name.IndexOf(name);
             recipie.inventoryList.name.RemoveAt(a);
             recipie.inventoryList.count.RemoveAt(a);
@@ -124,9 +127,10 @@ public class CraftManager : MonoBehaviour
         else
         {
             recipie.inventoryList.count[recipie.inventoryList.name.IndexOf(name)] = var_ - count;
-
+            removeItem_ = true;
         }
     }
+    
     public void Return(int a)
     {
         craft = false;

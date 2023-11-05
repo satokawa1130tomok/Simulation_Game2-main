@@ -14,6 +14,7 @@ public class HitPanel : MonoBehaviour
     public player2 player2_;
     public ChestManager _chestManager;
     public string HitText;
+    public Have have_;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +27,13 @@ public class HitPanel : MonoBehaviour
     {
         // Debug.Log(Ray_.a);
         // Debug.Log(Ray_._hit);
-        if (player2_.inventoy.activeSelf == false && (Ray_._hit != null))
+        Itemdata Idata = Ray_._hit.gameObject.GetComponent<Itemdata>();
+        if (player2_.inventoy.activeSelf == false && (Ray_._hit != null) && Idata.name !=null && have_.have != 0)
         {
             if (Ray_.a == 1)//tag == item ‚ÌŽž
             {
                 Panel.SetActive(true);
-                Itemdata Idata = Ray_._hit.gameObject.GetComponent<Itemdata>();
+                
                 text.text = Idata.name;
                 HitText = Idata.name;
                 if (Input.GetMouseButtonDown(0))
