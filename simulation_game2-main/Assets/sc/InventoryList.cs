@@ -20,20 +20,20 @@ public class InventoryList : MonoBehaviour
     {
 
     }
-    public void ItemList(GameObject Ihit, Itemdata Idata)
+    public void ItemList(WorldObject wdata)
     {
         //bool bool1;
         ////bool1 = name.Contains(Idata.name);
         //Debug.Log(bool1);
         var var1 = -100;
-        var1 = name.IndexOf(Idata.name);
+        var1 = name.IndexOf(wdata.name);
         // Debug.Log(var1);
         if (var1 == -1)
         {
-            name.Add(Idata.name);
+            name.Add(wdata.name);
             count.Add(1);
-            obj.Add(Idata.Itemobj);
-            number.Add(Idata.number);
+            obj.Add(wdata.CloneObject);
+            number.Add(wdata.ItemObjDataNumber_);
         }
         else
         {
@@ -47,27 +47,16 @@ public class InventoryList : MonoBehaviour
         // Debug.Log(string.Join(",", name.Select(name => name.ToString())));
         // Debug.Log(string.Join(",", count.Select(count => count.ToString())));
     }
-    public void ResourceList(GameObject Rhit, ResourceData Rdata)
+    public void ResourceList(WorldObject wdata)
     {
         //bool bool1;
         ////bool1 = name.Contains(Idata.name);
         //Debug.Log(bool1);
-        var var1 = -100;
-        var1 = name.IndexOf(Rdata.itemname);
-        // Debug.Log(var1);
-        if (var1 == -1)
+        WorldObject Rdata = wdata.ResourceObject.GetComponent<WorldObject>();
+        int i;
+        for (i = 0; i <= wdata.ResourceObjCount-1; i++)
         {
-            name.Add(Rdata.itemname);
-            count.Add(Rdata.quantity);
-            obj.Add(Rdata.Itemobj);
-
-        }
-        else
-        {
-            int i;
-            i = count[var1];
-            i = i + Rdata.quantity;
-            count[var1] = i;
+            ItemList(Rdata);
         }
 
         //Debug.Log(string.Join(",", name.Select(name => name.ToString())));
@@ -121,7 +110,7 @@ public class InventoryList : MonoBehaviour
             i = i + count_;
             count[var1] = i;
         }
-        Destroy(Ray_._hit);
+        //Destroy(Ray_._hit);
 
         // Debug.Log(string.Join(",", name.Select(name => name.ToString())));
         // Debug.Log(string.Join(",", count.Select(count => count.ToString())));

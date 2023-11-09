@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 678521452861871673}
   - component: {fileID: 1071908215938823625}
   - component: {fileID: 1071908215938823627}
-  - component: {fileID: 721943041477939999}
+  - component: {fileID: -873147566547590208}
   m_Layer: 0
   m_Name: ki
   m_TagString: Resource
@@ -64,7 +64,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 9.35, z: 1}
   m_Center: {x: 0, y: 4.85, z: 0}
---- !u!114 &721943041477939999
+--- !u!114 &-873147566547590208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,14 +73,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 153481953417366659}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0540fcd908e549d45808841c45cf9712, type: 3}
+  m_Script: {fileID: 11500000, guid: 4689cb301249cfd40acadcf169809143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resource_name: ki
-  _item_name: board
-  _quantity: 2
-  _Resourceobj: {fileID: 6165187574520762032, guid: 602267c53d0b96844a4fd98823b02a43,
-    type: 3}
+  _name: "\u6728"
+  ItemObjDataNumber_: 6
+  ObjectType: R
+  ResourceObjNumber: 5
+  ResourceObjCount: 4
+  ResourceObjToolType: 78
+  ResourceObject: {fileID: 0}
+  CloneObject: {fileID: 0}
+  rotation_: {x: 0, y: 0, z: 0}
+  position_: {x: 0, y: 0, z: 0}
+  _objectManager: {fileID: 0}
+  ItemObjData: {fileID: 0}
+  number_: 0
 --- !u!1 &5074105829456744390
 GameObject:
   m_ObjectHideFlags: 0

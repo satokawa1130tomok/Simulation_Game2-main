@@ -37,7 +37,9 @@ public class player2 : MonoBehaviour
     public static int number;
 
     public static ObjectManager objectManager_;
+    public static ItemObjData itemObjData_;
     public ObjectManager objectManager;
+    public ItemObjData itemObjData;
 
     public static GameObject obj;
     public GameObject RunParticle;
@@ -51,6 +53,7 @@ public class player2 : MonoBehaviour
     //“–‚½‚è”»’è
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject);
         if (collision.gameObject.tag == "Ground")
         {
             isGround = true;
@@ -58,6 +61,7 @@ public class player2 : MonoBehaviour
     }
     void Awake()
     {
+        itemObjData_ = itemObjData;
         objectManager_ = objectManager;
         anim = anim_;
     }
@@ -75,6 +79,7 @@ public class player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        player.transform.localEulerAngles = new Vector3(0,player.transform.localEulerAngles.y,0);
         name_text.text = name;
         //if (Input.GetKeyDown(KeyCode.O))
         //{

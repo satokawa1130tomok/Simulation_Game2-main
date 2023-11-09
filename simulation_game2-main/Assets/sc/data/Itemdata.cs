@@ -30,7 +30,7 @@ public class Itemdata : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Itemobj = _itemObjData.obj[number];
+        //Itemobj = _itemObjData.obj[number];
     }
 
     // Update is called once per frame

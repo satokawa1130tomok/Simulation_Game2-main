@@ -1,21 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+
 
 public class WorldObject : MonoBehaviour
 {
-    public int number_;
-    public int number
+
+    public string _name;
+    public string name
     {
-        get { return number_; }
-        set { number_ = value; }
+        get { return _name; }
+        set { _name = value; }
     }
-    public int ObjNumber_;
-    public int ObjNumber
+    public int ItemObjDataNumber_;
+    public int ItemObjDataNumber
     {
-        get { return ObjNumber_; }
-        set { ObjNumber_ = value; }
+        get { return ItemObjDataNumber_; }
+        set { ItemObjDataNumber_ = value; }
     }
+
+    public string ObjectType;
+    public int ResourceObjNumber;
+    public int ResourceObjCount;
+    public char ResourceObjToolType;
+    public GameObject ResourceObject;
+
+    public GameObject CloneObject;
     public Vector3 rotation_;
     public Vector3 rotation
     {
@@ -29,35 +40,48 @@ public class WorldObject : MonoBehaviour
         set { position_ = value; }
     }
     public ObjectManager _objectManager;
-    public string type;
+    public ItemObjData ItemObjData;
+    public int number_;
+     public int ListNumber
+    {
+        get { return number_; }
+        set { number_ = value; }
+    }
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
-
-
+       // Debug.Log(objectType);
+        ItemObjData = player2.itemObjData_;
+        CloneObject = ItemObjData.obj[ItemObjDataNumber];
         _objectManager = player2.objectManager_;
-        if (type == "I")
+        if(ObjectType == "R")
         {
-            Itemdata itemdata = this.GetComponent<Itemdata>();
-            ObjNumber = itemdata.number;
+            ResourceObject = ItemObjData.obj[ResourceObjNumber];
         }
-        if (type == "T")
-        {
-            ToolData toolData = this.GetComponent<ToolData>();
-            ObjNumber = toolData.number;
-        }
-        if (type == "C")
-        {
-            chestdata ChestData = this.GetComponent<chestdata>();
-            ObjNumber = ChestData.number;
-        }
+       
+
+        //if (type == "I")
+        //{
+        //    Itemdata itemdata = this.GetComponent<Itemdata>();
+        //    ObjNumber = itemdata.number;
+        //}
+        //if (type == "T")
+        //{
+        //    ToolData toolData = this.GetComponent<ToolData>();
+        //    ObjNumber = toolData.number;
+        //}
+        //if (type == "C")
+        //{
+        //    chestdata ChestData = this.GetComponent<chestdata>();
+        //    ObjNumber = ChestData.number;
+        //}
         Transform transform = this.GetComponent<Transform>();
         position = transform.position;
         rotation = this.transform.eulerAngles;
-        number = _objectManager.add(ObjNumber, position, rotation, this.gameObject);
-        number -= 1;
+        ListNumber = _objectManager.add(ItemObjDataNumber, position, rotation, this.gameObject);
+        ListNumber -= 1;
     }
 
     // Update is called once per frame

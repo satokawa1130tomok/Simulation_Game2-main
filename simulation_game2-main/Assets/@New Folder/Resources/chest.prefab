@@ -343,7 +343,6 @@ GameObject:
   - component: {fileID: 6719124737702161761}
   - component: {fileID: 6536298814558391450}
   - component: {fileID: 6536298814558391451}
-  - component: {fileID: 5172065029477182855}
   - component: {fileID: 6536298814097941906}
   - component: {fileID: 6536298814097941916}
   m_Layer: 0
@@ -401,22 +400,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.86, y: 6.66, z: 9.95}
   m_Center: {x: 0, y: 0.95, z: 0}
---- !u!114 &5172065029477182855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6229869123425712091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d44cc8c546aef542985e4937d3b6ad0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _name: "\u30C1\u30A7\u30B9\u30C8"
-  _number: 3
-  _Itemobj: {fileID: 6229869123425712091}
-  _itemObjData: {fileID: 11400000, guid: 62f86871610dde64ea8a06aae92f6f08, type: 2}
 --- !u!114 &6536298814097941906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,8 +422,9 @@ MonoBehaviour:
   _player2: {fileID: 0}
   _inventoryCrate: {fileID: 0}
   _inventoryList: {fileID: 0}
-  _startScenes: {fileID: 0}
   a: 0
+  anim: {fileID: 0}
+  open: 0
 --- !u!114 &6536298814097941916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,9 +437,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4689cb301249cfd40acadcf169809143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number_: 0
-  ObjNumber_: 0
+  _name: "\u30C1\u30A7\u30B9\u30C8"
+  ItemObjDataNumber_: 3
+  ObjectType: C
+  ResourceObjNumber: 0
+  ResourceObjCount: 0
+  ResourceObjToolType: 0
+  ResourceObject: {fileID: 0}
+  CloneObject: {fileID: 0}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
   _objectManager: {fileID: 0}
-  type: C
+  ItemObjData: {fileID: 0}
+  number_: 0

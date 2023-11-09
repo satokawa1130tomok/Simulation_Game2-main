@@ -27,21 +27,22 @@ public class HitPanel : MonoBehaviour
     {
         // Debug.Log(Ray_.a);
         // Debug.Log(Ray_._hit);
-        Itemdata Idata = Ray_._hit.gameObject.GetComponent<Itemdata>();
-        if (player2_.inventoy.activeSelf == false && (Ray_._hit != null) && Idata.name !=null && have_.have != 0)
+       
+        if (player2_.inventoy.activeSelf == false && Ray_._hit != null && have_.have != 0)
         {
+            WorldObject wdata = Ray_._hit.gameObject.GetComponent<WorldObject>();
             if (Ray_.a == 1)//tag == item の時
             {
                 Panel.SetActive(true);
                 
-                text.text = Idata.name;
-                HitText = Idata.name;
+                text.text = wdata.name;
+                HitText = wdata.name;
                 if (Input.GetMouseButtonDown(0))
                 {
-                    _InventoryList.ItemList(Ray_._hit, Idata);//インベントリに追加
+                    _InventoryList.ItemList(wdata);//インベントリに追加
                     Ray_.a = 0;
                     WorldObject w = Ray_._hit.GetComponent<WorldObject>();
-                    w._objectManager.clearat(w.number);
+                    w._objectManager.clearat(w.ListNumber);
                     Destroy(Ray_._hit);
                     return;
                 }
@@ -49,15 +50,16 @@ public class HitPanel : MonoBehaviour
             else if (Ray_.a == 2)//tga == resource　の時
             {
                 Panel.SetActive(true);
-                ResourceData Rdata = Ray_._hit.gameObject.GetComponent<ResourceData>();
-                text.text = (Rdata.itemname + " from " + Rdata.resource_name + "  × " + Rdata.quantity);
-                HitText = (Rdata.itemname + " from " + Rdata.resource_name + "  × " + Rdata.quantity);
+                WorldObject Rdata = Ray_._hit.gameObject.GetComponent<WorldObject>();
+                WorldObject RRdata = Rdata.ResourceObject.gameObject.GetComponent<WorldObject>();
+                text.text = (Rdata.name + " from " + RRdata.name + "  × " + Rdata.ResourceObjCount);
+                HitText = (Rdata.name + " from " + RRdata.name + "  × " + Rdata.ResourceObjCount);
                 if (Input.GetMouseButtonDown(0))
                 {
-                    if (Rdata._Tooltype == player2.HaveTool)
+                    if (Rdata.ResourceObjToolType == player2.HaveTool)
                     {
                         //   Debug.Log("A"); 
-                        _InventoryList.ResourceList(Ray_._hit, Rdata);
+                        _InventoryList.ResourceList(Rdata);
                         Ray_.a = 0;
                         Ray_._hit = null;
                     }//インベントリに追加}
@@ -90,13 +92,11 @@ public class HitPanel : MonoBehaviour
             else if (Ray_.a == 4)//tag == chestの時
             {
                 Panel.SetActive(true);
-                chestdata cdata = Ray_._hit.gameObject.GetComponent<chestdata>();
-                text.text = cdata.name;
-                HitText = cdata.name;
+                text.text = wdata.name;
+                HitText = wdata.name;
                 if (Input.GetMouseButtonDown(0))
                 {
                     bool a = true;
-                    WorldObject w = Ray_._hit.GetComponent<WorldObject>();
                     _chestManager = Ray_._hit.GetComponent<ChestManager>();
                     player2_._chestManager = _chestManager;
                     _chestManager.Chset(a);

@@ -31,8 +31,8 @@ public class Have : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(have);
-        Debug.Log(r);
+       // Debug.Log(have);
+       // Debug.Log(r);
         if (have == 1 && Input.GetKeyDown(KeyCode.Z))
         {
             Destroy(obj);

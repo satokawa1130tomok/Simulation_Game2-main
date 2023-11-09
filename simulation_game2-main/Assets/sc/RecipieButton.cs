@@ -19,9 +19,6 @@ public class RecipieButton : MonoBehaviour
     public Text ItemText3;
 
 
-    public OnoData onodata;
-    public CraftTableData crafttabledata;
-
 
 
     public string _name;
@@ -43,7 +40,7 @@ public class RecipieButton : MonoBehaviour
         set { _count1 = value; }
     }
     public int count__;
-    public int count_
+    public int CraftCount
     {
         get { return count__; }
         set { count__ = value; }
@@ -86,10 +83,28 @@ public class RecipieButton : MonoBehaviour
         set { a = value; }
     }
     public int _count;
-    public int count
+    public int ButtonCount
     {
         get { return _count; }
         set { _count = value; }
+    }
+    public one _one;
+    public one one_
+    {
+        get { return _one; }
+        set { _one = value; }
+    }
+    public Two _Two;
+    public Two Two_
+    {
+        get { return _Two; }
+        set { _Two = value; }
+    }
+    public Three _Three;
+    public Three Three_
+    {
+        get { return _Three; }
+        set { _Three = value; }
     }
     public bool craft;
     // Start is called before the first frame update
@@ -103,45 +118,73 @@ public class RecipieButton : MonoBehaviour
     {
 
     }
-    public void Onclick(int a)
+    public void one(one scriptable)
     {
-        switch (a)
-        {
-            case 1:
-                text(onodata.RecipeName, onodata.Explanation);
-                ButtonText(onodata.ItemName1, onodata.ItemCount1, onodata.ItemName2, onodata.ItemCount2, "", 0, onodata.ButtonCount);
-                active(onodata.ButtonCount);
-                obj = onodata.obj;
-                count_ = 1;
-                name_ = onodata.RecipeName;
-                a_ = a;
-                break;
-
-            case 2:
-                text(crafttabledata.RecipeName, crafttabledata.Explanation);
-                ButtonText(crafttabledata.ItemName1, crafttabledata.ItemCount1, crafttabledata.ItemName2, crafttabledata.ItemCount2, "", 0, crafttabledata.ButtonCount);
-                active(crafttabledata.ButtonCount);
-                obj = crafttabledata.obj;
-                count__ = 1;
-                name_ = crafttabledata.RecipeName;
-                a_ = a;
-                break;
-        }
+        OneButtonText(scriptable.ItemName1, scriptable.ItemCount1);
+        text(scriptable.RecipeName, scriptable.Explanation);
+        active(scriptable.ButtonCount);
+        obj = scriptable.obj;
+        name_ = scriptable.RecipeName;
+        a_ = a;
+        one_ = scriptable;
+        CraftCount = scriptable.CarftCount;
+        obj = scriptable.obj;
+    }
+    public void two(Two scriptable)
+    {
+        TwoButtonText(scriptable.ItemName1, scriptable.ItemCount1,scriptable.ItemName2,scriptable.ItemCount2);
+        text(scriptable.RecipeName, scriptable.Explanation);
+        active(scriptable.ButtonCount);
+        obj = scriptable.obj;
+        name_ = scriptable.RecipeName;
+        a_ = a;
+        ButtonCount = scriptable.ButtonCount;
+        Two_ = scriptable;
+        CraftCount = scriptable.CarftCount;
+        obj = scriptable.obj;
+    }
+    public void three(Three scriptable)
+    {
+        ThreeButtonText(scriptable.ItemName1, scriptable.ItemCount1, scriptable.ItemName2, scriptable.ItemCount2,scriptable.ItemName3,scriptable.ItemCount3);
+        text(scriptable.RecipeName, scriptable.Explanation);
+        active(scriptable.ButtonCount);
+        obj = scriptable.obj;
+        name_ = scriptable.RecipeName;
+        a_ = a;
+        ButtonCount = scriptable.ButtonCount;
+        Three_ = scriptable;
+        CraftCount = scriptable.CraftCount;
+        obj = scriptable.obj;
     }
     public void road()
     {
-        switch (a_)
+       if(ButtonCount == 1)
         {
-            case 1:
-                ButtonText(onodata.ItemName1, onodata.ItemCount1, onodata.ItemName2, onodata.ItemCount2, "", 0, onodata.ButtonCount);
-
-                break;
-
-            case 2:
-                ButtonText(crafttabledata.ItemName1, crafttabledata.ItemCount1, crafttabledata.ItemName2, crafttabledata.ItemCount2, "", 0, crafttabledata.ButtonCount);
-
-                break;
+           
+            OneButtonText(one_.ItemName1, one_.ItemCount1);
         }
+        if (ButtonCount == 2)
+        {
+
+            TwoButtonText(Two_.ItemName1, Two_.ItemCount1, Two_.ItemName2, Two_.ItemCount2);
+        }
+        if (ButtonCount == 3)
+        {
+
+            ThreeButtonText(Three_.ItemName1, Three_.ItemCount1, Three_.ItemName2, Three_.ItemCount2, Three_.ItemName3, Three_.ItemCount3);
+        }
+        //switch (a_)
+        //{
+        //    case 1:
+        //        ButtonText(onodata.ItemName1, onodata.ItemCount1, onodata.ItemName2, onodata.ItemCount2, "", 0, onodata.ButtonCount);
+
+        //        break;
+
+        //    case 2:
+        //        ButtonText(crafttabledata.ItemName1, crafttabledata.ItemCount1, crafttabledata.ItemName2, crafttabledata.ItemCount2, "", 0, crafttabledata.ButtonCount);
+
+        //        break;
+        //}
     }
 
 
@@ -173,11 +216,9 @@ public class RecipieButton : MonoBehaviour
         RecipeName.text = name;
         Explanation.text = expl;
     }
-    public void ButtonText(string Itemname1, int Itemcount1, string Itemname2, int ItemCount2, string Itemname3, int ItemCount3, int _count)
+    public void OneButtonText(string Itemname1, int Itemcount1)
     {
-        count = _count;
-        if (_count == 1)
-        {
+       
             int int1;
             if (inventoryList.name.IndexOf(Itemname1) != -1) { int1 = inventoryList.count[inventoryList.name.IndexOf(Itemname1)]; }
             else int1 = 0;
@@ -186,9 +227,10 @@ public class RecipieButton : MonoBehaviour
 
             count1 = Itemcount1;
 
-        }
-        if (_count == 2)
-        {
+    }
+    public void TwoButtonText(string Itemname1, int Itemcount1, string Itemname2, int ItemCount2)
+    {
+       
             int int1;
             if (inventoryList.name.IndexOf(Itemname1) != -1) { int1 = inventoryList.count[inventoryList.name.IndexOf(Itemname1)]; }
             else int1 = 0;
@@ -203,9 +245,13 @@ public class RecipieButton : MonoBehaviour
 
             count1 = Itemcount1;
             count2 = ItemCount2;
-        }
-        if (_count == 3)
-        {
+       
+           
+        
+    }
+    public void ThreeButtonText(string Itemname1, int Itemcount1, string Itemname2, int ItemCount2, string Itemname3, int ItemCount3)
+    {
+       
             int int1;
             if (inventoryList.name.IndexOf(Itemname1) != -1) { int1 = inventoryList.count[inventoryList.name.IndexOf(Itemname1)]; }
             else int1 = 0;
@@ -227,7 +273,6 @@ public class RecipieButton : MonoBehaviour
             count1 = Itemcount1;
             count2 = ItemCount2;
             count3 = ItemCount3;
-        }
+        
     }
-
 }

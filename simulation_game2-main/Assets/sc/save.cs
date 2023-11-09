@@ -156,7 +156,7 @@ public class save : MonoBehaviour
                     foreach (GameObject a2 in chestManager.ListObj)
                     {
                         WorldObject worldObject = a2.GetComponent<WorldObject>();
-                        write(worldObject.ObjNumber.ToString());
+                        write(worldObject.ItemObjDataNumber.ToString());
                     }
                     int2 += 1;
                 }

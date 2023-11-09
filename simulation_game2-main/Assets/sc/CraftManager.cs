@@ -24,17 +24,17 @@ public class CraftManager : MonoBehaviour
     public void Onclick()
     {
         craft = true;
-        if (recipie.count == 1)//ボタンの数が1
+        if (recipie.ButtonCount == 1)//ボタンの数が1
         {
             check(recipie.name1, recipie.count1);
         }
-        if (recipie.count == 2)//ボタンの数が2
+        if (recipie.ButtonCount == 2)//ボタンの数が2
         {
             check(recipie.name1, recipie.count1);
 
             check(recipie.name2, recipie.count2);
         }
-        if (recipie.count == 3)//ボタンの数が2
+        if (recipie.ButtonCount == 3)//ボタンの数が2
         {
             check(recipie.name1, recipie.count1);
             check(recipie.name2, recipie.count2);
@@ -44,17 +44,17 @@ public class CraftManager : MonoBehaviour
         if (craft)//全部持っていたら
         {
             Craft();
-            if (recipie.count == 1)//ボタンの数が1
+            if (recipie.ButtonCount == 1)//ボタンの数が1
             {
                 RemoveList(recipie.name1, recipie.count1);
             }
-            if (recipie.count == 2)//ボタンの数が2
+            if (recipie.ButtonCount == 2)//ボタンの数が2
             {
                 RemoveList(recipie.name1, recipie.count1);
 
                 RemoveList(recipie.name2, recipie.count2);
             }
-            if (recipie.count == 3)//ボタンの数が2
+            if (recipie.ButtonCount == 3)//ボタンの数が2
             {
                 RemoveList(recipie.name1, recipie.count1);
                 RemoveList(recipie.name2, recipie.count2);
@@ -111,7 +111,7 @@ public class CraftManager : MonoBehaviour
     }
     public void Craft()
     {
-        recipie.inventoryList.CraftItem(recipie.name_, recipie.count_, recipie.obj);
+        recipie.inventoryList.CraftItem(recipie.name_, recipie.CraftCount, recipie.obj);
     }
     public void RemoveList(string name, int count)
     {
