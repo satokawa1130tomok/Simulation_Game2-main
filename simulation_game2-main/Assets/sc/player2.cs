@@ -46,14 +46,15 @@ public class player2 : MonoBehaviour
 
     public static Animator anim;
     public Animator anim_;
-    public Animation jump;
+    //public Animation jump;
     private bool b;
+    public RecipieButton _recipieButton;
     // Start is called before the first frame update
 
     //“–‚½‚è”»’è
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject);
+       // Debug.Log(collision.gameObject);
         if (collision.gameObject.tag == "Ground")
         {
             isGround = true;
@@ -206,6 +207,8 @@ public class player2 : MonoBehaviour
             Recipe.SetActive(false);
             Cursor.visible = true;
             CameraControll.active_camera = false;
+            RecipieButton.HandCraft = true;
+            _recipieButton.HnadCraft();
         }
         else if (Input.GetKeyDown(KeyCode.C) && (Craft.activeSelf) && (!inventoy.activeSelf) && (!EscObj.activeSelf))
         {
@@ -217,10 +220,11 @@ public class player2 : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.C) && (!Craft.activeSelf) && (inventoy.activeSelf) && (!EscObj.activeSelf))
         {
+            RecipieButton.HandCraft = true;
             Craft.SetActive(true);
             Recipe.SetActive(false);
             _inventoryCreate.DestroyButton();
-
+            _recipieButton.HnadCraft();
             Cursor.visible = true;
             CameraControll.active_camera = false;
             // _inventoryCreate.DestroyButton();

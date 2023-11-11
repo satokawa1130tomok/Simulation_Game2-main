@@ -15,6 +15,7 @@ public class HitPanel : MonoBehaviour
     public ChestManager _chestManager;
     public string HitText;
     public Have have_;
+    public RecipieButton _recipieButton;
 
     // Start is called before the first frame update
     void Start()
@@ -31,83 +32,117 @@ public class HitPanel : MonoBehaviour
         if (player2_.inventoy.activeSelf == false && Ray_._hit != null && have_.have != 0)
         {
             WorldObject wdata = Ray_._hit.gameObject.GetComponent<WorldObject>();
-            if (Ray_.a == 1)//tag == item の時
+            if (wdata != null)
             {
-                Panel.SetActive(true);
-                
-                text.text = wdata.name;
-                HitText = wdata.name;
-                if (Input.GetMouseButtonDown(0))
+                if (Ray_.a == 1)//tag == item の時
                 {
-                    _InventoryList.ItemList(wdata);//インベントリに追加
-                    Ray_.a = 0;
-                    WorldObject w = Ray_._hit.GetComponent<WorldObject>();
-                    w._objectManager.clearat(w.ListNumber);
-                    Destroy(Ray_._hit);
-                    return;
-                }
-            }
-            else if (Ray_.a == 2)//tga == resource　の時
-            {
-                Panel.SetActive(true);
-                WorldObject Rdata = Ray_._hit.gameObject.GetComponent<WorldObject>();
-                WorldObject RRdata = Rdata.ResourceObject.gameObject.GetComponent<WorldObject>();
-                text.text = (Rdata.name + " from " + RRdata.name + "  × " + Rdata.ResourceObjCount);
-                HitText = (Rdata.name + " from " + RRdata.name + "  × " + Rdata.ResourceObjCount);
-                if (Input.GetMouseButtonDown(0))
-                {
-                    if (Rdata.ResourceObjToolType == player2.HaveTool)
+                    Panel.SetActive(true);
+
+                    text.text = wdata.name;
+                    HitText = wdata.name;
+                    if (Input.GetMouseButtonDown(0))
                     {
-                        //   Debug.Log("A"); 
-                        _InventoryList.ResourceList(Rdata);
+                        _InventoryList.ItemList(wdata);//インベントリに追加
+                        Ray_.a = 0;
+                        WorldObject w = Ray_._hit.GetComponent<WorldObject>();
+                        w._objectManager.clearat(w.ListNumber);
+                        Destroy(Ray_._hit);
+                        return;
+                    }
+                }
+                else if (Ray_.a == 2)//tga == resource　の時
+                {
+                    Panel.SetActive(true);
+                    WorldObject Rdata = Ray_._hit.gameObject.GetComponent<WorldObject>();
+                    WorldObject RRdata = Rdata.ResourceObject.gameObject.GetComponent<WorldObject>();
+                    text.text = (Rdata.name + " from " + RRdata.name + "  × " + Rdata.ResourceObjCount);
+                    HitText = (Rdata.name + " from " + RRdata.name + "  × " + Rdata.ResourceObjCount);
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        if (Rdata.ResourceObjToolType == player2.HaveTool)
+                        {
+                            //   Debug.Log("A"); 
+                            _InventoryList.ResourceList(Rdata);
+                            Ray_.a = 0;
+                            Ray_._hit = null;
+                        }//インベントリに追加}
+                        else { _ErrorMessage._ErrorMessage("tool do not much"); }
+                    }
+                }
+                else if (Ray_.a == 3)//tag == tool の時
+                {
+                    string type = "";
+                    Panel.SetActive(true);
+                    ToolData Tdata = Ray_._hit.gameObject.GetComponent<ToolData>();
+                    if (Tdata.type == 'A') { type = "axe"; }
+                    if (Tdata.type == 'P') { type = "pickaxe"; }
+                    if (Tdata.type == 'S') { type = "shovel"; }
+                    text.text = Tdata.name + " (" + type + ")";
+                    HitText = Tdata.name + " (" + type + ")";
+
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        _InventoryList.ToolList(Ray_._hit, Tdata);//インベントリに追加
+                        _HaveTool.Have(Tdata);//プレイヤーの手に持つ
                         Ray_.a = 0;
                         Ray_._hit = null;
-                    }//インベントリに追加}
-                    else { _ErrorMessage._ErrorMessage("tool do not much"); }
-                }
-            }
-            else if (Ray_.a == 3)//tag == tool の時
-            {
-                string type = "";
-                Panel.SetActive(true);
-                ToolData Tdata = Ray_._hit.gameObject.GetComponent<ToolData>();
-                if (Tdata.type == 'A') { type = "axe"; }
-                if (Tdata.type == 'P') { type = "pickaxe"; }
-                if (Tdata.type == 'S') { type = "shovel"; }
-                text.text = Tdata.name + " (" + type + ")";
-                HitText = Tdata.name + " (" + type + ")";
 
-                if (Input.GetMouseButtonDown(0))
+                    }
+
+
+
+                }
+                else if (Ray_.a == 4)//tag == chestの時
                 {
-                    _InventoryList.ToolList(Ray_._hit, Tdata);//インベントリに追加
-                    _HaveTool.Have(Tdata);//プレイヤーの手に持つ
-                    Ray_.a = 0;
-                    Ray_._hit = null;
-
+                    Panel.SetActive(true);
+                    text.text = wdata.name;
+                    HitText = wdata.name;
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        bool a = true;
+                        _chestManager = Ray_._hit.GetComponent<ChestManager>();
+                        player2_._chestManager = _chestManager;
+                        _chestManager.Chset(a);
+                        //chestリストを表示
+                        Ray_.a = 0;
+                        Ray_._hit = null;
+                        CameraControll.active_camera = false;
+                        HitText = "";
+                    }
                 }
-
-
-
-            }
-            else if (Ray_.a == 4)//tag == chestの時
-            {
-                Panel.SetActive(true);
-                text.text = wdata.name;
-                HitText = wdata.name;
-                if (Input.GetMouseButtonDown(0))
+                else if (Ray_.a == 5)
                 {
-                    bool a = true;
-                    _chestManager = Ray_._hit.GetComponent<ChestManager>();
-                    player2_._chestManager = _chestManager;
-                    _chestManager.Chset(a);
-                    //chestリストを表示
-                    Ray_.a = 0;
-                    Ray_._hit = null;
-                    CameraControll.active_camera = false;
-                    HitText = "";
+                    Panel.SetActive(true);
+
+                    text.text = wdata.name;
+                    HitText = wdata.name;
+                    if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftShift))
+                    {
+                        _InventoryList.ItemList(wdata);//インベントリに追加
+                        Ray_.a = 0;
+                        WorldObject w = Ray_._hit.GetComponent<WorldObject>();
+                        w._objectManager.clearat(w.ListNumber);
+                        Destroy(Ray_._hit);
+                        return;
+                    }
+                    if (Input.GetMouseButtonDown(0) && !Input.GetKey(KeyCode.LeftShift))
+                    {
+                        player2_.Craft.SetActive(true);
+                        player2_.Recipe.SetActive(false);
+                        player2_._inventoryCreate.DestroyButton();
+
+                        Cursor.visible = true;
+                        CameraControll.active_camera = false;
+                        // _inventoryCreate.DestroyButton();
+                        player2_.inventoy.SetActive(false);
+                        RecipieButton.HandCraft = false;
+                        _recipieButton.TableCraft();
+                        return;
+                    }
                 }
             }
-            else if (Ray_.a == 0)//Ray_._hit == null の時
+            
+            if (Ray_.a == 0)//Ray_._hit == null の時
             {
                 Panel.SetActive(false);
                 text.text = "";

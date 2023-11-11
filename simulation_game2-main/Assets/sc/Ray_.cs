@@ -41,42 +41,63 @@ public class Ray_ : MonoBehaviour
         Ray ray = new Ray(origin, direction);
         // Debug.DrawRay(origin, direction, Color.red, 100);
         RaycastHit hit;
+        Debug.DrawRay(ray.origin, ray.direction * maxDistance, Color.red);
+
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
-           
+
             HitPosition = ray.GetPoint(hit.distance);
             _hit = hit.collider.gameObject;
             WorldObject wdata = _hit.gameObject.GetComponent<WorldObject>();
-            if (wdata.ObjectType == "I")
+            if (wdata != null)
             {
-                a = 1;
-                bool_ = true;
-            }
-            else if (wdata.ObjectType == "R")
-            {
-                a = 2;
-                bool_ = true;
-            }
-            else if (wdata.ObjectType == "T")
-            {
-                a = 3;
-                bool_ = true;
-            }
-            else if (wdata.ObjectType == "C")
-            {
-                a = 4;
-                bool_ = true;
-            }
-            else if (_hit.gameObject.tag == "Ground")
-            {
-                bool_ = true;
+                if (wdata.ObjectType == "I")
+                {
+                    a = 1;
+                    bool_ = true;
+                }
+                else if (wdata.ObjectType == "R")
+                {
+                    a = 2;
+                    bool_ = true;
+                }
+                else if (wdata.ObjectType == "T")
+                {
+                    a = 3;
+                    bool_ = true;
+                }
+                else if (wdata.ObjectType == "C")
+                {
+                    a = 4;
+                    bool_ = true;
+                }
+                else if (wdata.ObjectType == "Cr")
+                {
+                    //Debug.Log("A");
+                    a = 5;
+                    bool_ = true;
+                }
+                else if (_hit.gameObject.tag == "Ground")
+                {
+                    bool_ = true;
+                }
+
+                else
+                {
+                    bool_ = false;
+                }
             }
             else
             {
-                bool_ = false;
+                _hit = null;
+                a = 0;
+                bool_ = true;
+                HitPosition = ray.GetPoint(maxDistance);
+
             }
+            
 
-
+            //Debug.Log(wdata.ObjectType);
 
         }
         else

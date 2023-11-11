@@ -26,6 +26,7 @@ public class CraftManager : MonoBehaviour
         craft = true;
         if (recipie.ButtonCount == 1)//ボタンの数が1
         {
+            Debug.Log("A");
             check(recipie.name1, recipie.count1);
         }
         if (recipie.ButtonCount == 2)//ボタンの数が2

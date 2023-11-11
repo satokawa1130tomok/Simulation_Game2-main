@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9e186c2321bab4ca83d7914b765d29, type: 3}
+  m_Name: Chest
+  m_EditorClassIdentifier: 
+  RecipeName: "\u30C1\u30A7\u30B9\u30C8"
+  ItemName1: "\u677F"
+  ItemCount1: 5
+  Explanation: "\u7269\u3092\u53CE\u7D0D\u3067\u304D\u307E\u3059"
+  HandCraft: 0
+  ButtonCount: 1
+  CarftCount: 1
+  obj: {fileID: 6229869123425712091, guid: 29225d1f87794d94d8d831a6e5b3b1fd, type: 3}
