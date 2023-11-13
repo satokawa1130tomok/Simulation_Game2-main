@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class player2 : MonoBehaviour
 {
@@ -49,6 +50,9 @@ public class player2 : MonoBehaviour
     //public Animation jump;
     private bool b;
     public RecipieButton _recipieButton;
+    private bool esc_;
+    public bool Preview;
+    public PreviewManager _previewManager;
     // Start is called before the first frame update
 
     //“–‚½‚è”»’è
@@ -68,6 +72,7 @@ public class player2 : MonoBehaviour
     }
     void Start()
     {
+       
         speed = 10;
         inventoy.SetActive(false);
         Cursor.visible = false;
@@ -75,6 +80,9 @@ public class player2 : MonoBehaviour
         EscObj.SetActive(false);
         Craft.SetActive(false);
         tutorial.SetActive(true);
+        inventoy__ = false;
+        Craft_ = false;
+        esc_ = false;
     }
 
     // Update is called once per frame
@@ -92,12 +100,18 @@ public class player2 : MonoBehaviour
 
         }
 
-        if (!inventoy.activeSelf) { move(); }
-        if (inventoy__) { inventoy_(); }
-        if (Craft_) { _Craft(); }
+        inventoy__ = inventoy.activeSelf;
+        Craft_ = Craft.activeSelf;
+        esc_ = EscObj.activeSelf;
+
+        if (!inventoy.activeSelf && !Preview) { move(); }
+        if (!esc_ && !Preview) { inventoy_(); }
+        if (!esc_ && !Preview) { _Craft(); }
         chest();
-        esc(false);
+        if (!inventoy__ && !Craft_ && !Preview) { esc(false); }
         RunParticle.SetActive(run);
+        Debug.Log(!_previewManager.preview +""+inventoy__ + "" + Craft_ + "" + esc_ + "" + Input.GetKeyUp(KeyCode.P)) ;
+       
     }
     public void move()
     {
@@ -162,7 +176,7 @@ public class player2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && (!inventoy.activeSelf) && (!Craft.activeSelf) && (!EscObj.activeSelf))
         {
-
+            inventoy__ = true;
             //  Debug.Log("a");
             inventoy.SetActive(true);
             //  _inventoryCreate.CloneButton.SetActive(false);
@@ -176,7 +190,7 @@ public class player2 : MonoBehaviour
         {
 
             _inventoryCreate.DestroyButton();
-
+            inventoy__ = false ;
             Cursor.visible = false;
             CameraControll.active_camera = true;
             _inventoryCreate.DestroyButton();
@@ -185,7 +199,7 @@ public class player2 : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.E) && (!inventoy.activeSelf) && (Craft.activeSelf) && (!EscObj.activeSelf))
         {
-
+            inventoy__ = true;
             Recipe.SetActive(false);
             Craft.SetActive(false);
             inventoy.SetActive(true);
@@ -203,6 +217,7 @@ public class player2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C) && (!Craft.activeSelf) && (!inventoy.activeSelf) && (!EscObj.activeSelf))
         {
+            Craft_ = true;
             Craft.SetActive(true);
             Recipe.SetActive(false);
             Cursor.visible = true;
@@ -214,7 +229,7 @@ public class player2 : MonoBehaviour
         {
             Recipe.SetActive(false);
             Craft.SetActive(false);
-
+            Craft_ = false;
             Cursor.visible = false;
             CameraControll.active_camera = true;
         }
@@ -229,6 +244,7 @@ public class player2 : MonoBehaviour
             CameraControll.active_camera = false;
             // _inventoryCreate.DestroyButton();
             inventoy.SetActive(false);
+            Craft_ = true;
         }
 
 
@@ -248,12 +264,14 @@ public class player2 : MonoBehaviour
                 count += 1;
                 if (count % 2 == 1)
                 {
+                    esc_ = true;
                     EscObj.SetActive(true);
                     Cursor.visible = true;
                     CameraControll.active_camera = false;
                 }
                 else
                 {
+                    esc_ = false;
                     EscObj.SetActive(false);
                     count = 0;
                     Cursor.visible = false;
@@ -265,7 +283,7 @@ public class player2 : MonoBehaviour
         }
         if (button)
         {
-
+            esc_ = false;
             EscObj.SetActive(false);
             count = 0;
             Cursor.visible = false;

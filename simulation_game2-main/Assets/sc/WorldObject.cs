@@ -52,7 +52,8 @@ public class WorldObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // Debug.Log(objectType);
+        DontDestroyOnLoad(this.gameObject);
+        // Debug.Log(objectType);
         ItemObjData = player2.itemObjData_;
         CloneObject = ItemObjData.obj[ItemObjDataNumber];
         _objectManager = player2.objectManager_;
