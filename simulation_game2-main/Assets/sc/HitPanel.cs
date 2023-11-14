@@ -16,6 +16,7 @@ public class HitPanel : MonoBehaviour
     public string HitText;
     public Have have_;
     public RecipieButton _recipieButton;
+    public PreviewManager _previewManager;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class HitPanel : MonoBehaviour
         // Debug.Log(Ray_.a);
         // Debug.Log(Ray_._hit);
        
-        if (player2_.inventoy.activeSelf == false && Ray_._hit != null && have_.have != 0)
+        if (player2_.inventoy.activeSelf == false && Ray_._hit != null && have_.have != 0 && !_previewManager.have)
         {
             WorldObject wdata = Ray_._hit.gameObject.GetComponent<WorldObject>();
             if (wdata != null)

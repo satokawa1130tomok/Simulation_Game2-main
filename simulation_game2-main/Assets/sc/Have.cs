@@ -154,6 +154,7 @@ public class Have : MonoBehaviour
             else if (!ray.bool_ && Ray_._hit != null && player2_.inventoy.activeSelf)
             {
                 CloneObj.SetActive(false);
+                //CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
             }
             if (Input.GetKeyDown(KeyCode.Z))
             {

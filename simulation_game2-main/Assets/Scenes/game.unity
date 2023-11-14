@@ -9768,6 +9768,10 @@ MonoBehaviour:
   NameText: {fileID: 140109730}
   CloneButton: {fileID: 1593841638}
   button: []
+  _have: {fileID: 1881397213}
+  ray: {fileID: 1635345533}
+  have: 0
+  CloneObj: {fileID: 0}
 --- !u!1 &1593841638
 GameObject:
   m_ObjectHideFlags: 0
@@ -11130,7 +11134,7 @@ PrefabInstance:
     - target: {fileID: 237697455433847497, guid: a8d7ea85751114f49b64853a10007424,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00015916706
+      value: 0.00047421845
       objectReference: {fileID: 0}
     - target: {fileID: 237731915719996967, guid: a8d7ea85751114f49b64853a10007424,
         type: 3}
@@ -11485,7 +11489,7 @@ PrefabInstance:
     - target: {fileID: 238669421537528983, guid: a8d7ea85751114f49b64853a10007424,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000165867
+      value: 0.000432264
       objectReference: {fileID: 0}
     - target: {fileID: 238685163734318455, guid: a8d7ea85751114f49b64853a10007424,
         type: 3}
@@ -12309,6 +12313,11 @@ PrefabInstance:
       propertyPath: _recipieButton
       value: 
       objectReference: {fileID: 1799462556}
+    - target: {fileID: 6727308353879968667, guid: a8d7ea85751114f49b64853a10007424,
+        type: 3}
+      propertyPath: _previewManager
+      value: 
+      objectReference: {fileID: 1559819047}
     - target: {fileID: 6727308354014647917, guid: a8d7ea85751114f49b64853a10007424,
         type: 3}
       propertyPath: m_SizeDelta.x

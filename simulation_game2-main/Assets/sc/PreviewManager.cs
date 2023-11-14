@@ -17,9 +17,15 @@ public class PreviewManager : MonoBehaviour
     public List<GameObject> button;
     private bool a_;
     private HouseRecipe scriptable;
+    public Have _have;
+    public Ray_ ray;
+    public bool have;
+    public GameObject CloneObj;
+
     // Start is called before the first frame update
     void Start()
     {
+        have = false;
         active(false);
         if (button.Count > 0)
         {
@@ -30,6 +36,11 @@ public class PreviewManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (have)
+        {
+            Have();
+        }   
+
         if (preview == true && Input.GetKeyDown(KeyCode.P))
         {
             active(false);
@@ -105,7 +116,7 @@ public class PreviewManager : MonoBehaviour
             }
             else
             {
-                Debug.Log(c + "" + int1);
+               // Debug.Log(c + "" + int1);
                 c = _inventoryList.count[c];
             }
             string b = (a + "" + scriptable_.ItemCount[int1] +"/"+c);
@@ -154,5 +165,33 @@ public class PreviewManager : MonoBehaviour
 
             int1++;
         }
+        if (!HaveItem)
+        {
+            active(false);
+            Cursor.visible = false;
+            CameraControll.active_camera = true;
+            a_ = false;
+            player2.obj = scriptable.obj;
+            have = true;
+            CloneObj_(player2.obj);
+            Destroy(CloneObj.GetComponent<Rigidbody>());
+            Destroy(CloneObj.GetComponent<BoxCollider>());
+            Destroy(CloneObj.GetComponent<SphereCollider>());
+            //Debug.Log(ray.HitPosition);
+            CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
+           
+        }
+    }
+   public void Have()
+    {
+        ray.maxDistance = 30;
+
+    }
+    void CloneObj_(GameObject clone)
+    {
+
+
+        CloneObj = Instantiate(clone);
+
     }
 }

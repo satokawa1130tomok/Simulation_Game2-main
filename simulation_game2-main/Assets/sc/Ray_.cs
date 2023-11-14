@@ -16,7 +16,7 @@ public class Ray_ : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        maxDistance = 15;
     }
 
     // Update is called once per frame
@@ -42,10 +42,10 @@ public class Ray_ : MonoBehaviour
         // Debug.DrawRay(origin, direction, Color.red, 100);
         RaycastHit hit;
         Debug.DrawRay(ray.origin, ray.direction * maxDistance, Color.red);
-
+        //Debug.Log(bool_);
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
-
+            
             HitPosition = ray.GetPoint(hit.distance);
             _hit = hit.collider.gameObject;
             WorldObject wdata = _hit.gameObject.GetComponent<WorldObject>();
@@ -81,13 +81,13 @@ public class Ray_ : MonoBehaviour
             else if (_hit.gameObject.tag == "Ground")
             {
                 bool_ = true;
-                _hit = null;
-                //a = 0;
+               // _hit = null;
+               a = 0;
             }
             else
             {
-               // _hit = null;
-               // a = 0;
+                _hit = null;
+                a = 0;
                 bool_ = true;
             }
 
