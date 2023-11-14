@@ -23,7 +23,7 @@ public class ChestManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        anim = this.gameObject.GetComponent<Animator>();
         CloneButton = ObjectManager._om.CloneButton;
         content = ObjectManager._om.content;
         SecoundInventoy = ObjectManager._om.SecoundInventoy;

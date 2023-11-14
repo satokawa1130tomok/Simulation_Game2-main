@@ -110,7 +110,7 @@ public class player2 : MonoBehaviour
         chest();
         if (!inventoy__ && !Craft_ && !Preview) { esc(false); }
         RunParticle.SetActive(run);
-        Debug.Log(!_previewManager.preview +""+inventoy__ + "" + Craft_ + "" + esc_ + "" + Input.GetKeyUp(KeyCode.P)) ;
+       // Debug.Log(!_previewManager.preview +""+inventoy__ + "" + Craft_ + "" + esc_ + "" + Input.GetKeyUp(KeyCode.P)) ;
        
     }
     public void move()

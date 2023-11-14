@@ -16,6 +16,7 @@ public class PreviewManager : MonoBehaviour
     public GameObject CloneButton;
     public List<GameObject> button;
     private bool a_;
+    private HouseRecipe scriptable;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +48,8 @@ public class PreviewManager : MonoBehaviour
         {
             Cursor.visible = true;
             active(true);
+            Cursor.visible = true;
+            CameraControll.active_camera = false;
         } 
     }   
     //SceneManager.LoadScene("preview");
@@ -56,7 +59,7 @@ public class PreviewManager : MonoBehaviour
         
     public void active(bool a)
     {
-        Debug.Log(a);
+       // Debug.Log(a);
         if (a == false)
         {
             a_ = true;
@@ -72,14 +75,7 @@ public class PreviewManager : MonoBehaviour
             NameText.text = "";
         }
 
-        if (button.Count > 0)
-        {
-            foreach(GameObject b in button)
-            {
-                Destroy(b);
-            }
-            button.Clear();
-        }
+        DestroyButton();
         
         ImageObject.SetActive(a);
         UIObject.SetActive(a);
@@ -89,11 +85,13 @@ public class PreviewManager : MonoBehaviour
         Image image = image_.gameObject.GetComponent<Image>();
         image.sprite = texture;
     }
-    public void Clone(HouseRecipe scriptable)
+    public void Clone(HouseRecipe scriptable_)
     {
-        NameText.text = scriptable.RecipeName;
-        int int1 =0;
-        foreach(string a in scriptable.ItemName)
+        DestroyButton();
+
+        NameText.text = scriptable_.RecipeName;
+        int int1 = 0;
+        foreach(string a in scriptable_.ItemName)
         {
             Vector3 vector3 = new Vector3(240, 370 - 30*int1, 0);
           GameObject CloneObject = Instantiate(CloneButton, vector3, Quaternion.identity);
@@ -107,12 +105,54 @@ public class PreviewManager : MonoBehaviour
             }
             else
             {
-                c = _inventoryList.count[int1];
+                Debug.Log(c + "" + int1);
+                c = _inventoryList.count[c];
             }
-            string b = (a + "" + scriptable.ItemCount[int1] +"/"+c);
+            string b = (a + "" + scriptable_.ItemCount[int1] +"/"+c);
             text.text = b;
             button.Add(CloneObject);
             int1 +=1;
+        }
+       
+        scriptable = scriptable_;
+    }
+    public void DestroyButton()
+    {
+        if (button.Count > 0)
+        {
+            foreach (GameObject b in button)
+            {
+                Destroy(b);
+            }
+            button.Clear();
+        }
+    }
+    public void Craft()
+    {
+        int int1 = 0;
+        bool HaveItem = false;
+        foreach(string a in scriptable.ItemName)
+        {
+            int b = _inventoryList.name.IndexOf(a);
+            if (b == -1)
+            {
+                HaveItem = true;
+            }
+            else if (_inventoryList.count[b] <= scriptable.ItemCount[int1])
+            {
+                   HaveItem = true;
+            }
+
+            if (HaveItem)
+            {
+                button[int1].GetComponent<Outline>().enabled = true;
+            }
+            else
+            {
+                button[int1].GetComponent<Outline>().enabled = false;
+            }
+
+            int1++;
         }
     }
 }

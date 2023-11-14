@@ -177,7 +177,6 @@ GameObject:
   - component: {fileID: 1929111238424785208}
   - component: {fileID: 1929111238424785209}
   - component: {fileID: 1929111238424785210}
-  - component: {fileID: 1929111238424785204}
   - component: {fileID: 1927501466292890208}
   m_Layer: 0
   m_Name: branch
@@ -232,31 +231,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.59, y: 5.95, z: 1.33}
   m_Center: {x: 0.26, y: 0.69, z: -0.15}
---- !u!114 &1929111238424785204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929111238424785201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4689cb301249cfd40acadcf169809143, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _name: "\u679D"
-  ItemObjDataNumber_: 0
-  ObjectType: I
-  ResourceObjNumber: 0
-  ResourceObjCount: 0
-  ResourceObjToolType: 0
-  ResourceObject: {fileID: 0}
-  CloneObject: {fileID: 0}
-  rotation_: {x: 0, y: 0, z: 0}
-  position_: {x: 0, y: 0, z: 0}
-  _objectManager: {fileID: 0}
-  ItemObjData: {fileID: 0}
-  number_: 0
 --- !u!23 &1927501466292890208
 MeshRenderer:
   m_ObjectHideFlags: 0

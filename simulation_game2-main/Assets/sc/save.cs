@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-
+using UnityEngine.SceneManagement;
 public class save : MonoBehaviour
 {
 
@@ -20,7 +20,10 @@ public class save : MonoBehaviour
     public string WorldName_;
     void Start()
     {
-
+        if(WorldName.text == null)
+        {
+            SceneManager.LoadScene("start");
+        }
         WorldName_ = WorldName.text;
         image.SetActive(false);
         //string path = Application.persistentDataPath + "file.txt";
@@ -176,7 +179,7 @@ public class save : MonoBehaviour
     {
 
         image.SetActive(true);
-        road_List = File.ReadAllLines("file.txt");
+        road_List = File.ReadAllLines("save/" + WorldName_ + "/file.txt");
         int step = 0;
         _InventoryList.name.Clear();
         _InventoryList.count.Clear();
