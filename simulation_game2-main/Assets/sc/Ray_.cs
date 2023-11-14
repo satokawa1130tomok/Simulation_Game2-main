@@ -77,37 +77,43 @@ public class Ray_ : MonoBehaviour
                     a = 5;
                     bool_ = true;
                 }
-                else if (_hit.gameObject.tag == "Ground")
-                {
-                    bool_ = true;
-                }
-
-                else
-                {
-                    bool_ = false;
-                }
+            }
+            else if (_hit.gameObject.tag == "Ground")
+            {
+                bool_ = true;
+                _hit = null;
+                //a = 0;
             }
             else
             {
-                _hit = null;
-                a = 0;
+               // _hit = null;
+               // a = 0;
                 bool_ = true;
-                HitPosition = ray.GetPoint(maxDistance);
-
             }
-            
-
-            //Debug.Log(wdata.ObjectType);
 
         }
         else
         {
-            //Debug.Log(HitPosition);
+            HitPosition = ray.GetPoint(maxDistance);
             _hit = null;
             a = 0;
             bool_ = true;
-            HitPosition = ray.GetPoint(maxDistance);
+
 
         }
+            
+
+            //Debug.Log(wdata.ObjectType);
+
     }
+        //else
+        //{
+        //    //Debug.Log(HitPosition);
+        //    _hit = null;
+        //    a = 0;
+        //    bool_ = true;
+        //    HitPosition = ray.GetPoint(maxDistance);
+
+        //}
+    
 }

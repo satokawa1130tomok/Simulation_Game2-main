@@ -117,7 +117,7 @@ public class Have : MonoBehaviour
 
                 //if (Input.GetAxis("Mouse X") + Input.GetAxis("Mouse Y") != 0)
                // {
-                    Debug.Log(Ray_._hit);
+                   // Debug.Log(ray.);
                     CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
                 //  }
                 ground = true;
