@@ -12,6 +12,7 @@ public class Ray_ : MonoBehaviour
     public static int a;
     public Vector3 HitPosition;
     public bool bool_;
+    public float distance;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class Ray_ : MonoBehaviour
         {
             
             HitPosition = ray.GetPoint(hit.distance);
+            distance = hit.distance;
             _hit = hit.collider.gameObject;
             WorldObject wdata = _hit.gameObject.GetComponent<WorldObject>();
             if (wdata != null)
