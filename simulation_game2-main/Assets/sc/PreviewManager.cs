@@ -21,11 +21,7 @@ public class PreviewManager : MonoBehaviour
     public Ray_ ray;
     public bool have;
     public GameObject CloneObj;
-    public Transform[] children;
-    public bool mat;
-    public Material red;
-    public Material green;
-    public Vector3 worldAngle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -146,25 +142,21 @@ public class PreviewManager : MonoBehaviour
     {
         int int1 = 0;
         bool HaveItem = false;
-        bool check = false;
         foreach(string a in scriptable.ItemName)
         {
-            HaveItem = false;
             int b = _inventoryList.name.IndexOf(a);
             if (b == -1)
             {
                 HaveItem = true;
             }
-            else if (_inventoryList.count[b] < scriptable.ItemCount[int1])
+            else if (_inventoryList.count[b] <= scriptable.ItemCount[int1])
             {
-                //Debug.Log(_inventoryList.count[b] + "" + scriptable.ItemCount[int1]);
                    HaveItem = true;
             }
 
             if (HaveItem)
             {
                 button[int1].GetComponent<Outline>().enabled = true;
-                check = true;
             }
             else
             {
@@ -173,7 +165,7 @@ public class PreviewManager : MonoBehaviour
 
             int1++;
         }
-        if (!check)
+        if (!HaveItem)
         {
             active(false);
             Cursor.visible = false;
@@ -185,137 +177,21 @@ public class PreviewManager : MonoBehaviour
             Destroy(CloneObj.GetComponent<Rigidbody>());
             Destroy(CloneObj.GetComponent<BoxCollider>());
             Destroy(CloneObj.GetComponent<SphereCollider>());
-           
-            children = new Transform[CloneObj.transform.childCount];
-
-            // åüçıï˚ñ@ÇP
-            for (int i = 0; i < CloneObj.transform.childCount; i++)
-            {
-                children[i] = CloneObj.transform.GetChild(i);
-
-                Destroy(children[i].GetComponent<Rigidbody>());
-                Destroy(children[i].GetComponent<BoxCollider>());
-                Destroy(children[i].GetComponent<SphereCollider>());
-            }
             //Debug.Log(ray.HitPosition);
-            //  CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
-
+            CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
+           
         }
     }
    public void Have()
     {
-        ray.maxDistance = 50;
-        CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
-        float distance = 15;
-        if(ray.bool_ && Ray_._hit != null && !_player2.inventoy.activeSelf &&ray.distance >= distance)
-        {
-            MaterialCollar(true);
-            CloneObj.SetActive(true);
-        }
-        else if(ray.bool_ && Ray_._hit == null && !_player2.inventoy.activeSelf && ray.distance >= distance)
-        {
-            MaterialCollar(false);
-            CloneObj.SetActive(true);
-        }
-        else if (!_player2.inventoy.activeSelf)
-        {
-            CloneObj.SetActive(false);
-        }
-        else if (ray.distance <= distance)
-        {
-            CloneObj.SetActive(false);
-        }
-
-       
-
-        if (CloneObj.activeSelf == true)
-        {
-            
-            worldAngle = CloneObj.transform.eulerAngles;
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                worldAngle.y += 22.5f;
-            }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                worldAngle.y -= 22.5f;
-            }
-            //if (Input.GetKeyDown(KeyCode.UpArrow))
-            //{
-            //    worldAngle.x += 45.0f;
-            //}
-            //if (Input.GetKeyDown(KeyCode.DownArrow))
-            //{
-            //    worldAngle.x -= 45.0f;
-            //}
-
-            CloneObj.transform.eulerAngles = worldAngle; // âÒì]äpìxÇê›íË
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Destroy(CloneObj);
-            have = false;
-            CloneObj_(scriptable.obj);
-            CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
-            CloneObj.transform.eulerAngles = worldAngle;
-            RemoveItem();
-        }
+        ray.maxDistance = 30;
 
     }
-    public void RemoveItem()
-    {
-        int count = 0;
-        foreach(string a in scriptable.ItemName)
-        {
-          int int1 =  _inventoryList.name.IndexOf(a);
-            if (_inventoryList.count[int1] == scriptable.ItemCount[count])
-            {
-                _inventoryList.name.RemoveAt(int1);
-                _inventoryList.count.RemoveAt(int1);
-                _inventoryList.obj.RemoveAt(int1);
-                _inventoryList.number.RemoveAt(int1);
-            }
-            else
-            {
-                _inventoryList.count[int1] -= scriptable.ItemCount[count];
-            }
-            count++;
-        }
-    }
-    public void CloneObj_(GameObject clone)
+    void CloneObj_(GameObject clone)
     {
 
 
         CloneObj = Instantiate(clone);
 
-    }
-    public void MaterialCollar(bool b)
-    {
-        if (b != mat)
-        {
-            if (b)
-            {
-                //children = new Transform[CloneObj.transform.childCount];
-                for (int i = 0; i < CloneObj.transform.childCount; i++)
-                {
-                    children[i].GetComponent<MeshRenderer>().material = green;
-
-                }
-            }
-            if (!b)
-            {
-                //children = new Transform[CloneObj.transform.childCount];
-                for (int i = 0; i < CloneObj.transform.childCount; i++)
-                {
-                    children[i].GetComponent<MeshRenderer>().material = red;
-
-                }
-            }
-            mat = b;
-
-
-
-        }
     }
 }
