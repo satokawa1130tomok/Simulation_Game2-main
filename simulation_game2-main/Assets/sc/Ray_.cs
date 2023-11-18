@@ -13,11 +13,12 @@ public class Ray_ : MonoBehaviour
     public Vector3 HitPosition;
     public bool bool_;
     public float distance;
+    public int InitialValue = 15;
 
     // Start is called before the first frame update
     void Start()
     {
-        maxDistance = 15;
+        maxDistance = InitialValue;
     }
 
     // Update is called once per frame

@@ -144,6 +144,11 @@ public class PreviewManager : MonoBehaviour
     }
     public void Craft()
     {
+        
+       
+
+
+
         int int1 = 0;
         bool HaveItem = false;
         bool check = false;
@@ -175,10 +180,8 @@ public class PreviewManager : MonoBehaviour
         }
         if (!check)
         {
-            active(false);
-            Cursor.visible = false;
-            CameraControll.active_camera = true;
-            a_ = false;
+           
+            
             player2.obj = scriptable.obj;
             have = true;
             CloneObj_(player2.obj);
@@ -201,9 +204,18 @@ public class PreviewManager : MonoBehaviour
             //  CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
 
         }
+        DestroyButton();
+
+        ImageObject.SetActive(false);
+        UIObject.SetActive(false);
+        Cursor.visible = false;
+        CameraControll.active_camera = true;
     }
    public void Have()
     {
+        MaterialCollar(true);
+        MaterialCollar(false);
+        _player2.move();
         ray.maxDistance = 50;
         CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
         float distance = 15;
@@ -226,7 +238,14 @@ public class PreviewManager : MonoBehaviour
             CloneObj.SetActive(false);
         }
 
-       
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Destroy(CloneObj);
+            have = false;
+            _player2.Preview = false;
+            a_ = true;
+            ray.maxDistance = ray.InitialValue;
+        }
 
         if (CloneObj.activeSelf == true)
         {
@@ -260,6 +279,9 @@ public class PreviewManager : MonoBehaviour
             CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
             CloneObj.transform.eulerAngles = worldAngle;
             RemoveItem();
+            _player2.Preview = false;
+            a_ = true;
+            ray.maxDistance = ray.InitialValue;
         }
 
     }
