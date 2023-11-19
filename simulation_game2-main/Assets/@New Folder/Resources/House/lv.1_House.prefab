@@ -1337,7 +1337,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3564865814485047730}
-  - component: {fileID: 3959310513227919001}
   - component: {fileID: 3959310513227919000}
   - component: {fileID: 3959310513227919007}
   - component: {fileID: 3959310513227919006}
@@ -1345,6 +1344,7 @@ GameObject:
   - component: {fileID: 3959310513227919004}
   - component: {fileID: 3959310513227919075}
   - component: {fileID: 8406051461802165572}
+  - component: {fileID: 6266767686849083861}
   m_Layer: 0
   m_Name: lv.1_House
   m_TagString: Untagged
@@ -1361,7 +1361,7 @@ Transform:
   m_GameObject: {fileID: 4193733330830672648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 408.8395, y: 1.74, z: 29.72}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 362913604756669143}
@@ -1398,22 +1398,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &3959310513227919001
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4193733330830672648}
-  serializedVersion: 2
-  m_Mass: 1e+9
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 122
-  m_CollisionDetection: 0
 --- !u!65 &3959310513227919000
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1425,8 +1409,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.3, y: 7.86, z: 1}
-  m_Center: {x: 2.48, y: 4.49, z: 0}
+  m_Size: {x: 2.63, y: 7.86, z: 1}
+  m_Center: {x: 2.78, y: 4.49, z: -4.56}
 --- !u!65 &3959310513227919007
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1438,8 +1422,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 4.59, z: 1}
-  m_Center: {x: 0.18, y: 6.32, z: -4.54}
+  m_Size: {x: 2.25, y: 4.59, z: 1}
+  m_Center: {x: 0.33, y: 6.32, z: -4.54}
 --- !u!65 &3959310513227919006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1451,8 +1435,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.3, y: 7.86, z: 1}
-  m_Center: {x: -2.22, y: 4.49, z: -4.4}
+  m_Size: {x: 2.8, y: 7.86, z: 1}
+  m_Center: {x: -2.53, y: 4.49, z: -4.4}
 --- !u!65 &3959310513227919005
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1506,13 +1490,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Lv.1_House
   ItemObjDataNumber_: 4
-  objectType: 4
+  ObjectType: H
+  ResourceObjNumber: 0
+  ResourceObjCount: 0
+  ResourceObjToolType: 0
+  ResourceObject: {fileID: 0}
   CloneObject: {fileID: 0}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
   _objectManager: {fileID: 0}
   ItemObjData: {fileID: 0}
   number_: 0
+--- !u!54 &6266767686849083861
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4193733330830672648}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4431023490580073533
 GameObject:
   m_ObjectHideFlags: 0

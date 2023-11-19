@@ -38,9 +38,17 @@ public class save : MonoBehaviour
     }
     public void save_()
     {
+        
+
         if (!System.IO.Directory.Exists("save/" + WorldName_))
         {
             System.IO.Directory.CreateDirectory("save/" + WorldName_);
+            //fs = new FileStream("FileManager.txt", FileMode.Append);
+            //w = new StreamWriter(fs); ;
+            //w.Write(WorldName_);
+            //w.Close();
+            //fs.Close();
+
         }
 
         if (!System.IO.File.Exists("save/" + WorldName_ + "/file.txt"))

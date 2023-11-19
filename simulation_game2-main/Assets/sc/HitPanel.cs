@@ -66,6 +66,10 @@ public class HitPanel : MonoBehaviour
                             _InventoryList.ResourceList(Rdata);
                             Ray_.a = 0;
                             Ray_._hit = null;
+                            if(Rdata.ResourceCount != 0)
+                            {
+                                Rdata.ResourceCount --;
+                            }
                         }//ƒCƒ“ƒxƒ“ƒgƒŠ‚É’Ç‰Á}
                         else { _ErrorMessage._ErrorMessage("tool do not much"); }
                     }

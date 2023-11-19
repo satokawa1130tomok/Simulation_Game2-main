@@ -25,7 +25,11 @@ public class WorldObject : MonoBehaviour
     public int ResourceObjCount;
     public char ResourceObjToolType;
     public GameObject ResourceObject;
-
+    public int ResourceCount;
+    public int RespawnTime;
+    private float Time;
+    private bool Respawn;
+    private int Initial;
     public GameObject CloneObject;
     public Vector3 rotation_;
     public Vector3 rotation
@@ -52,7 +56,10 @@ public class WorldObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // DontDestroyOnLoad(this.gameObject);
+        Respawn = false;
+        Initial = ResourceCount;
+        this.GetComponent<Rigidbody>().isKinematic = false;
+        // DontDestroyOnLoad(this.gameObject);
         // Debug.Log(objectType);
         ItemObjData = player2.itemObjData_;
         CloneObject = ItemObjData.obj[ItemObjDataNumber];
@@ -88,6 +95,27 @@ public class WorldObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Initial != 0 && ResourceCount == 0)
+        {
+            Respawn = true;
+            Time = 0f;
+            ObjectType = "";
+        }
+        if (Respawn)
+        {
+            Time += 0.01f;
+            if(Time == RespawnTime)
+            {
+                ObjectType = "R";
+            }
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Debug.Log(collision.gameObject);
+        if (collision.gameObject.tag == "Ground" &&Å@ObjectType == "H")
+        {
+            Destroy(this.GetComponent<Rigidbody>());
+        }
     }
 }
