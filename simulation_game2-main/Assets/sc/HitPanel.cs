@@ -74,6 +74,17 @@ public class HitPanel : MonoBehaviour
                         else { _ErrorMessage._ErrorMessage("tool do not much"); }
                     }
                 }
+                else if (Ray_.a == 6)//tga == resourceクールタイムの時
+                {
+                    Panel.SetActive(true);
+                    WorldObject Rdata = Ray_._hit.gameObject.GetComponent<WorldObject>();
+                    WorldObject RRdata = Rdata.ResourceObject.gameObject.GetComponent<WorldObject>();
+                    float a = Rdata.RespawnTime - Rdata.Time_;
+                    string b = a.ToString("f2");
+                    text.text = (b +"秒後にとれます");
+                    HitText = (b + "秒後にとれます");
+                   
+                }
                 else if (Ray_.a == 3)//tag == tool の時
                 {
                     string type = "";

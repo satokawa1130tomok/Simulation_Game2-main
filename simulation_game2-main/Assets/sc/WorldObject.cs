@@ -6,7 +6,7 @@ using UnityEditor;
 
 public class WorldObject : MonoBehaviour
 {
-
+    //↓全部入力
     public string _name;
     public string name
     {
@@ -21,15 +21,18 @@ public class WorldObject : MonoBehaviour
     }
 
     public string ObjectType;
+    //↓resourceは必須
     public int ResourceObjNumber;
     public int ResourceObjCount;
     public char ResourceObjToolType;
-    public GameObject ResourceObject;
     public int ResourceCount;
-    public int RespawnTime;
-    private float Time;
+    public int RespawnTime; 
+    //↓入力不要
+    public GameObject ResourceObject;
+    public float Time_;
     private bool Respawn;
     private int Initial;
+    private int InitialCount;
     public GameObject CloneObject;
     public Vector3 rotation_;
     public Vector3 rotation
@@ -56,6 +59,7 @@ public class WorldObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InitialCount = ResourceCount;
         Respawn = false;
         Initial = ResourceCount;
         this.GetComponent<Rigidbody>().isKinematic = false;
@@ -95,18 +99,24 @@ public class WorldObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Initial != 0 && ResourceCount == 0)
+
+        if (Initial != 0 && ResourceCount == 0 && !Respawn)
         {
             Respawn = true;
-            Time = 0f;
-            ObjectType = "";
+            Time_ = 0f;
+            ObjectType = "NR";
+            ResourceCount = InitialCount;
         }
+
         if (Respawn)
         {
-            Time += 0.01f;
-            if(Time == RespawnTime)
+            //Debug.Log(Time_ + Time.deltaTime);
+            Time_ += Time.deltaTime;
+            if(Time_ >= RespawnTime)
             {
                 ObjectType = "R";
+                Respawn = false;
+                
             }
         }
     }
