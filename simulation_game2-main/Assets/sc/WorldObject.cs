@@ -21,7 +21,7 @@ public class WorldObject : MonoBehaviour
     }
 
     public string ObjectType;
-    //«resource‚Í•K{
+    //«resource‚ÆC•K{
     public int ResourceObjNumber;
     public int ResourceObjCount;
     public char ResourceObjToolType;
@@ -99,26 +99,56 @@ public class WorldObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Initial != 0 && ResourceCount == 0 && !Respawn)
+        if(ObjectType == "R" || ObjectType == "NR")
         {
-            Respawn = true;
-            Time_ = 0f;
-            ObjectType = "NR";
-            ResourceCount = InitialCount;
-        }
-
-        if (Respawn)
-        {
-            //Debug.Log(Time_ + Time.deltaTime);
-            Time_ += Time.deltaTime;
-            if(Time_ >= RespawnTime)
+            if (Initial != 0 && ResourceCount == 0 && !Respawn)
             {
-                ObjectType = "R";
-                Respawn = false;
-                
+                Respawn = true;
+                Time_ = 0f;
+                ObjectType = "NR";
+                ResourceCount = InitialCount;
+            }
+
+            if (Respawn)
+            {
+                //Debug.Log(Time_ + Time.deltaTime);
+                Time_ += Time.deltaTime;
+                if (Time_ >= RespawnTime)
+                {
+                    ObjectType = "R";
+                    Respawn = false;
+
+                }
             }
         }
+        if(ObjectType == "L")
+        {
+            Vector3 vector3 = this.transform.localScale;
+            vector3.y = ResourceCount;
+            this.transform.localScale = vector3;
+
+            if (Initial != 0 && ResourceCount < InitialCount && !Respawn)
+            {
+                Respawn = true;
+                Time_ = 0f;
+               
+            }
+
+            if (Respawn)
+            {
+                //Debug.Log(Time_ + Time.deltaTime);
+                Time_ += Time.deltaTime;
+                if (Time_ >= RespawnTime)
+                {
+                    Respawn = false;
+                    ResourceCount++;
+
+
+                }
+            }
+        }
+
+       
     }
     private void OnCollisionEnter(Collision collision)
     {

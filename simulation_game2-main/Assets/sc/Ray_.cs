@@ -85,6 +85,11 @@ public class Ray_ : MonoBehaviour
                     a = 6;
                     bool_ = true;
                 }
+                else if(wdata.ObjectType == "L")
+                {
+                    a = 7;
+                    bool_ = false;
+                }
             }
             else if (_hit.gameObject.tag == "Ground")
             {

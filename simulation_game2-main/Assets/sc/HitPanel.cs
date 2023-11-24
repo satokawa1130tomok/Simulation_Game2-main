@@ -156,6 +156,22 @@ public class HitPanel : MonoBehaviour
                         return;
                     }
                 }
+                if (Ray_.a == 7)//tag == clay ‚ÌŽž
+                {
+                    Panel.SetActive(true);
+
+                    text.text = wdata.name;
+                    HitText = wdata.name;
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        _InventoryList.ResourceList(wdata);//ƒCƒ“ƒxƒ“ƒgƒŠ‚É’Ç‰Á
+                        if (wdata.ResourceCount != 0)
+                        {
+                            wdata.ResourceCount--;
+                        }
+                        return;
+                    }
+                }
             }
             
             if (Ray_.a == 0)//Ray_._hit == null ‚ÌŽž
