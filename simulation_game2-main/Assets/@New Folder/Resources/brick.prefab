@@ -64,6 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 0}
   - {fileID: 2100000, guid: 7872c726f9c9ae848b05d2f076c43bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -121,6 +122,7 @@ MonoBehaviour:
   RespawnTime: 0
   ResourceObject: {fileID: 0}
   Time_: 0
+  InitialCount: 0
   CloneObject: {fileID: 6402276200655633365}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
