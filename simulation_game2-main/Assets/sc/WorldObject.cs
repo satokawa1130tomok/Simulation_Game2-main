@@ -32,7 +32,7 @@ public class WorldObject : MonoBehaviour
     public float Time_;
     private bool Respawn;
     private int Initial;
-    private int InitialCount;
+    public int InitialCount;
     public GameObject CloneObject;
     public Vector3 rotation_;
     public Vector3 rotation
@@ -62,17 +62,22 @@ public class WorldObject : MonoBehaviour
         InitialCount = ResourceCount;
         Respawn = false;
         Initial = ResourceCount;
-        this.GetComponent<Rigidbody>().isKinematic = false;
+       if(ObjectType != "L")
+        {
+            this.GetComponent<Rigidbody>().isKinematic = false;
+        }
         // DontDestroyOnLoad(this.gameObject);
         // Debug.Log(objectType);
         ItemObjData = player2.itemObjData_;
         CloneObject = ItemObjData.obj[ItemObjDataNumber];
         _objectManager = player2.objectManager_;
-        if(ObjectType == "R")
+        if(ObjectType == "R" || ObjectType == "L")
         {
+         //   Debug.Log(ItemObjData.obj[ResourceObjNumber]);
             ResourceObject = ItemObjData.obj[ResourceObjNumber];
+         //   Debug.Log(ResourceObject);
         }
-       
+      //  Debug.Log(ObjectType);
 
         //if (type == "I")
         //{

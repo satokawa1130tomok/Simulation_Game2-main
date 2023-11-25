@@ -106,7 +106,7 @@ public class player2 : MonoBehaviour
 
         if (!inventoy.activeSelf && !Preview) { move(); }
 
-        Debug.Log(esc_ + "" + Preview);
+       ;// Debug.Log(esc_ + "" + Preview);
         if (!esc_ && !Preview) { inventoy_(); }
         if (!esc_ && !Preview) { _Craft(); }
         chest();

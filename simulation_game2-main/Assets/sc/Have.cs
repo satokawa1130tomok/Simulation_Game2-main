@@ -193,13 +193,13 @@ public class Have : MonoBehaviour
         CloneObj.transform.localScale = scale / 70;
         obj = CloneObj;
         have = 1;
-
+        Debug.Log(player2.obj);
 
     }
     void CloneObj_(GameObject clone)
     {
 
-
+        
         CloneObj = Instantiate(clone);
 
     }

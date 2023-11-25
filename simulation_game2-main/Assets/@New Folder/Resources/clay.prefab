@@ -110,15 +110,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4689cb301249cfd40acadcf169809143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: clay
+  _name: "\u6CE5"
   ItemObjDataNumber_: 8
-  ObjectType: C
-  ResourceObjNumber: 0
-  ResourceObjCount: 0
-  ResourceObjToolType: 0
-  ResourceCount: 0
-  RespawnTime: 0
-  ResourceObject: {fileID: 0}
+  ObjectType: L
+  ResourceObjNumber: 8
+  ResourceObjCount: 3
+  ResourceObjToolType: 78
+  ResourceCount: 5
+  RespawnTime: 3
+  ResourceObject: {fileID: 6402276200655633365, guid: 2044543cbe231b749892364899160e88,
+    type: 3}
   Time_: 0
   CloneObject: {fileID: 0}
   rotation_: {x: 0, y: 0, z: 0}

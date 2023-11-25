@@ -158,16 +158,26 @@ public class HitPanel : MonoBehaviour
                 }
                 if (Ray_.a == 7)//tag == clay ‚ÌŽž
                 {
+                    string a;
                     Panel.SetActive(true);
-
-                    text.text = wdata.name;
-                    HitText = wdata.name;
+                    if(wdata.ResourceCount == wdata.InitialCount)
+                    {
+                        a = wdata.name;
+                        
+                    }
+                    else
+                    {
+                        a = (wdata.name +" "+wdata.Time_ .ToString("F2"));
+                    }
+                    text.text = a;
+                    HitText = a;
                     if (Input.GetMouseButtonDown(0))
                     {
                         _InventoryList.ResourceList(wdata);//ƒCƒ“ƒxƒ“ƒgƒŠ‚É’Ç‰Á
                         if (wdata.ResourceCount != 0)
                         {
                             wdata.ResourceCount--;
+                            wdata.Time_ = 0f;
                         }
                         return;
                     }
