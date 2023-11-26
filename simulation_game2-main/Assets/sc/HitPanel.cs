@@ -158,6 +158,8 @@ public class HitPanel : MonoBehaviour
                 }
                 if (Ray_.a == 7)//tag == clay ‚ÌŽž
                 {
+                   
+                    Debug.Log(wdata.ResourceObject.GetComponent<WorldObject>().CloneObject);
                     string a;
                     Panel.SetActive(true);
                     if(wdata.ResourceCount == wdata.InitialCount)

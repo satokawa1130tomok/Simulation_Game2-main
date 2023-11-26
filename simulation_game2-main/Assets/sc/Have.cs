@@ -63,6 +63,7 @@ public class Have : MonoBehaviour
                 Destroy(children[i].GetComponent<BoxCollider>());
                 Destroy(children[i].GetComponent<SphereCollider>());
             }
+            //CloneObj.GetComponent<Material>().mainTexture
             MaterialCollar(true);
             MaterialCollar(false) ;
 

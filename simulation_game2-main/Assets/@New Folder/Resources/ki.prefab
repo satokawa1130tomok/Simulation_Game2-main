@@ -79,10 +79,14 @@ MonoBehaviour:
   _name: "\u6728"
   ItemObjDataNumber_: 6
   ObjectType: R
-  ResourceObjNumber: 5
+  ResourceObjNumber: 14
   ResourceObjCount: 4
   ResourceObjToolType: 78
+  ResourceCount: 0
+  RespawnTime: 0
   ResourceObject: {fileID: 0}
+  Time_: 0
+  InitialCount: 0
   CloneObject: {fileID: 0}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}

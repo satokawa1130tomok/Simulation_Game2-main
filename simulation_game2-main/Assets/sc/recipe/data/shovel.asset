@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c0a7ba44f5535498a7b12f894c9957, type: 3}
   m_Name: shovel
   m_EditorClassIdentifier: 
-  RecipeName: 
-  ItemName1: 
-  ItemCount1: 0
-  ItemName2: 
-  ItemCount2: 0
+  RecipeName: "\u30B7\u30E3\u30D9\u30EB"
+  ItemName1: "\u679D"
+  ItemCount1: 1
+  ItemName2: "\u77F3"
+  ItemCount2: 2
   Explanation: 
-  HandCraft: 0
+  HandCraft: 1
   ButtonCount: 2
   CarftCount: 1
-  obj: {fileID: 0}
+  obj: {fileID: 5818163384584526182, guid: 990fcbffc5589d74b8ce1672b1edb579, type: 3}
