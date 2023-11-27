@@ -44,6 +44,7 @@ public class HitPanel : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         _InventoryList.ItemList(wdata);//インベントリに追加
+                        _InventoryList.CloneText(wdata._name, 1);
                         Ray_.a = 0;
                         WorldObject w = Ray_._hit.GetComponent<WorldObject>();
                         w._objectManager.clearat(w.ListNumber);
@@ -64,6 +65,7 @@ public class HitPanel : MonoBehaviour
                         {
                             //   Debug.Log("A"); 
                             _InventoryList.ResourceList(Rdata);
+                            _InventoryList.CloneText(Rdata._name, Rdata.ResourceObjCount);
                             Ray_.a = 0;
                             Ray_._hit = null;
                             if(Rdata.ResourceCount != 0)
@@ -135,6 +137,7 @@ public class HitPanel : MonoBehaviour
                     if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftShift))
                     {
                         _InventoryList.ItemList(wdata);//インベントリに追加
+                        _InventoryList.CloneText(wdata._name, 1);
                         Ray_.a = 0;
                         WorldObject w = Ray_._hit.GetComponent<WorldObject>();
                         w._objectManager.clearat(w.ListNumber);
@@ -176,6 +179,7 @@ public class HitPanel : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         _InventoryList.ResourceList(wdata);//インベントリに追加
+                        _InventoryList.CloneText(wdata._name, wdata.ResourceObjCount);
                         if (wdata.ResourceCount != 0)
                         {
                             wdata.ResourceCount--;

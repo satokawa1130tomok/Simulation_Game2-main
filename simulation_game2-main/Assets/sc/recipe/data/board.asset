@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9e186c2321bab4ca83d7914b765d29, type: 3}
   m_Name: board
   m_EditorClassIdentifier: 
-  RecipeName: 
-  ItemName1: 
-  ItemCount1: 0
+  RecipeName: "\u677F"
+  ItemName1: "\u4E38\u592A"
+  ItemCount1: 1
   Explanation: 
-  HandCraft: 0
+  HandCraft: 1
   ButtonCount: 1
   CarftCount: 1
-  obj: {fileID: 0}
+  obj: {fileID: 1920372018254887898, guid: 027af7d5f1a24e64cb4f70116dcc84a8, type: 3}

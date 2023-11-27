@@ -9,6 +9,7 @@ public class InventoryList : MonoBehaviour
     public List<int> count;
     public List<GameObject> obj;
     public List<int> number;
+    public GameObject CloneText_;
     // Start is called before the first frame update
     void Start()
     {
@@ -115,6 +116,16 @@ public class InventoryList : MonoBehaviour
         // Debug.Log(string.Join(",", name.Select(name => name.ToString())));
         // Debug.Log(string.Join(",", count.Select(count => count.ToString())));
     }
+    public void CloneText(string name,int count)
+    {
+        GameObject CloneObject = Instantiate(CloneText_);
+        CloneObject.transform.parent = GameObject.Find("GetItem").transform;
+        CloneObject.SetActive(true);
+        CloneObject.transform.position = CloneText_.transform.position;
+        GetItem g = CloneObject.GetComponent<GetItem>();
+        g.ItemName = name;
+        g.ItemCount = count;
+    }   
 
 }
 
