@@ -118,14 +118,40 @@ public class InventoryList : MonoBehaviour
     }
     public void CloneText(string name,int count)
     {
-        GameObject CloneObject = Instantiate(CloneText_);
-        CloneObject.transform.parent = GameObject.Find("GetItem").transform;
-        CloneObject.SetActive(true);
-        CloneObject.transform.position = CloneText_.transform.position;
-        GetItem g = CloneObject.GetComponent<GetItem>();
+        // PrefabからCloneObjectを生成
+        GameObject cloneObject = Instantiate(CloneText_, CloneText_.transform.position,Quaternion.identity);
+
+        // GetItemがアタッチされている場合、コンポーネントへのアクセスを取得
+        GetItem g = cloneObject.GetComponent<GetItem>();
+
+        // GetItemがアタッチされていない場合、アタッチして取得
+        if (g == null)
+        {
+            g = cloneObject.AddComponent<GetItem>();
+        }
+
+        // 親オブジェクトを設定
+        Transform parentTransform = GameObject.Find("GetItem").transform;
+        cloneObject.transform.SetParent(parentTransform);
+
+        // 位置を設定
+        //cloneObject.transform.position = CloneText_.transform.position;
+
+        // アクティブにする
+        cloneObject.SetActive(true);
+
+        // GetItemのプロパティを設定
         g.ItemName = name;
         g.ItemCount = count;
-    }   
+
+        //GameObject CloneObject = Instantiate(CloneText_);
+        //CloneObject.transform.parent = GameObject.Find("GetItem").transform;
+        //CloneObject.SetActive(true);
+        //CloneObject.transform.position = CloneText_.transform.position;
+        //GetItem g = CloneObject.GetComponent<GetItem>();
+        //g.ItemName = name;
+        //g.ItemCount = count;
+    }
 
 }
 

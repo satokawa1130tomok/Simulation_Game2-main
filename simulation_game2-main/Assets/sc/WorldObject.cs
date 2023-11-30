@@ -54,6 +54,7 @@ public class WorldObject : MonoBehaviour
         get { return number_; }
         set { number_ = value; }
     }
+    public bool List;
 
     
     // Start is called before the first frame update
@@ -97,8 +98,12 @@ public class WorldObject : MonoBehaviour
         Transform transform = this.GetComponent<Transform>();
         position = transform.position;
         rotation = this.transform.eulerAngles;
-        ListNumber = _objectManager.add(ItemObjDataNumber, position, rotation, this.gameObject);
-        ListNumber -= 1;
+        if (!List)
+        {
+            ListNumber = _objectManager.add(ItemObjDataNumber, position, rotation, this.gameObject);
+            ListNumber -= 1;
+        }
+      
     }
 
     // Update is called once per frame

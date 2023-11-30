@@ -16,13 +16,16 @@ public class save : MonoBehaviour
     public int line;
     public ChestManager TargetChest;
     public GameObject image;
+    public GameObject player;
 
     public string WorldName_;
     void Start()
     {
         if(WorldName.text == null)
         {
-          //  SceneManager.LoadScene("start");
+            // SceneManager.LoadScene("start");
+            WorldName.text = "a";
+
         }
         WorldName_ = WorldName.text;
         image.SetActive(false);
@@ -77,9 +80,15 @@ public class save : MonoBehaviour
             _objectManager.invalid.Clear();
         }
 
-        fs = new FileStream("save/" + WorldName_ + "/file.txt", FileMode.Create);
-        w = new StreamWriter(fs); ;
-        w.Write("PlayerData");
+        fs = new FileStream("save/" + WorldName_ + "/file.txt", FileMode.OpenOrCreate);
+        w = new StreamWriter(fs);
+
+        w.Write("PlayerPosition");
+        write(player.transform.position.x.ToString());
+        write(player.transform.position.y.ToString());
+        write(player.transform.position.z.ToString());
+        write(player.transform.rotation.y.ToString());
+        write("PlayerData");
         foreach (string a in _InventoryList.name)
         {
             write(a);
@@ -188,14 +197,30 @@ public class save : MonoBehaviour
 
         image.SetActive(true);
         road_List = File.ReadAllLines("save/" + WorldName_ + "/file.txt");
-        int step = 0;
+        int step = -1;
         _InventoryList.name.Clear();
         _InventoryList.count.Clear();
         _InventoryList.obj.Clear();
         _InventoryList.number.Clear();
+        _objectManager.clear();
+        Debug.Log(_objectManager.obj.Count);
         foreach (string a in road_List)
         {
+            if (a == "PlayerPosition")
+            {
+                Vector3 vector = new Vector3(float.Parse(road_List[1]), float.Parse(road_List[2]), float.Parse(road_List[3]));
+                player.transform.position = vector;
+                Quaternion quaternion = player.transform.rotation;
+                quaternion.y = float.Parse(road_List[4]);
+                player.transform.rotation = quaternion;
+            }
+           
+
             if (a == "PlayerData")
+            {
+                step = 0;
+            }
+            else if(step == -1)
             {
                 continue;
             }
@@ -334,6 +359,8 @@ public class save : MonoBehaviour
                         Quaternion e = Quaternion.Euler(_objectManager.rotation_x[aa], _objectManager.rotation_y[aa], _objectManager.rotation_x[aa]);
                         // Debug.Log(d +""+ e);
                         GameObject f = Instantiate(c, d, e);
+                        f.GetComponent<WorldObject>().List = true;
+                        f.GetComponent<WorldObject>().ListNumber = _objectManager.obj.Count;
                         _objectManager.obj.Add(f);
                         aa += 1;
                     }
