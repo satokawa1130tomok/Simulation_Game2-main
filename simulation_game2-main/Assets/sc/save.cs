@@ -87,7 +87,7 @@ public class save : MonoBehaviour
         write(player.transform.position.x.ToString());
         write(player.transform.position.y.ToString());
         write(player.transform.position.z.ToString());
-        write(player.transform.rotation.y.ToString());
+        write(player.transform.eulerAngles.y.ToString());
         write("PlayerData");
         foreach (string a in _InventoryList.name)
         {
@@ -210,9 +210,9 @@ public class save : MonoBehaviour
             {
                 Vector3 vector = new Vector3(float.Parse(road_List[1]), float.Parse(road_List[2]), float.Parse(road_List[3]));
                 player.transform.position = vector;
-                Quaternion quaternion = player.transform.rotation;
+                Vector3 quaternion = player.transform.eulerAngles;
                 quaternion.y = float.Parse(road_List[4]);
-                player.transform.rotation = quaternion;
+                player.transform.eulerAngles = quaternion;
             }
            
 
