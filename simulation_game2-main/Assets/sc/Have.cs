@@ -22,6 +22,7 @@ public class Have : MonoBehaviour
     public CraftManager craftManager;
     public RecipieButton recipie;
     private bool removeItem_;
+    private GameObject child;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,20 +51,28 @@ public class Have : MonoBehaviour
             //Debug.Log(ray.HitPosition);
             CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
             r = false;
-
-
-            children = new Transform[CloneObj.transform.childCount];
-
-            // åüçıï˚ñ@ÇP
-            for (int i = 0; i < CloneObj.transform.childCount; i++)
+            
+            for (int i =0; child == null; i++)
             {
-                children[i] = CloneObj.transform.GetChild(i);
-               
-                Destroy(children[i].GetComponent<Rigidbody>());
-                Destroy(children[i].GetComponent<BoxCollider>());
-                Destroy(children[i].GetComponent<SphereCollider>());
+                child = CloneObj.transform.GetChild(i).gameObject;
+                if(child != null)
+                {
+                    
+                    Destroy(child.GetComponent<Rigidbody>());
+                    Destroy(child.GetComponent<BoxCollider>());
+                    Destroy(child.GetComponent<SphereCollider>());
+                    //Destroy(child.gameObject.GetComponent<MeshRenderer>());
+                    //child.gameObject.AddComponent<MeshRenderer>();
+                }
             }
+
+            
+
+
+          
+            
             //CloneObj.GetComponent<Material>().mainTexture
+         //   CloneObj.AddComponent<MeshRenderer>();
             MaterialCollar(true);
             MaterialCollar(false) ;
 
@@ -194,7 +203,7 @@ public class Have : MonoBehaviour
         CloneObj.transform.localScale = scale / 70;
         obj = CloneObj;
         have = 1;
-        Debug.Log(player2.obj);
+     //   Debug.Log(player2.obj);
 
     }
     void CloneObj_(GameObject clone)
@@ -210,19 +219,30 @@ public class Have : MonoBehaviour
         {
             if (b)
             {
+                CloneObj.GetComponent<MeshRenderer>().material = green;
+                children = new Transform[CloneObj.transform.childCount];
                 //children = new Transform[CloneObj.transform.childCount];
                 for (int i = 0; i < CloneObj.transform.childCount; i++)
                 {
-                    children[i].GetComponent<MeshRenderer>().material = green;
+                    //   Material[] ma;
+                    // ma[0]
+                    // children[i].GetComponent<MeshRenderer>().materials = green;
+                    GameObject a = children[i].gameObject;
+                    a.GetComponent<MeshRenderer>().material = green;
 
                 }
             }
             if (!b)
             {
                 //children = new Transform[CloneObj.transform.childCount];
+                children = new Transform[CloneObj.transform.childCount];
+                CloneObj.GetComponent<MeshRenderer>().material = red;
                 for (int i = 0; i < CloneObj.transform.childCount; i++)
                 {
-                    children[i].GetComponent<MeshRenderer>().material = red;
+                    //children[i].GetComponent<MeshRenderer>().materials = null;
+                    GameObject a = children[i].gameObject;
+                    a.GetComponent<MeshRenderer>().material = red;
+                  //  children[i].GetComponent<MeshRenderer>().materials[1] = red;
 
                 }
             }

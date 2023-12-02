@@ -136,6 +136,7 @@ MonoBehaviour:
   _objectManager: {fileID: 0}
   ItemObjData: {fileID: 0}
   number_: 0
+  List: 0
 --- !u!1001 &7361834280649390988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,6 +195,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: e8184cfce76297046ad7839421c44b2d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: e8184cfce76297046ad7839421c44b2d, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: e8184cfce76297046ad7839421c44b2d, type: 3}
       propertyPath: m_Materials.Array.data[0]
