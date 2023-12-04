@@ -8,6 +8,8 @@ public class save : MonoBehaviour
 
     public FileStream fs;
     public StreamWriter w;
+    public FileStream fs2;
+    public StreamWriter w2;
     public StreamReader r;
     public InventoryList _InventoryList;
     public ItemObjData _itemObjData;
@@ -23,7 +25,7 @@ public class save : MonoBehaviour
     {
         if(WorldName.text == null)
         {
-            // SceneManager.LoadScene("start");
+            SceneManager.LoadScene("start");
             WorldName.text = "a";
 
         }
@@ -31,6 +33,10 @@ public class save : MonoBehaviour
         image.SetActive(false);
         //string path = Application.persistentDataPath + "file.txt";
         //File.WriteAllText(path, "hoge");
+        if (WorldName.road == true)
+        {
+            road();
+        }
 
     }
 
@@ -51,6 +57,14 @@ public class save : MonoBehaviour
             //w.Write(WorldName_);
             //w.Close();
             //fs.Close();
+            fs2 = new FileStream("save/FileManager.txt", FileMode.OpenOrCreate);
+            w2 = new StreamWriter(fs);
+            w2.Write("\n" + WorldName_);
+            w2.Close();
+            fs2.Close();
+            fs2 = null;
+            w2= null;
+
 
         }
 
@@ -214,6 +228,7 @@ public class save : MonoBehaviour
                 quaternion.y = float.Parse(road_List[4]);
                 player.transform.eulerAngles = quaternion;
             }
+            
            
 
             if (a == "PlayerData")

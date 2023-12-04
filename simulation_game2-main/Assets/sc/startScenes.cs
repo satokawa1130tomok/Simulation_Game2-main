@@ -22,9 +22,11 @@ public class startScenes : MonoBehaviour
     }
     public void play()
     {
+        Debug.Log(WorldName.text);
         if (WorldName.text != "")
         {
             SceneManager.LoadScene("game");
+            Debug.Log("A");
         }
     }
     public void goal()
