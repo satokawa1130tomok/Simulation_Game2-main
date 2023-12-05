@@ -89,8 +89,15 @@ public class WorldName : MonoBehaviour
     }
     public void ButtonClick(Text t)
     {
-        text = t.text;
-        //Debug.Log(text);
+        if(text == t.text)
+        {
+            text = "";
+        }
+        else
+        {
+            text = t.text;
+        }
         
+        //Debug.Log(text);
     }
 }

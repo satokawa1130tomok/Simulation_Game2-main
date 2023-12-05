@@ -4,7 +4,6 @@ PlayerPosition
 67.11075
 11.60005
 PlayerData
-PlayerData
 石
 枝
 

@@ -220,7 +220,7 @@ public class save : MonoBehaviour
         Debug.Log(_objectManager.obj.Count);
         foreach (string a in road_List)
         {
-            if (a == "PlayerPosition")
+            if (a == "PlayerPosition" && step == -1)
             {
                 Vector3 vector = new Vector3(float.Parse(road_List[1]), float.Parse(road_List[2]), float.Parse(road_List[3]));
                 player.transform.position = vector;
@@ -228,17 +228,21 @@ public class save : MonoBehaviour
                 quaternion.y = float.Parse(road_List[4]);
                 player.transform.eulerAngles = quaternion;
             }
+            //else if(a != "PlayerPosition" && step == -1)
+            //{
+            //    continue;
+            //}
+            
+            
             
            
 
             if (a == "PlayerData")
             {
                 step = 0;
-            }
-            else if(step == -1)
-            {
                 continue;
             }
+            
             if (step == 0)
             {
                 if (a == "")
