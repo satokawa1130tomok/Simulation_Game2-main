@@ -29,7 +29,7 @@ public class WorldName : MonoBehaviour
     {
         Cursor.visible = true;
       
-        Debug.Log(text);
+        //Debug.Log(text);
         if(road == false)
         {
             text = inputField.text;

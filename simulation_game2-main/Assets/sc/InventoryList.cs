@@ -27,11 +27,11 @@ public class InventoryList : MonoBehaviour
         ////bool1 = name.Contains(Idata.name);
         //Debug.Log(bool1);
         var var1 = -100;
-        var1 = name.IndexOf(wdata.name);
+        var1 = name.IndexOf(wdata.name_);
         // Debug.Log(var1);
         if (var1 == -1)
         {
-            name.Add(wdata.name);
+            name.Add(wdata.name_);
             count.Add(1);
             obj.Add(wdata.CloneObject);
             number.Add(wdata.ItemObjDataNumber_);

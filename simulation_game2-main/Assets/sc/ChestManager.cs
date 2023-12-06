@@ -82,7 +82,7 @@ public class ChestManager : MonoBehaviour
             _player2._chestManager.DestroyButton();
             _player2._chestManager.ListCerate();
 
-            _player2.name = "";
+            _player2.name_ = "";
 
 
         }
@@ -94,7 +94,7 @@ public class ChestManager : MonoBehaviour
             _player2._chestManager.DestroyButton();
             a = true;
 
-            _player2.name = "";
+            _player2.name_ = "";
 
 
         }
@@ -109,13 +109,13 @@ public class ChestManager : MonoBehaviour
         {
 
             var var1 = -100;
-            var1 = ListName.IndexOf(_player2.name);
-            var var2 = _inventoryList.name.IndexOf(_player2.name);
+            var1 = ListName.IndexOf(_player2.name_);
+            var var2 = _inventoryList.name.IndexOf(_player2.name_);
             // Debug.Log(var1 + _player2.name);
 
             if (var1 == -1)
             {
-                ListName.Add(_player2.name);
+                ListName.Add(_player2.name_);
                 ListCount.Add(1);
                 ListObj.Add(_inventoryList.obj[var2]);
 
@@ -129,9 +129,9 @@ public class ChestManager : MonoBehaviour
             }
             _player2._chestManager.DestroyButton();
             _player2._chestManager.ListCerate();
-            _player2._chestManager.RemoveInventoryList(_player2.name);
+            _player2._chestManager.RemoveInventoryList(_player2.name_);
 
-            _player2.name = "";
+            _player2.name_ = "";
         }
     }
     public void AddButton()
@@ -140,13 +140,13 @@ public class ChestManager : MonoBehaviour
         {
 
             var var1 = -100;
-            var1 = _inventoryList.name.IndexOf(_player2.name);
-            var var2 = ListName.IndexOf(_player2.name);
+            var1 = _inventoryList.name.IndexOf(_player2.name_);
+            var var2 = ListName.IndexOf(_player2.name_);
             // Debug.Log(var1 + _player2.name);
 
             if (var1 == -1)
             {
-                _inventoryList.name.Add(_player2.name);
+                _inventoryList.name.Add(_player2.name_);
                 _inventoryList.count.Add(1);
                 _inventoryList.obj.Add(ListObj[var2]);
             }
@@ -159,11 +159,11 @@ public class ChestManager : MonoBehaviour
             }
             _inventoryCrate.DestroyButton();
             _inventoryCrate.InventoryCreate();
-            RemoveChestList(_player2.name);
+            RemoveChestList(_player2.name_);
             DestroyButton();
             ListCerate();
 
-            _player2.name = "";
+            _player2.name_ = "";
         }
     }
     public void RemoveInventoryList(string a)
@@ -189,7 +189,7 @@ public class ChestManager : MonoBehaviour
         _inventoryCrate.DestroyButton();
         _inventoryCrate.InventoryCreate();
 
-        _player2.name = "";
+        _player2.name_ = "";
     }
     public void RemoveChestList(string a)
     {
@@ -214,7 +214,7 @@ public class ChestManager : MonoBehaviour
         DestroyButton();
         ListCerate();
 
-        _player2.name = "";
+        _player2.name_ = "";
     }
     public void ListCerate()
     {
@@ -274,7 +274,7 @@ public class ChestManager : MonoBehaviour
 
                 buttanData data = cloneButton.GetComponent<buttanData>();
                 data.number = i;
-                data.name = a;
+                data.name_ = a;
                 data.ButtonPo = false;
 
                 // data.obj = _InventoryList.obj[i];

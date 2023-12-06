@@ -24,6 +24,7 @@ public class ObjectManager : MonoBehaviour
 
     public static ObjectManager _om;
     public ObjectManager objectManager;
+    public ItemSpawn itemSpawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,7 @@ public class ObjectManager : MonoBehaviour
     }
     public int add(int n, Vector3 v, Vector3 q, GameObject g)
     {
+       // Debug.Log("a");
         number.Add(n);
         position_x.Add(v.x);
         position_y.Add(v.y);
@@ -62,9 +64,24 @@ public class ObjectManager : MonoBehaviour
         }
         obj.Clear();
     }
-    public void clearat(int a)
+    public void clearat(int x)
     {
-        invalid.Add(a);
+        position_x.RemoveAt(x);
+        position_y.RemoveAt(x);
+        position_z.RemoveAt(x);
+        rotation_x.RemoveAt(x);
+        rotation_y.RemoveAt(x);
+        rotation_z.RemoveAt(x);
+        obj.RemoveAt(x);
+        number.RemoveAt(x);
+        int int1 = 0;
+        foreach(GameObject a in obj)
+        {
+
+            a.GetComponent<WorldObject>().ListNumber = int1;
+            int1++;
+        }
+       
     }
 
 }

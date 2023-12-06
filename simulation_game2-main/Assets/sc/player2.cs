@@ -24,7 +24,7 @@ public class player2 : MonoBehaviour
 
     public GameObject Craft;
     public GameObject Recipe;
-    public string name;
+    public string name_;
     public bool MaineInventory;
     public int No;
     public GameObject EscObj;
@@ -89,7 +89,7 @@ public class player2 : MonoBehaviour
     void Update()
     {
         player.transform.localEulerAngles = new Vector3(0,player.transform.localEulerAngles.y,0);
-        name_text.text = name;
+        name_text.text = name_;
         //if (Input.GetKeyDown(KeyCode.O))
         //{
         //    inventoy.SetActive(true);
@@ -185,7 +185,7 @@ public class player2 : MonoBehaviour
             Cursor.visible = true;
             CameraControll.active_camera = false;
             _inventoryCreate.InventoryCreate();
-            name = "";
+            name_ = "";
             a = true;
         }
         else if (Input.GetKeyDown(KeyCode.E) && (inventoy.activeSelf) && (!Craft.activeSelf) && (!EscObj.activeSelf))

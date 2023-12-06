@@ -39,8 +39,8 @@ public class HitPanel : MonoBehaviour
                 {
                     Panel.SetActive(true);
 
-                    text.text = wdata.name;
-                    HitText = wdata.name;
+                    text.text = wdata.name_;
+                    HitText = wdata.name_;
                     if (Input.GetMouseButtonDown(0))
                     {
                         _InventoryList.ItemList(wdata);//ÉCÉìÉxÉìÉgÉäÇ…í«â¡
@@ -57,8 +57,8 @@ public class HitPanel : MonoBehaviour
                     Panel.SetActive(true);
                     WorldObject Rdata = Ray_._hit.gameObject.GetComponent<WorldObject>();
                     WorldObject RRdata = Rdata.ResourceObject.gameObject.GetComponent<WorldObject>();
-                    text.text = (Rdata.name + " from " + RRdata.name + "  Å~ " + Rdata.ResourceObjCount);
-                    HitText = (Rdata.name + " from " + RRdata.name + "  Å~ " + Rdata.ResourceObjCount);
+                    text.text = (Rdata.name_ + " from " + RRdata.name_ + "  Å~ " + Rdata.ResourceObjCount);
+                    HitText = (Rdata.name_ + " from " + RRdata.name_ + "  Å~ " + Rdata.ResourceObjCount);
                     if (Input.GetMouseButtonDown(0))
                     {
                         if (Rdata.ResourceObjToolType == player2.HaveTool)
@@ -113,8 +113,8 @@ public class HitPanel : MonoBehaviour
                 else if (Ray_.a == 4)//tag == chestÇÃéû
                 {
                     Panel.SetActive(true);
-                    text.text = wdata.name;
-                    HitText = wdata.name;
+                    text.text = wdata.name_;
+                    HitText = wdata.name_;
                     if (Input.GetMouseButtonDown(0))
                     {
                         bool a = true;
@@ -132,8 +132,8 @@ public class HitPanel : MonoBehaviour
                 {
                     Panel.SetActive(true);
 
-                    text.text = wdata.name;
-                    HitText = wdata.name;
+                    text.text = wdata.name_;
+                    HitText = wdata.name_;
                     if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftShift))
                     {
                         _InventoryList.ItemList(wdata);//ÉCÉìÉxÉìÉgÉäÇ…í«â¡
@@ -167,12 +167,12 @@ public class HitPanel : MonoBehaviour
                     Panel.SetActive(true);
                     if(wdata.ResourceCount == wdata.InitialCount)
                     {
-                        a = wdata.name;
+                        a = wdata.name_;
                         
                     }
                     else
                     {
-                        a = (wdata.name +" "+wdata.Time_ .ToString("F2"));
+                        a = (wdata.name_ +" "+wdata.Time_ .ToString("F2"));
                     }
                     text.text = a;
                     HitText = a;

@@ -8,7 +8,7 @@ public class WorldObject : MonoBehaviour
 {
     //Å´ëSïîì¸óÕ
     public string _name;
-    public string name
+    public string name_
     {
         get { return _name; }
         set { _name = value; }
@@ -49,13 +49,13 @@ public class WorldObject : MonoBehaviour
     public ObjectManager _objectManager;
     public ItemObjData ItemObjData;
     public int number_;
-     public int ListNumber
+    public int ListNumber
     {
         get { return number_; }
         set { number_ = value; }
     }
     public bool List;
-
+    private int ListNumber_;
     
     // Start is called before the first frame update
     void Start()
@@ -69,16 +69,26 @@ public class WorldObject : MonoBehaviour
         }
         // DontDestroyOnLoad(this.gameObject);
         // Debug.Log(objectType);
-        ItemObjData = player2.itemObjData_;
-        CloneObject = ItemObjData.obj[ItemObjDataNumber];
-        _objectManager = player2.objectManager_;
-        if(ObjectType == "R" || ObjectType == "L")
+        if (player2.itemObjData_ != null)
         {
-         //   Debug.Log(ItemObjData.obj[ResourceObjNumber]);
-            ResourceObject = ItemObjData.obj[ResourceObjNumber];
-         //   Debug.Log(ResourceObject);
+            ItemObjData = player2.itemObjData_;
+            CloneObject = ItemObjData.obj[ItemObjDataNumber];
+            _objectManager = player2.objectManager_;
+            if (ObjectType == "R" || ObjectType == "L")
+            {
+                //   Debug.Log(ItemObjData.obj[ResourceObjNumber]);
+                ResourceObject = ItemObjData.obj[ResourceObjNumber];
+            }
+
+            if (!List)
+            {
+                ListNumber = _objectManager.add(ItemObjDataNumber, position, rotation, this.gameObject);
+                ListNumber -= 1;
+            }
+
+            //   Debug.Log(ResourceObject);
         }
-      //  Debug.Log(ObjectType);
+        //  Debug.Log(ObjectType);
 
         //if (type == "I")
         //{
@@ -98,18 +108,33 @@ public class WorldObject : MonoBehaviour
         Transform transform = this.GetComponent<Transform>();
         position = transform.position;
         rotation = this.transform.eulerAngles;
-        if (!List)
-        {
-            ListNumber = _objectManager.add(ItemObjDataNumber, position, rotation, this.gameObject);
-            ListNumber -= 1;
-        }
+       
       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(ObjectType == "R" || ObjectType == "NR")
+        if (player2.itemObjData_ == null)
+        {
+            ItemObjData = player2.itemObjData_;
+            CloneObject = ItemObjData.obj[ItemObjDataNumber];
+            _objectManager = player2.objectManager_;
+            if (ObjectType == "R" || ObjectType == "L")
+            {
+                //   Debug.Log(ItemObjData.obj[ResourceObjNumber]);
+                ResourceObject = ItemObjData.obj[ResourceObjNumber];
+            }
+            if (!List)
+            {
+                ListNumber = _objectManager.add(ItemObjDataNumber, position, rotation, this.gameObject);
+                ListNumber -= 1;
+            }
+
+            //   Debug.Log(ResourceObject);
+        }
+
+        if (ObjectType == "R" || ObjectType == "NR")
         {
             if (Initial != 0 && ResourceCount == 0 && !Respawn)
             {
@@ -158,7 +183,7 @@ public class WorldObject : MonoBehaviour
             }
         }
 
-       
+        ListNumber_ = ListNumber;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -167,5 +192,9 @@ public class WorldObject : MonoBehaviour
         {
             Destroy(this.GetComponent<Rigidbody>());
         }
+    }
+    public void road()
+    {
+        ListNumber = _objectManager.add(ItemObjDataNumber, position, rotation, this.gameObject);
     }
 }

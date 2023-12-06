@@ -13,7 +13,7 @@ public class buttanData : MonoBehaviour
         set { _number = value; }
     }
     public string _name;
-    public string name
+    public string name_
     {
         get { return _name; }
         set { _name = value; }
@@ -60,7 +60,7 @@ public class buttanData : MonoBehaviour
         //    Destroy(thisButton);
         //    a = true;
         //}
-        if (_player2.name == name)
+        if (_player2.name_ == name_)
         {
             Outline a = this.GetComponent<Outline>();
             a.enabled = true;
@@ -79,7 +79,7 @@ public class buttanData : MonoBehaviour
     //}
     public void OnClick()
     {
-        _player2.name = name;
+        _player2.name_ = name_;
         _player2.MaineInventory = ButtonPo;
         _player2.No = number;
         player2.obj = obj;

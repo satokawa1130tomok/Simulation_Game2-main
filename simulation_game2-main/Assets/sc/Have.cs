@@ -92,7 +92,7 @@ public class Have : MonoBehaviour
                 CloneObj.transform.position =  new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
                 CloneObj.transform.eulerAngles = worldAngle;
                 CloneObj = null;
-               RemoveItem(player2_.name);
+               RemoveItem(player2_.name_);
                 if (removeItem_)
                 {
                     Destroy(obj);

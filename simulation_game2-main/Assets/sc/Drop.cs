@@ -8,7 +8,7 @@ public class Drop : MonoBehaviour
 
     [SerializeField]
     public static int No;
-    public static string name;
+    public static string name_;
 
     public static InventoryList _inventoyList;
     public GameObject player;
@@ -27,7 +27,7 @@ public class Drop : MonoBehaviour
     public void OnClick()
     {
         No = _player2.No;
-        name = _player2.name;
+        name_ = _player2.name_;
 
         GameObject cloneObj = _inventoyList.obj[No];
         Debug.Log(No);
