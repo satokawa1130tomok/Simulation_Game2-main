@@ -37,7 +37,7 @@ public class ItemSpawn : MonoBehaviour
             if (count <= Execution[int1])
             {
 
-                Debug.Log(Clone[int1]);
+               // Debug.Log(Clone[int1]);
                 for (int i = 0; i <= Clone[int1]; i++)
                 {
                     int x = Random.Range(300, 450);
@@ -46,11 +46,7 @@ public class ItemSpawn : MonoBehaviour
                     Vector3 vector3 = new Vector3(x, y, z);
                    GameObject CloneObj =  Instantiate(_itemObjData.obj[a], vector3, Quaternion.identity);
                    Adjustment ad = CloneObj.AddComponent<Adjustment>();
-                   
-                        for (int i2 = 0; ad.g.tag == "a"; i2++)
-                        {
-                            y += 1;
-                        }
+                    
 
                 }
             }
