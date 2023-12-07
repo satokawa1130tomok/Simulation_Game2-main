@@ -202,7 +202,13 @@ public class Have : MonoBehaviour
         CloneObj.transform.localPosition = new Vector3(0.04f, -0.0053f, -0.01f);
         CloneObj.transform.localScale = scale / 70;
         obj = CloneObj;
+        if(player2.obj.GetComponent<WorldObject>().ObjectType == "T")
+        {
+            player2.HaveTool = player2.obj.GetComponent<WorldObject>().ResourceObjToolType;
+        }
         have = 1;
+        
+       
      //   Debug.Log(player2.obj);
 
     }

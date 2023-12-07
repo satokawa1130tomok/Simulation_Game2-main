@@ -66,7 +66,7 @@ public class Ray_ : MonoBehaviour
                 }
                 else if (wdata.ObjectType == "T")
                 {
-                    a = 3;
+                    a = 1;
                     bool_ = true;
                 }
                 else if (wdata.ObjectType == "C")
