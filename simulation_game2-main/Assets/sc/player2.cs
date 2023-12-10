@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class player2 : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class player2 : MonoBehaviour
     public Rigidbody rb;//プレイヤーの当たり判定
     public int speed;//移動速度
     public static bool run;//走る
-    public float rotateSpeed = 1.0f;//視点移動速度
+    public float rotateSpeed = 0.01f;//視点移動速度
     public bool isGround;//地面
     public float upForce = 10f;//ジャンプ力
     public GameObject inventoy;//インベントリ
@@ -54,6 +55,9 @@ public class player2 : MonoBehaviour
     private bool esc_;
     public bool Preview;
     public PreviewManager _previewManager;
+    public InputSystem _gameInputs;
+
+   
     // Start is called before the first frame update
 
     //当たり判定
@@ -64,13 +68,19 @@ public class player2 : MonoBehaviour
         {
             isGround = true;
         }
+        else
+        {
+            isGround = false;
+        }
     }
     void Awake()
     {
         itemObjData_ = itemObjData;
         objectManager_ = objectManager;
         anim = anim_;
+       
     }
+   
     void Start()
     {
 
@@ -84,11 +94,14 @@ public class player2 : MonoBehaviour
         inventoy__ = false;
         Craft_ = false;
         esc_ = false;
+        _gameInputs = new InputSystem();
+        _gameInputs.Enable();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Cursor.visible = true;
         player.transform.localEulerAngles = new Vector3(0, player.transform.localEulerAngles.y, 0);
         name_text.text = name_;
         //if (Input.GetKeyDown(KeyCode.O))
@@ -118,62 +131,77 @@ public class player2 : MonoBehaviour
     }
     public void move()
     {
+        Vector2 direction = _gameInputs.Player.Move.ReadValue<Vector2>();
+        Vector3 vector3 = this.transform.position;
+        vector3 += this.transform.right * direction.y * speed * Time.deltaTime;
+        vector3 -= this.transform.forward * direction.x * speed * Time.deltaTime;
+        vector3.z -= direction.y * speed * Time.deltaTime * this.transform.forward.y;
+        transform.position = vector3;
 
-        if (Input.GetKey(KeyCode.W) && !run)
-        {
-            transform.position += transform.right * speed * Time.deltaTime;
-            anim.SetBool("walk", true);
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            anim.SetBool("walk", true);
-        }
-        if (!Input.GetKey(KeyCode.W))
-        {
-            anim.SetBool("walk", false);
-        }
-        if (Input.GetKey(KeyCode.S)) { transform.position -= transform.right * speed * Time.deltaTime; }
-        if (Input.GetKey(KeyCode.A)) { transform.position += transform.forward * speed * Time.deltaTime; }
-        if (Input.GetKey(KeyCode.D)) { transform.position -= transform.forward * speed * Time.deltaTime; }
-        if (run) { transform.position += transform.right * speed * 2 * Time.deltaTime; }
 
-        anim.SetBool("run", run);
+        //if (Input.GetKey(KeyCode.W) && !run)
+        //{
+        //    transform.position += transform.right * speed * Time.deltaTime;
+        //    anim.SetBool("walk", true);
+        //}
+        //if (Input.GetKey(KeyCode.W))
+        //{
+        //    anim.SetBool("walk", true);
+        //}
+        //if (!Input.GetKey(KeyCode.W))
+        //{
+        //    anim.SetBool("walk", false);
+        //}
+        //if (Input.GetKey(KeyCode.S)) { transform.position -= transform.right * speed * Time.deltaTime; }
+        //if (Input.GetKey(KeyCode.A)) { transform.position += transform.forward * speed * Time.deltaTime; }
+        //if (Input.GetKey(KeyCode.D)) { transform.position -= transform.forward * speed * Time.deltaTime; }
+        //if (run) { transform.position += transform.right * speed * 2 * Time.deltaTime; }
 
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && run_sli.run_value > 0f)
-        {
+        //anim.SetBool("run", run);
 
-            run = true;
-        }
-        else
-            run = false;
+        //if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && run_sli.run_value > 0f)
+        //{
 
-        if (Input.GetKey(KeyCode.Space) && isGround)
-        {
+        //    run = true;
+        //}
+        //else
+        //    run = false;
 
-            isGround = false;
-            rb.velocity = Vector3.up * upForce * 10;
-            anim.SetBool("jump", true);
-            b = true;
-        }
+        //if (Input.GetKey(KeyCode.Space) && isGround)
+        //{
 
-        if (isGround && b)
-        {
-            anim.SetBool("jump", false);
-            b = false;
-        }
+        //    //isGround = false;
+        //    //rb.velocity = Vector3.up * upForce * 10;
+        //    //anim.SetBool("jump", true);
+        //    //b = true;
+        //}
 
-        if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.W))
-        {
-            anim.SetBool("jump", true);
-            anim.SetBool("walk", true);
-        }
+        //if (isGround && b)
+        //{
+        //    anim.SetBool("jump", false);
+        //    b = false;
+        //}
+
+        //if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.W))
+        //{
+        //    anim.SetBool("jump", true);
+        //    anim.SetBool("walk", true);
+        //}
 
 
     }
+    public void Jump (InputAction.CallbackContext context)
+    {
+        isGround = false;
+        rb.velocity = Vector3.up * upForce * 10;
+        anim.SetBool("jump", true);
+        b = true;
+    }
     public void cameramove()
     {
-        Vector3 angle = new Vector3(Input.GetAxis("Mouse X") * rotateSpeed, Input.GetAxis("Mouse Y") * rotateSpeed, 0);
-        player.transform.RotateAround(player.transform.position, Vector3.up, angle.x);
+        Vector2 direction = _gameInputs.Player.Look.ReadValue<Vector2>();
+        Vector3 angle = new Vector3(direction.x * rotateSpeed, direction.y * rotateSpeed, 0);
+        this.transform.RotateAround(this.transform.position, Vector3.up, angle.x);
     }
     public void inventoy_()
     {

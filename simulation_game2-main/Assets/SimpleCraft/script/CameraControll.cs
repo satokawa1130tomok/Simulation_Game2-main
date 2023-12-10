@@ -7,7 +7,7 @@ public class CameraControll : MonoBehaviour
 
     public GameObject mainCamera;              //ƒƒCƒ“ƒJƒƒ‰Ši”[—p
     public GameObject playerObject;            //‰ñ“]‚Ì’†S‚Æ‚È‚éƒvƒŒƒCƒ„[Ši”[—p
-    public float rotateSpeed = 2.0f;            //‰ñ“]‚Ì‘¬‚³
+    public float rotateSpeed = 0.02f;            //‰ñ“]‚Ì‘¬‚³
     public static bool active_camera;
     public float max = 180.0f;
 
@@ -48,9 +48,10 @@ public class CameraControll : MonoBehaviour
         // //transform.RotateAround()‚ğ‚µ‚æ‚¤‚µ‚ÄƒƒCƒ“ƒJƒƒ‰‚ğ‰ñ“]‚³‚¹‚é
         //// mainCamera.transform.RotateAround(playerObject.transform.position, Vector3.up, angle.x);
         // mainCamera.transform.RotateAround(playerObject.transform.position, Vector3.forward, angle.y);
+       
         Transform myTransform = mainCamera.transform;
         Vector3 worldAngle = myTransform.eulerAngles;
-        float MouseY = Input.GetAxis("Mouse Y") * rotateSpeed * -1;
+        float MouseY = playerObject.GetComponent<player2>()._gameInputs.Player.Look.ReadValue<Vector2>().y * rotateSpeed * -1;
         worldAngle.x += MouseY;
         myTransform.eulerAngles = worldAngle;
 
