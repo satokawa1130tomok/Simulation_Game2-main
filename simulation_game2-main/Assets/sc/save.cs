@@ -23,7 +23,7 @@ public class save : MonoBehaviour
     public string WorldName_;
     void Start()
     {
-        if(WorldName.text == null)
+        if (WorldName.text == null)
         {
             SceneManager.LoadScene("start");
             WorldName.text = "a";
@@ -47,7 +47,7 @@ public class save : MonoBehaviour
     }
     public void save_()
     {
-        
+
 
         if (!System.IO.Directory.Exists("save/" + WorldName_))
         {
@@ -63,7 +63,7 @@ public class save : MonoBehaviour
             w2.Close();
             fs2.Close();
             fs2 = null;
-            w2= null;
+            w2 = null;
 
 
         }
@@ -232,17 +232,17 @@ public class save : MonoBehaviour
             //{
             //    continue;
             //}
-            
-            
-            
-           
+
+
+
+
 
             if (a == "PlayerData")
             {
                 step = 0;
                 continue;
             }
-            
+
             if (step == 0)
             {
                 if (a == "")

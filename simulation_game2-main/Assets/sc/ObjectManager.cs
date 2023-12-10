@@ -38,7 +38,7 @@ public class ObjectManager : MonoBehaviour
     }
     public int add(int n, Vector3 v, Vector3 q, GameObject g)
     {
-       // Debug.Log("a");
+        // Debug.Log("a");
         number.Add(n);
         position_x.Add(v.x);
         position_y.Add(v.y);
@@ -75,13 +75,13 @@ public class ObjectManager : MonoBehaviour
         obj.RemoveAt(x);
         number.RemoveAt(x);
         int int1 = 0;
-        foreach(GameObject a in obj)
+        foreach (GameObject a in obj)
         {
 
             a.GetComponent<WorldObject>().ListNumber = int1;
             int1++;
         }
-       
+
     }
 
 }

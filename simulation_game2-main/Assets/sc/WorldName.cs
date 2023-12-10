@@ -28,9 +28,9 @@ public class WorldName : MonoBehaviour
     void Update()
     {
         Cursor.visible = true;
-      
+
         //Debug.Log(text);
-        if(road == false)
+        if (road == false)
         {
             text = inputField.text;
         }
@@ -48,7 +48,7 @@ public class WorldName : MonoBehaviour
         {
             second.SetActive(true);
         }
-        road = road_; 
+        road = road_;
     }
     public void NameList()
     {
@@ -56,14 +56,14 @@ public class WorldName : MonoBehaviour
 
         road_List = File.ReadAllLines("save/FileManager.txt");
         int i = 0;
-        foreach(string a in road_List)
+        foreach (string a in road_List)
         {
-            if(i != 0)
+            if (i != 0)
             {
 
                 GameObject cloneButton = Instantiate(CloneButton) as GameObject;
                 cloneButton.transform.SetParent(panel.transform, false);
-                cloneButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -(i -4) * 60);
+                cloneButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -(i - 4) * 60);
 
                 GameObject textObj = cloneButton.transform.Find("Text (Legacy)").gameObject;
                 Text _text = textObj.GetComponent<Text>();
@@ -77,7 +77,7 @@ public class WorldName : MonoBehaviour
 
             i++;
 
-           
+
         }
     }
     public void DestroyButton()
@@ -89,7 +89,7 @@ public class WorldName : MonoBehaviour
     }
     public void ButtonClick(Text t)
     {
-        if(text == t.text)
+        if (text == t.text)
         {
             text = "";
         }
@@ -97,7 +97,7 @@ public class WorldName : MonoBehaviour
         {
             text = t.text;
         }
-        
+
         //Debug.Log(text);
     }
 }

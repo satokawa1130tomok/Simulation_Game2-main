@@ -47,7 +47,7 @@ public class Ray_ : MonoBehaviour
         //Debug.Log(bool_);
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
-            
+
             HitPosition = ray.GetPoint(hit.distance);
             distance = hit.distance;
             _hit = hit.collider.gameObject;
@@ -85,17 +85,22 @@ public class Ray_ : MonoBehaviour
                     a = 6;
                     bool_ = true;
                 }
-                else if(wdata.ObjectType == "L")
+                else if (wdata.ObjectType == "L")
                 {
                     a = 7;
+                    bool_ = false;
+                }
+                else if (wdata.ObjectType == "K")
+                {
+                    a = 8;
                     bool_ = false;
                 }
             }
             else if (_hit.gameObject.tag == "Ground")
             {
                 bool_ = true;
-               // _hit = null;
-               a = 0;
+                // _hit = null;
+                a = 0;
             }
             else
             {
@@ -114,19 +119,19 @@ public class Ray_ : MonoBehaviour
 
 
         }
-            
 
-            //Debug.Log(wdata.ObjectType);
+
+        //Debug.Log(wdata.ObjectType);
 
     }
-        //else
-        //{
-        //    //Debug.Log(HitPosition);
-        //    _hit = null;
-        //    a = 0;
-        //    bool_ = true;
-        //    HitPosition = ray.GetPoint(maxDistance);
+    //else
+    //{
+    //    //Debug.Log(HitPosition);
+    //    _hit = null;
+    //    a = 0;
+    //    bool_ = true;
+    //    HitPosition = ray.GetPoint(maxDistance);
 
-        //}
-    
+    //}
+
 }

@@ -15,7 +15,7 @@ public class Three : ScriptableObject
     public string Explanation;
     public bool HandCraft;
     public int CraftCount = 1;
-    public int ButtonCount =3;
+    public int ButtonCount = 3;
     public GameObject obj;
 
 }

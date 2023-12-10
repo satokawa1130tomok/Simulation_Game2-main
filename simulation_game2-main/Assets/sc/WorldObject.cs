@@ -25,14 +25,20 @@ public class WorldObject : MonoBehaviour
     public int ResourceObjNumber;
     public int ResourceObjCount;
     public char ResourceObjToolType;
-    public int ResourceCount;
-    public int RespawnTime; 
-    //↓入力不要
     public GameObject ResourceObject;
+    public int ResourceObjNumber2;
+    public int ResourceObjCount2;
+    public char ResourceObjToolType2;
+    public GameObject ResourceObject2;
+    public int ResourceCount;
+    public int RespawnTime;
+
+    //↓入力不要
     public float Time_;
     private bool Respawn;
     private int Initial;
     public int InitialCount;
+    public string InitialType;
     public GameObject CloneObject;
     public Vector3 rotation_;
     public Vector3 rotation
@@ -56,14 +62,15 @@ public class WorldObject : MonoBehaviour
     }
     public bool List;
     private int ListNumber_;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         InitialCount = ResourceCount;
+        InitialType = ObjectType;
         Respawn = false;
         Initial = ResourceCount;
-       if(ObjectType != "L")
+        if (ObjectType != "L")
         {
             this.GetComponent<Rigidbody>().isKinematic = false;
         }
@@ -108,8 +115,8 @@ public class WorldObject : MonoBehaviour
         Transform transform = this.GetComponent<Transform>();
         position = transform.position;
         rotation = this.transform.eulerAngles;
-       
-      
+
+
     }
 
     // Update is called once per frame
@@ -120,7 +127,7 @@ public class WorldObject : MonoBehaviour
             ItemObjData = player2.itemObjData_;
             CloneObject = ItemObjData.obj[ItemObjDataNumber];
             _objectManager = player2.objectManager_;
-            if (ObjectType == "R" || ObjectType == "L")
+            if (ObjectType == "R" || ObjectType == "L" || ObjectType == "K")
             {
                 //   Debug.Log(ItemObjData.obj[ResourceObjNumber]);
                 ResourceObject = ItemObjData.obj[ResourceObjNumber];
@@ -134,7 +141,7 @@ public class WorldObject : MonoBehaviour
             //   Debug.Log(ResourceObject);
         }
 
-        if (ObjectType == "R" || ObjectType == "NR")
+        if (ObjectType == "R" || ObjectType == "NR" || ObjectType == "K")
         {
             if (Initial != 0 && ResourceCount == 0 && !Respawn)
             {
@@ -150,13 +157,14 @@ public class WorldObject : MonoBehaviour
                 Time_ += Time.deltaTime;
                 if (Time_ >= RespawnTime)
                 {
-                    ObjectType = "R";
+
+                    ObjectType = InitialType;
                     Respawn = false;
 
                 }
             }
         }
-        if(ObjectType == "L")
+        if (ObjectType == "L")
         {
             Vector3 vector3 = this.transform.localScale;
             vector3.y = ResourceCount;
@@ -166,7 +174,7 @@ public class WorldObject : MonoBehaviour
             {
                 Respawn = true;
                 Time_ = 0f;
-               
+
             }
 
             if (Respawn)
@@ -188,7 +196,7 @@ public class WorldObject : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Debug.Log(collision.gameObject);
-        if (collision.gameObject.tag == "Ground" &&　ObjectType == "H")
+        if (collision.gameObject.tag == "Ground" && ObjectType == "H")
         {
             Destroy(this.GetComponent<Rigidbody>());
         }

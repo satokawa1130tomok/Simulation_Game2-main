@@ -81,7 +81,7 @@ MonoBehaviour:
   ObjectType: R
   ResourceObjNumber: 14
   ResourceObjCount: 4
-  ResourceObjToolType: 78
+  ResourceObjToolType: 79
   ResourceCount: 0
   RespawnTime: 0
   ResourceObject: {fileID: 0}
@@ -93,6 +93,7 @@ MonoBehaviour:
   _objectManager: {fileID: 0}
   ItemObjData: {fileID: 0}
   number_: 0
+  List: 0
 --- !u!1 &5074105829456744390
 GameObject:
   m_ObjectHideFlags: 0

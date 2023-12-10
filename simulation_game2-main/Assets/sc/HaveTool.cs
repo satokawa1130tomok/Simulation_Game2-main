@@ -29,7 +29,7 @@ public class HaveTool : MonoBehaviour
         obj.transform.localPosition = new Vector3(0, 0, 0);
         Vector3 localAngle = new Vector3(0, -90, 0);
         obj.transform.localEulerAngles = localAngle;
-       // player2.HaveTool = Tdata.type;
+        // player2.HaveTool = Tdata.type;
 
         //Destroy(Ray_._hit);
     }

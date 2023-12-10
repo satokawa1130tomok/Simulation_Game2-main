@@ -131,7 +131,7 @@ public class CraftManager : MonoBehaviour
             removeItem_ = true;
         }
     }
-    
+
     public void Return(int a)
     {
         craft = false;

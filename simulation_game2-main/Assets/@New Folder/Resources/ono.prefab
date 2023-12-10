@@ -165,7 +165,7 @@ MonoBehaviour:
   ObjectType: T
   ResourceObjNumber: 0
   ResourceObjCount: 0
-  ResourceObjToolType: 0
+  ResourceObjToolType: 79
   ResourceCount: 0
   RespawnTime: 0
   ResourceObject: {fileID: 0}

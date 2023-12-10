@@ -9,13 +9,13 @@ public class Adjustment : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(g != null)
+        if (g != null)
         {
             if (g.tag != "Ground")
             {
@@ -38,12 +38,12 @@ public class Adjustment : MonoBehaviour
                 Adjustment ad = CloneObj.AddComponent<Adjustment>();
                 Destroy(this.gameObject);
             }
-           
+
         }
     }
     void OnCollisionEnter(Collision collision)
     {
         g = collision.gameObject;
     }
-   
+
 }

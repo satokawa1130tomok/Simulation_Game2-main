@@ -47,6 +47,7 @@ public class player2 : MonoBehaviour
 
     public static Animator anim;
     public Animator anim_;
+    public Animator inve_anim;
     //public Animation jump;
     private bool b;
     public RecipieButton _recipieButton;
@@ -58,7 +59,7 @@ public class player2 : MonoBehaviour
     //“–‚½‚è”»’è
     private void OnCollisionEnter(Collision collision)
     {
-       // Debug.Log(collision.gameObject);
+        // Debug.Log(collision.gameObject);
         if (collision.gameObject.tag == "Ground")
         {
             isGround = true;
@@ -72,7 +73,7 @@ public class player2 : MonoBehaviour
     }
     void Start()
     {
-       
+
         speed = 10;
         inventoy.SetActive(false);
         Cursor.visible = false;
@@ -88,7 +89,7 @@ public class player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player.transform.localEulerAngles = new Vector3(0,player.transform.localEulerAngles.y,0);
+        player.transform.localEulerAngles = new Vector3(0, player.transform.localEulerAngles.y, 0);
         name_text.text = name_;
         //if (Input.GetKeyDown(KeyCode.O))
         //{
@@ -112,8 +113,8 @@ public class player2 : MonoBehaviour
         chest();
         if (!inventoy__ && !Craft_ && !Preview) { esc(false); }
         RunParticle.SetActive(run);
-       // Debug.Log(!_previewManager.preview +""+inventoy__ + "" + Craft_ + "" + esc_ + "" + Input.GetKeyUp(KeyCode.P)) ;
-       
+        // Debug.Log(!_previewManager.preview +""+inventoy__ + "" + Craft_ + "" + esc_ + "" + Input.GetKeyUp(KeyCode.P)) ;
+
     }
     public void move()
     {
@@ -187,17 +188,19 @@ public class player2 : MonoBehaviour
             _inventoryCreate.InventoryCreate();
             name_ = "";
             a = true;
+            inve_anim.SetBool("clause", true);
         }
         else if (Input.GetKeyDown(KeyCode.E) && (inventoy.activeSelf) && (!Craft.activeSelf) && (!EscObj.activeSelf))
         {
 
             _inventoryCreate.DestroyButton();
-            inventoy__ = false ;
+            inventoy__ = false;
             Cursor.visible = false;
             CameraControll.active_camera = true;
             _inventoryCreate.DestroyButton();
             //  _inventoryCreate.CloneButton.SetActive(true);
             inventoy.SetActive(false);
+            inve_anim.SetBool("clause", false);
         }
         else if (Input.GetKeyDown(KeyCode.E) && (!inventoy.activeSelf) && (Craft.activeSelf) && (!EscObj.activeSelf))
         {
@@ -210,6 +213,7 @@ public class player2 : MonoBehaviour
             CameraControll.active_camera = false;
             _inventoryCreate.InventoryCreate();
             a = true;
+            inve_anim.SetBool("clause", true);
         }
 
 

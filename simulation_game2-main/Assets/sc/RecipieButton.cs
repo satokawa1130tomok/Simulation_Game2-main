@@ -135,7 +135,7 @@ public class RecipieButton : MonoBehaviour
     }
     public void two(Two scriptable)
     {
-        TwoButtonText(scriptable.ItemName1, scriptable.ItemCount1,scriptable.ItemName2,scriptable.ItemCount2);
+        TwoButtonText(scriptable.ItemName1, scriptable.ItemCount1, scriptable.ItemName2, scriptable.ItemCount2);
         text(scriptable.RecipeName, scriptable.Explanation);
         active(scriptable.ButtonCount);
         obj = scriptable.obj;
@@ -148,7 +148,7 @@ public class RecipieButton : MonoBehaviour
     }
     public void three(Three scriptable)
     {
-        ThreeButtonText(scriptable.ItemName1, scriptable.ItemCount1, scriptable.ItemName2, scriptable.ItemCount2,scriptable.ItemName3,scriptable.ItemCount3);
+        ThreeButtonText(scriptable.ItemName1, scriptable.ItemCount1, scriptable.ItemName2, scriptable.ItemCount2, scriptable.ItemName3, scriptable.ItemCount3);
         text(scriptable.RecipeName, scriptable.Explanation);
         active(scriptable.ButtonCount);
         obj = scriptable.obj;
@@ -161,9 +161,9 @@ public class RecipieButton : MonoBehaviour
     }
     public void road()
     {
-       if(ButtonCount == 1)
+        if (ButtonCount == 1)
         {
-           
+
             OneButtonText(one_.ItemName1, one_.ItemCount1);
         }
         if (ButtonCount == 2)
@@ -221,8 +221,8 @@ public class RecipieButton : MonoBehaviour
     }
     public void OneButtonText(string Itemname1, int Itemcount1)
     {
-       
-            int int1;
+
+        int int1;
         int a = inventoryList.name.IndexOf(Itemname1);
         if ((a == -1))
         {
@@ -234,17 +234,17 @@ public class RecipieButton : MonoBehaviour
             int1 = inventoryList.count[a];
         }
         ItemText1.text = (Itemname1 + "     " + int1 + "/" + Itemcount1);
-            name1 = Itemname1;
+        name1 = Itemname1;
 
-            count1 = Itemcount1;
+        count1 = Itemcount1;
 
     }
     public void TwoButtonText(string Itemname1, int Itemcount1, string Itemname2, int ItemCount2)
     {
-       
-            int int1;
+
+        int int1;
         int a = inventoryList.name.IndexOf(Itemname1);
-        if ( (a == -1))
+        if ((a == -1))
         {
             int1 = 0;
         }
@@ -255,10 +255,10 @@ public class RecipieButton : MonoBehaviour
         }
         ItemText1.text = (Itemname1 + "     " + (int1) + "/" + Itemcount1);
 
-            int int2;
-             // Debug.Log(inventoryList.name.IndexOf(Itemname2));
-         a = inventoryList.name.IndexOf(Itemname2);
-        if ( (a == -1))
+        int int2;
+        // Debug.Log(inventoryList.name.IndexOf(Itemname2));
+        a = inventoryList.name.IndexOf(Itemname2);
+        if ((a == -1))
         {
             int2 = 0;
         }
@@ -267,20 +267,20 @@ public class RecipieButton : MonoBehaviour
             Debug.Log(a);
             int2 = inventoryList.count[a];
         }
-            ItemText2.text = (Itemname2 + "     " + (int2) + "/" + ItemCount2);
-            name1 = Itemname1;
-            name2 = Itemname2;
+        ItemText2.text = (Itemname2 + "     " + (int2) + "/" + ItemCount2);
+        name1 = Itemname1;
+        name2 = Itemname2;
 
-            count1 = Itemcount1;
-            count2 = ItemCount2;
-       
-           
-        
+        count1 = Itemcount1;
+        count2 = ItemCount2;
+
+
+
     }
     public void ThreeButtonText(string Itemname1, int Itemcount1, string Itemname2, int ItemCount2, string Itemname3, int ItemCount3)
     {
-       
-            int int1;
+
+        int int1;
         int a = inventoryList.name.IndexOf(Itemname1);
         if ((a == -1))
         {
@@ -293,7 +293,7 @@ public class RecipieButton : MonoBehaviour
         }
         ItemText1.text = (Itemname1 + "     " + int1 + "/" + Itemcount1);
 
-            int int2;
+        int int2;
         a = inventoryList.name.IndexOf(Itemname2);
         if ((a == -1))
         {
@@ -306,7 +306,7 @@ public class RecipieButton : MonoBehaviour
         }
         ItemText2.text = (Itemname2 + "     " + int2 + "/" + ItemCount2);
 
-            int int3;
+        int int3;
         a = inventoryList.name.IndexOf(Itemname3);
         if ((a == -1))
         {
@@ -318,18 +318,18 @@ public class RecipieButton : MonoBehaviour
             int3 = inventoryList.count[a];
         }
         ItemText3.text = (Itemname3 + "     " + int3 + "/" + ItemCount3);
-            name1 = Itemname1;
-            name2 = Itemname2;
-            name3 = Itemname3;
+        name1 = Itemname1;
+        name2 = Itemname2;
+        name3 = Itemname3;
 
-            count1 = Itemcount1;
-            count2 = ItemCount2;
-            count3 = ItemCount3;
-        
+        count1 = Itemcount1;
+        count2 = ItemCount2;
+        count3 = ItemCount3;
+
     }
     public void HnadCraft()
     {
-        foreach(GameObject a in buttonObj)
+        foreach (GameObject a in buttonObj)
         {
             a.SetActive(false);
         }

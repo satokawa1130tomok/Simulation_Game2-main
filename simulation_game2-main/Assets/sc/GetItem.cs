@@ -21,13 +21,13 @@ public class GetItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+
         t.text = (ItemName + "+" + ItemCount);
 
         time += Time.deltaTime;
         if (time >= 2f)
         {
-           Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

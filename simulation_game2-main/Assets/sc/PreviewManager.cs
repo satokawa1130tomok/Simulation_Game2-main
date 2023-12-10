@@ -43,7 +43,7 @@ public class PreviewManager : MonoBehaviour
         if (have)
         {
             Have();
-        }   
+        }
 
         if (preview == true && Input.GetKeyDown(KeyCode.P))
         {
@@ -57,7 +57,8 @@ public class PreviewManager : MonoBehaviour
             {
                 preview = false;
                 a_ = false;
-        }   }
+            }
+        }
 
         if (!preview && !_player2.inventoy__ && !_player2.Craft_ && Input.GetKeyDown(KeyCode.P))
         {
@@ -65,33 +66,33 @@ public class PreviewManager : MonoBehaviour
             active(true);
             Cursor.visible = true;
             CameraControll.active_camera = false;
-        } 
-    }   
+        }
+    }
     //SceneManager.LoadScene("preview");
 
-      // SceneManager.LoadSceneAsync("preview", LoadSceneMode.Single);
-            // SceneManager.UnloadScene("game");
-        
+    // SceneManager.LoadSceneAsync("preview", LoadSceneMode.Single);
+    // SceneManager.UnloadScene("game");
+
     public void active(bool a)
     {
-       // Debug.Log(a);
+        // Debug.Log(a);
         if (a == false)
         {
             a_ = true;
         }
-        if(a)
+        if (a)
         {
             preview = a;
         }
 
         _player2.Preview = a;
-        if(a == true)
+        if (a == true)
         {
             NameText.text = "";
         }
 
         DestroyButton();
-        
+
         ImageObject.SetActive(a);
         UIObject.SetActive(a);
     }
@@ -106,29 +107,29 @@ public class PreviewManager : MonoBehaviour
 
         NameText.text = scriptable_.RecipeName;
         int int1 = 0;
-        foreach(string a in scriptable_.ItemName)
+        foreach (string a in scriptable_.ItemName)
         {
-            Vector3 vector3 = new Vector3(240, 370 - 30*int1, 0);
-          GameObject CloneObject = Instantiate(CloneButton, vector3, Quaternion.identity);
-           CloneObject.transform.parent = GameObject.Find("clone").transform;
+            Vector3 vector3 = new Vector3(240, 370 - 30 * int1, 0);
+            GameObject CloneObject = Instantiate(CloneButton, vector3, Quaternion.identity);
+            CloneObject.transform.parent = GameObject.Find("clone").transform;
             GameObject textObj = CloneObject.transform.Find("clonetext").gameObject;
             Text text = textObj.gameObject.GetComponent<Text>();
             int c = _inventoryList.name.IndexOf(a);
-            if(c == -1)
+            if (c == -1)
             {
                 c = 0;
             }
             else
             {
-               // Debug.Log(c + "" + int1);
+                // Debug.Log(c + "" + int1);
                 c = _inventoryList.count[c];
             }
-            string b = (a + "" + scriptable_.ItemCount[int1] +"/"+c);
+            string b = (a + "" + scriptable_.ItemCount[int1] + "/" + c);
             text.text = b;
             button.Add(CloneObject);
-            int1 +=1;
+            int1 += 1;
         }
-       
+
         scriptable = scriptable_;
     }
     public void DestroyButton()
@@ -144,15 +145,15 @@ public class PreviewManager : MonoBehaviour
     }
     public void Craft()
     {
-        
-       
+
+
 
 
 
         int int1 = 0;
         bool HaveItem = false;
         bool check = false;
-        foreach(string a in scriptable.ItemName)
+        foreach (string a in scriptable.ItemName)
         {
             HaveItem = false;
             int b = _inventoryList.name.IndexOf(a);
@@ -163,7 +164,7 @@ public class PreviewManager : MonoBehaviour
             else if (_inventoryList.count[b] < scriptable.ItemCount[int1])
             {
                 //Debug.Log(_inventoryList.count[b] + "" + scriptable.ItemCount[int1]);
-                   HaveItem = true;
+                HaveItem = true;
             }
 
             if (HaveItem)
@@ -180,15 +181,15 @@ public class PreviewManager : MonoBehaviour
         }
         if (!check)
         {
-           
-            
+
+
             player2.obj = scriptable.obj;
             have = true;
             CloneObj_(player2.obj);
             Destroy(CloneObj.GetComponent<Rigidbody>());
             Destroy(CloneObj.GetComponent<BoxCollider>());
             Destroy(CloneObj.GetComponent<SphereCollider>());
-           
+
             children = new Transform[CloneObj.transform.childCount];
 
             // ŒŸõ•û–@‚P
@@ -211,7 +212,7 @@ public class PreviewManager : MonoBehaviour
         Cursor.visible = false;
         CameraControll.active_camera = true;
     }
-   public void Have()
+    public void Have()
     {
         MaterialCollar(true);
         MaterialCollar(false);
@@ -219,12 +220,12 @@ public class PreviewManager : MonoBehaviour
         ray.maxDistance = 50;
         CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
         float distance = 15;
-        if(ray.bool_ && Ray_._hit != null && !_player2.inventoy.activeSelf &&ray.distance >= distance)
+        if (ray.bool_ && Ray_._hit != null && !_player2.inventoy.activeSelf && ray.distance >= distance)
         {
             MaterialCollar(true);
             CloneObj.SetActive(true);
         }
-        else if(ray.bool_ && Ray_._hit == null && !_player2.inventoy.activeSelf && ray.distance >= distance)
+        else if (ray.bool_ && Ray_._hit == null && !_player2.inventoy.activeSelf && ray.distance >= distance)
         {
             MaterialCollar(false);
             CloneObj.SetActive(true);
@@ -249,7 +250,7 @@ public class PreviewManager : MonoBehaviour
 
         if (CloneObj.activeSelf == true)
         {
-            
+
             worldAngle = CloneObj.transform.eulerAngles;
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
@@ -288,9 +289,9 @@ public class PreviewManager : MonoBehaviour
     public void RemoveItem()
     {
         int count = 0;
-        foreach(string a in scriptable.ItemName)
+        foreach (string a in scriptable.ItemName)
         {
-          int int1 =  _inventoryList.name.IndexOf(a);
+            int int1 = _inventoryList.name.IndexOf(a);
             if (_inventoryList.count[int1] == scriptable.ItemCount[count])
             {
                 _inventoryList.name.RemoveAt(int1);

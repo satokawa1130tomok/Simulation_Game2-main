@@ -55,7 +55,7 @@ public class InventoryList : MonoBehaviour
         //Debug.Log(bool1);
         WorldObject Rdata = wdata.ResourceObject.GetComponent<WorldObject>();
         int i;
-        for (i = 0; i <= wdata.ResourceObjCount-1; i++)
+        for (i = 0; i <= wdata.ResourceObjCount - 1; i++)
         {
             ItemList(Rdata);
         }
@@ -116,10 +116,10 @@ public class InventoryList : MonoBehaviour
         // Debug.Log(string.Join(",", name.Select(name => name.ToString())));
         // Debug.Log(string.Join(",", count.Select(count => count.ToString())));
     }
-    public void CloneText(string name,int count)
+    public void CloneText(string name, int count)
     {
         // PrefabからCloneObjectを生成
-        GameObject cloneObject = Instantiate(CloneText_, CloneText_.transform.position,Quaternion.identity);
+        GameObject cloneObject = Instantiate(CloneText_, CloneText_.transform.position, Quaternion.identity);
 
         // GetItemがアタッチされている場合、コンポーネントへのアクセスを取得
         GetItem g = cloneObject.GetComponent<GetItem>();

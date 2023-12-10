@@ -29,7 +29,7 @@ public class HitPanel : MonoBehaviour
     {
         // Debug.Log(Ray_.a);
         // Debug.Log(Ray_._hit);
-       
+
         if (player2_.inventoy.activeSelf == false && Ray_._hit != null && have_.have != 0 && !_previewManager.have)
         {
             WorldObject wdata = Ray_._hit.gameObject.GetComponent<WorldObject>();
@@ -52,7 +52,7 @@ public class HitPanel : MonoBehaviour
                         return;
                     }
                 }
-                else if (Ray_.a == 2)//tga == resource　の時
+                else if (Ray_.a == 2 || Ray_.a == 8)//tga == resource　の時
                 {
                     Panel.SetActive(true);
                     WorldObject Rdata = Ray_._hit.gameObject.GetComponent<WorldObject>();
@@ -61,19 +61,50 @@ public class HitPanel : MonoBehaviour
                     HitText = (Rdata.name_ + " from " + RRdata.name_ + "  × " + Rdata.ResourceObjCount);
                     if (Input.GetMouseButtonDown(0))
                     {
-                        if (Rdata.ResourceObjToolType == player2.HaveTool)
+                        if (Ray_.a == 2)
                         {
-                            //   Debug.Log("A"); 
-                            _InventoryList.ResourceList(Rdata);
-                            _InventoryList.CloneText(Rdata._name, Rdata.ResourceObjCount);
-                            Ray_.a = 0;
-                            Ray_._hit = null;
-                            if(Rdata.ResourceCount != 0)
+                            if (Rdata.ResourceObjToolType == player2.HaveTool)
                             {
-                                Rdata.ResourceCount --;
+                                //   Debug.Log("A"); 
+                                _InventoryList.ResourceList(Rdata);//インベントリに追加}
+                                _InventoryList.CloneText(Rdata._name, Rdata.ResourceObjCount);
+                                Ray_.a = 0;
+                                Ray_._hit = null;
+                                if (Rdata.ResourceCount != 0)
+                                {
+                                    Rdata.ResourceCount--;
+                                }
+
                             }
-                        }//インベントリに追加}
-                        else { _ErrorMessage._ErrorMessage("tool do not much"); }
+                            else { _ErrorMessage._ErrorMessage("tool do not much"); }
+                        }
+                        else if (Ray_.a == 8)
+                        {
+                            if (Rdata.ResourceObjToolType == player2.HaveTool)
+                            {
+                                WorldObject Idata = wdata.ResourceObject.GetComponent<WorldObject>();
+                                int i;
+                                for (i = 0; i <= wdata.ResourceObjCount - 1; i++)
+                                {
+                                    _InventoryList.ItemList(Idata);
+                                }
+                            }
+                            else if (Rdata.ResourceObjToolType2 == player2.HaveTool)
+                            {
+                                WorldObject Idata = wdata.ResourceObject2.GetComponent<WorldObject>();
+                                int i;
+                                for (i = 0; i <= wdata.ResourceObjCount2 - 1; i++)
+                                {
+                                    _InventoryList.ItemList(Idata);
+                                }
+                            }
+                            else { _ErrorMessage._ErrorMessage("tool do not much"); }
+
+                        }
+
+
+
+
                     }
                 }
                 else if (Ray_.a == 6)//tga == resourceクールタイムの時
@@ -83,9 +114,9 @@ public class HitPanel : MonoBehaviour
                     WorldObject RRdata = Rdata.ResourceObject.gameObject.GetComponent<WorldObject>();
                     float a = Rdata.RespawnTime - Rdata.Time_;
                     string b = a.ToString("f2");
-                    text.text = (b +"秒後にとれます");
+                    text.text = (b + "秒後にとれます");
                     HitText = (b + "秒後にとれます");
-                   
+
                 }
                 else if (Ray_.a == 3)//tag == tool の時
                 {
@@ -161,18 +192,18 @@ public class HitPanel : MonoBehaviour
                 }
                 if (Ray_.a == 7)//tag == clay の時
                 {
-                   
+
                     Debug.Log(wdata.ResourceObject.GetComponent<WorldObject>().CloneObject);
                     string a;
                     Panel.SetActive(true);
-                    if(wdata.ResourceCount == wdata.InitialCount)
+                    if (wdata.ResourceCount == wdata.InitialCount)
                     {
                         a = wdata.name_;
-                        
+
                     }
                     else
                     {
-                        a = (wdata.name_ +" "+wdata.Time_ .ToString("F2"));
+                        a = (wdata.name_ + " " + wdata.Time_.ToString("F2"));
                     }
                     text.text = a;
                     HitText = a;
@@ -189,7 +220,7 @@ public class HitPanel : MonoBehaviour
                     }
                 }
             }
-            
+
             if (Ray_.a == 0)//Ray_._hit == null の時
             {
                 Panel.SetActive(false);

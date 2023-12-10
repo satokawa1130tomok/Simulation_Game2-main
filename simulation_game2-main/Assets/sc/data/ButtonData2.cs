@@ -18,7 +18,7 @@ public class ButtonData2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(WorldName.text == t.text)
+        if (WorldName.text == t.text)
         {
             o.enabled = true;
             a.SetBool("Click", true);

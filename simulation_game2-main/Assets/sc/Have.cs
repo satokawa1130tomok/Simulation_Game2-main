@@ -32,8 +32,8 @@ public class Have : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // Debug.Log(have);
-       // Debug.Log(r);
+        // Debug.Log(have);
+        // Debug.Log(r);
         if (have == 1 && Input.GetKeyDown(KeyCode.Z))
         {
             Destroy(obj);
@@ -51,13 +51,13 @@ public class Have : MonoBehaviour
             //Debug.Log(ray.HitPosition);
             CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
             r = false;
-            
-            for (int i =0; child == null; i++)
+
+            for (int i = 0; child == null; i++)
             {
                 child = CloneObj.transform.GetChild(i).gameObject;
-                if(child != null)
+                if (child != null)
                 {
-                    
+
                     Destroy(child.GetComponent<Rigidbody>());
                     Destroy(child.GetComponent<BoxCollider>());
                     Destroy(child.GetComponent<SphereCollider>());
@@ -66,15 +66,15 @@ public class Have : MonoBehaviour
                 }
             }
 
-            
 
 
-          
-            
+
+
+
             //CloneObj.GetComponent<Material>().mainTexture
-         //   CloneObj.AddComponent<MeshRenderer>();
+            //   CloneObj.AddComponent<MeshRenderer>();
             MaterialCollar(true);
-            MaterialCollar(false) ;
+            MaterialCollar(false);
 
         }
         //Debug.Log(have + "" + CloneObj != null + "" + !player2_.inventoy.activeSelf);
@@ -89,10 +89,10 @@ public class Have : MonoBehaviour
                 Destroy(CloneObj);
                 have = 1;
                 CloneObj_(player2.obj);
-                CloneObj.transform.position =  new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
+                CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
                 CloneObj.transform.eulerAngles = worldAngle;
                 CloneObj = null;
-               RemoveItem(player2_.name_);
+                RemoveItem(player2_.name_);
                 if (removeItem_)
                 {
                     Destroy(obj);
@@ -120,20 +120,20 @@ public class Have : MonoBehaviour
             //    CloneObj.GetComponent<MeshRenderer>().material = mat;
             //}
             // Debug.Log(ray.bool_);
-           // Debug.Log(ray.bool_ + "" + Ray_._hit != null + "" + !player2_.inventoy.activeSelf);
+            // Debug.Log(ray.bool_ + "" + Ray_._hit != null + "" + !player2_.inventoy.activeSelf);
             if (ray.bool_ && Ray_._hit != null && !player2_.inventoy.activeSelf && CloneObj != null)
             {
-                     CloneObj.SetActive(true);
+                CloneObj.SetActive(true);
 
                 //if (Input.GetAxis("Mouse X") + Input.GetAxis("Mouse Y") != 0)
-               // {
-                   // Debug.Log(ray.);
-                    CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
+                // {
+                // Debug.Log(ray.);
+                CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
                 //  }
                 ground = true;
                 MaterialCollar(true);
 
-                 worldAngle = CloneObj.transform.eulerAngles;
+                worldAngle = CloneObj.transform.eulerAngles;
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     worldAngle.y += 45.0f;
@@ -150,14 +150,14 @@ public class Have : MonoBehaviour
                 {
                     worldAngle.x -= 45.0f;
                 }
-                
+
                 CloneObj.transform.eulerAngles = worldAngle; // âÒì]äpìxÇê›íË
 
             }
-            else if( ray.bool_ && Ray_._hit == null && !player2_.inventoy.activeSelf)
+            else if (ray.bool_ && Ray_._hit == null && !player2_.inventoy.activeSelf)
             {
                 ground = false;
-                MaterialCollar(false) ; 
+                MaterialCollar(false);
                 CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
 
             }
@@ -174,7 +174,7 @@ public class Have : MonoBehaviour
 
             // CloneObj.GetComponent<MeshRenderer>().material = mat;
         }
-      
+
 
     }
 
@@ -202,26 +202,26 @@ public class Have : MonoBehaviour
         CloneObj.transform.localPosition = new Vector3(0.04f, -0.0053f, -0.01f);
         CloneObj.transform.localScale = scale / 70;
         obj = CloneObj;
-        if(player2.obj.GetComponent<WorldObject>().ObjectType == "T")
+        if (player2.obj.GetComponent<WorldObject>().ObjectType == "T")
         {
             player2.HaveTool = player2.obj.GetComponent<WorldObject>().ResourceObjToolType;
         }
         have = 1;
-        
-       
-     //   Debug.Log(player2.obj);
+
+
+        //   Debug.Log(player2.obj);
 
     }
     void CloneObj_(GameObject clone)
     {
 
-        
+
         CloneObj = Instantiate(clone);
 
     }
     public void MaterialCollar(bool b)
     {
-        if(b != mat)
+        if (b != mat)
         {
             if (b)
             {
@@ -248,14 +248,14 @@ public class Have : MonoBehaviour
                     //children[i].GetComponent<MeshRenderer>().materials = null;
                     GameObject a = children[i].gameObject;
                     a.GetComponent<MeshRenderer>().material = red;
-                  //  children[i].GetComponent<MeshRenderer>().materials[1] = red;
+                    //  children[i].GetComponent<MeshRenderer>().materials[1] = red;
 
                 }
             }
             mat = b;
 
-            
-          
+
+
         }
     }
     public void RemoveItem(string name)
@@ -276,7 +276,7 @@ public class Have : MonoBehaviour
         else
             removeItem_ = false;
 
-        
+
     }
 
 
