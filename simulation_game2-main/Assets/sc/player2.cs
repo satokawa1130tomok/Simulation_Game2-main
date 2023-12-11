@@ -68,10 +68,7 @@ public class player2 : MonoBehaviour
         {
             isGround = true;
         }
-        else
-        {
-            isGround = false;
-        }
+       
     }
     void Awake()
     {
@@ -132,12 +129,31 @@ public class player2 : MonoBehaviour
     public void move()
     {
         Vector2 direction = _gameInputs.Player.Move.ReadValue<Vector2>();
-        Vector3 vector3 = this.transform.position;
+        Vector3 vector3 = this.transform.position;    
+        if (direction.y >= 0.5 && _gameInputs.Player.run.IsInProgress() && run_sli.run_value > 0f)
+        {
+            direction.y *= 2;
+            run = true;
+        }
+        else
+        {
+            run = false;
+        }
+        anim.SetBool("run", run);
         vector3 += this.transform.right * direction.y * speed * Time.deltaTime;
         vector3 -= this.transform.forward * direction.x * speed * Time.deltaTime;
         vector3.z -= direction.y * speed * Time.deltaTime * this.transform.forward.y;
         transform.position = vector3;
-
+        Jump();
+        if(_gameInputs.Player.Move.IsInProgress())
+        {
+            anim.SetBool("walk", true);
+        }
+        else
+        {
+            anim.SetBool("walk", false);
+        }
+    
 
         //if (Input.GetKey(KeyCode.W) && !run)
         //{
@@ -190,11 +206,19 @@ public class player2 : MonoBehaviour
 
 
     }
-    public void Jump (InputAction.CallbackContext context)
+    public void Jump ()
     {
-        isGround = false;
-        rb.velocity = Vector3.up * upForce * 10;
-        anim.SetBool("jump", true);
+        if (_gameInputs.Player.jump.IsInProgress() && isGround)
+        {
+            isGround = false;
+            this.gameObject.GetComponent<Rigidbody>().velocity = Vector3.up * upForce * 10;
+            anim.SetBool("jump", true);
+        }
+        else
+        {
+            anim.SetBool("jump", false);
+        }
+       
         b = true;
     }
     public void cameramove()
