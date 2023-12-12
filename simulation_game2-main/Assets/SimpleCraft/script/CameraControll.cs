@@ -9,7 +9,8 @@ public class CameraControll : MonoBehaviour
     public GameObject playerObject;            //回転の中心となるプレイヤー格納用
     public float rotateSpeed = 0.02f;            //回転の速さ
     public static bool active_camera;
-    public float max = 180.0f;
+    public float max = 90.0f;
+    public float minimum = -90.0f;
 
 
     //呼び出し時に実行される関数
@@ -54,6 +55,11 @@ public class CameraControll : MonoBehaviour
         float MouseY = playerObject.GetComponent<player2>()._gameInputs.Player.Look.ReadValue<Vector2>().y * rotateSpeed * -1;
         worldAngle.x += MouseY;
         myTransform.eulerAngles = worldAngle;
+        if (mainCamera.transform.rotation.x >= max){  worldAngle.x = max;Debug.Log("m"); }
+        if (mainCamera.transform.rotation.x <= minimum) { worldAngle.x = minimum;Debug.Log("mi"); }
+        //Debug.Log(worldAngle.x);
+        myTransform.eulerAngles = worldAngle;
+
 
     }
     private void Max()

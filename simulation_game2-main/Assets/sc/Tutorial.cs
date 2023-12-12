@@ -20,7 +20,7 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
 
-        if (CheckBox.bool_)
+        if (CheckBox.bool_t)
         {
             tutorial_obj.SetActive(true);
             quest_obj.SetActive(true);

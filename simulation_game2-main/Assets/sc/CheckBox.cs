@@ -5,15 +5,19 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CheckBox : MonoBehaviour
 {
-    public bool bool1;
+    public bool bool1_t;
+    public bool bool1_d;
 
-    public static bool bool_;
+    public static bool bool_t;
+    public static bool bool_d;
 
-    public Toggle toggle;
+    public Toggle toggle_t;
+    public Toggle toggle_d;
     // Start is called before the first frame update
     void Start()
     {
-        toggle.isOn = bool_;
+        toggle_t.isOn = bool_t;
+        toggle_d.isOn = bool_d;
     }
 
     // Update is called once per frame
@@ -23,8 +27,13 @@ public class CheckBox : MonoBehaviour
     }
     public void OnToggleChanged()
     {
-        bool1 = toggle.isOn;
-        bool_ = bool1;
+        bool1_t = toggle_t.isOn;
+        bool_t = bool1_t;
 
+    }
+    public void device()
+    {
+        bool1_d = toggle_d.isOn;
+        bool_d = bool1_d;
     }
 }

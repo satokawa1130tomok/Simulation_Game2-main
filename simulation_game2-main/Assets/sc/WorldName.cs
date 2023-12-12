@@ -50,6 +50,12 @@ public class WorldName : MonoBehaviour
         }
         road = road_;
     }
+    public void back()
+    {
+        fast.SetActive(true);
+        second.SetActive(false);
+        second_r.SetActive(false);
+    }
     public void NameList()
     {
         but = new List<GameObject>();

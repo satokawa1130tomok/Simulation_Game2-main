@@ -56,7 +56,7 @@ public class player2 : MonoBehaviour
     public bool Preview;
     public PreviewManager _previewManager;
     public InputSystem _gameInputs;
-
+    public GameObject button;
    
     // Start is called before the first frame update
 
@@ -93,6 +93,7 @@ public class player2 : MonoBehaviour
         esc_ = false;
         _gameInputs = new InputSystem();
         _gameInputs.Enable();
+        button.SetActive(CheckBox.bool_d);
     }
 
     // Update is called once per frame

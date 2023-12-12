@@ -12551,6 +12551,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7583df5e-3e50-4033-b9f2-34ecbe713152
     m_ActionName: Player/jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 710a113f-9b05-4396-94ae-fc3c90f1845e
+    m_ActionName: Player/run[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -12918,7 +12922,7 @@ PrefabInstance:
     - target: {fileID: 237697455433847497, guid: a8d7ea85751114f49b64853a10007424,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0008879767
+      value: 0.00020518323
       objectReference: {fileID: 0}
     - target: {fileID: 237731915719996967, guid: a8d7ea85751114f49b64853a10007424,
         type: 3}
@@ -13273,7 +13277,7 @@ PrefabInstance:
     - target: {fileID: 238669421537528983, guid: a8d7ea85751114f49b64853a10007424,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0008222899
+      value: 0.00010907818
       objectReference: {fileID: 0}
     - target: {fileID: 238685163734318455, guid: a8d7ea85751114f49b64853a10007424,
         type: 3}
@@ -14177,6 +14181,11 @@ PrefabInstance:
       propertyPath: Recipe
       value: 
       objectReference: {fileID: 795914607}
+    - target: {fileID: 6727308354703441639, guid: a8d7ea85751114f49b64853a10007424,
+        type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 2059615041}
     - target: {fileID: 6727308354703441639, guid: a8d7ea85751114f49b64853a10007424,
         type: 3}
       propertyPath: animator
