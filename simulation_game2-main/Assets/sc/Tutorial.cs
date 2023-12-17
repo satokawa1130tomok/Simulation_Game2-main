@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.InputSystem;
 public class Tutorial : MonoBehaviour
 {
     public int step;
@@ -14,7 +14,9 @@ public class Tutorial : MonoBehaviour
 
     public player2 _player2;
 
-    public static bool ray;
+    public static bool ray; 
+    public InputSystem _gameInputs;
+
     //public CheckBox _checkBox;
     // Start is called before the first frame update
     void Start()
@@ -46,7 +48,8 @@ public class Tutorial : MonoBehaviour
             _player2.Craft_ = true;
             ray = true;
         }
-
+        _gameInputs = new InputSystem();
+        _gameInputs.Enable();
     }
 
     // Update is called once per frame
@@ -58,8 +61,8 @@ public class Tutorial : MonoBehaviour
 
             slider_Obj.SetActive(true);
             quest.text = "WASDを押して移動しよう";
-            if ((Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.S)) || (Input.GetKey(KeyCode.D)))
-            {
+            if (_gameInputs.Player.Move.ReadValue<Vector2>().x != 0 || _gameInputs.Player.Move.ReadValue<Vector2>().y != 0) 
+            { 
                 slider_sli.value += 0.05f;
                 if (slider_sli.value == 10)
                 {
@@ -74,10 +77,10 @@ public class Tutorial : MonoBehaviour
             CameraControll.active_camera = true;
             slider_Obj.SetActive(true);
             quest.text = "マウスで視点を移動しよう";
-            float a = Input.GetAxis("Mouse Y") * -1 + Input.GetAxis("Mouse X") * -1;
+            //float a = Input.GetAxis("Mouse Y") * -1 + Input.GetAxis("Mouse X") * -1;
 
 
-            if (a != 0)
+            if (_gameInputs.Player.Look.ReadValue<Vector2>().x != 0 || _gameInputs.Player.Look.ReadValue<Vector2>().y != 0)
             {
                 slider_sli.value += 0.05f;
                 if (slider_sli.value == 10)
@@ -150,13 +153,11 @@ public class Tutorial : MonoBehaviour
         if (step == 8)
         {
             slider_Obj.SetActive(false);
-            quest.text = "クリアしよう";
-            float a = Input.GetAxis("Mouse Y") * -1 + Input.GetAxis("Mouse X") * -1;
-            if ((Input.GetKey(KeyCode.W)) || (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.S)) || (a != 0))
-            {
+            quest.text = "";
+            
                 quest_obj.SetActive(false);
                 tutorial_obj.SetActive(false);
-            }
+            
         }
 
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.InputSystem;
 public class PreviewManager : MonoBehaviour
 {
     public GameObject ImageObject;
@@ -26,6 +26,8 @@ public class PreviewManager : MonoBehaviour
     public Material red;
     public Material green;
     public Vector3 worldAngle;
+    public InputSystem _gameInputs;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,8 @@ public class PreviewManager : MonoBehaviour
         {
             button.Clear();
         }
+        _gameInputs = new InputSystem();
+        _gameInputs.Enable();
     }
 
     // Update is called once per frame
@@ -45,7 +49,7 @@ public class PreviewManager : MonoBehaviour
             Have();
         }
 
-        if (preview == true && Input.GetKeyDown(KeyCode.P))
+        if (preview == true && _gameInputs.Player.home.WasPressedThisFrame())
         {
             active(false);
             Cursor.visible = false;
@@ -53,14 +57,14 @@ public class PreviewManager : MonoBehaviour
         }
         if (a_ == true)
         {
-            if (!Input.GetKey(KeyCode.P))
+            if (!_gameInputs.Player.home.WasPressedThisFrame())
             {
                 preview = false;
                 a_ = false;
             }
         }
 
-        if (!preview && !_player2.inventoy__ && !_player2.Craft_ && Input.GetKeyDown(KeyCode.P))
+        if (!preview && !_player2.inventoy__ && !_player2.Craft_ && _gameInputs.Player.home.WasPressedThisFrame())
         {
             Cursor.visible = true;
             active(true);
@@ -239,7 +243,7 @@ public class PreviewManager : MonoBehaviour
             CloneObj.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (_gameInputs.Player.cancel.WasPressedThisFrame())
         {
             Destroy(CloneObj);
             have = false;
@@ -252,11 +256,11 @@ public class PreviewManager : MonoBehaviour
         {
 
             worldAngle = CloneObj.transform.eulerAngles;
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (_gameInputs.Player.left.WasPressedThisFrame())
             {
                 worldAngle.y += 22.5f;
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (_gameInputs.Player.right.WasPressedThisFrame())
             {
                 worldAngle.y -= 22.5f;
             }
@@ -272,7 +276,7 @@ public class PreviewManager : MonoBehaviour
             CloneObj.transform.eulerAngles = worldAngle; // âÒì]äpìxÇê›íË
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (_gameInputs.Player.Installation.WasPressedThisFrame())
         {
             Destroy(CloneObj);
             have = false;

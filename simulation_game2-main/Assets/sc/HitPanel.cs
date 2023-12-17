@@ -166,7 +166,7 @@ public class HitPanel : MonoBehaviour
 
                     text.text = wdata.name_;
                     HitText = wdata.name_;
-                    if (_gameInputs.Player.pickUp.WasPressedThisFrame() && Input.GetKey(KeyCode.LeftShift))
+                    if (_gameInputs.Player.pickUp.WasPressedThisFrame() && _gameInputs.Player.shift.WasPressedThisFrame())
                     {
                         _InventoryList.ItemList(wdata);//ƒCƒ“ƒxƒ“ƒgƒŠ‚É’Ç‰Á
                         _InventoryList.CloneText(wdata._name, 1);
@@ -176,7 +176,7 @@ public class HitPanel : MonoBehaviour
                         Destroy(Ray_._hit);
                         return;
                     }
-                    if (_gameInputs.Player.pickUp.WasPressedThisFrame() && !Input.GetKey(KeyCode.LeftShift))
+                    if (_gameInputs.Player.pickUp.WasPressedThisFrame() && !_gameInputs.Player.shift.WasPressedThisFrame())
                     {
                         player2_.Craft.SetActive(true);
                         player2_.Recipe.SetActive(false);

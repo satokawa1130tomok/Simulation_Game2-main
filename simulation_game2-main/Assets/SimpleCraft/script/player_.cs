@@ -91,10 +91,11 @@ public class player_ : MonoBehaviour
             Debug.Log("abcd");
         }
         //Debug.Log(sli_bk.color);
-        if (Input.GetKey(KeyCode.K))
-        {
-            sli_bk.color = new Color(255f, 255f, 255f);
-        }
+        //if (
+        //    Key(KeyCode.K))
+        //{
+        //    sli_bk.color = new Color(255f, 255f, 255f);
+        //}
 
     }
 

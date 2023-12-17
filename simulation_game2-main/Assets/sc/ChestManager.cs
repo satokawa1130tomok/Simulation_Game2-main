@@ -19,7 +19,8 @@ public class ChestManager : MonoBehaviour
     public InventoryList _inventoryList;
     public bool a;
     public Animator anim;
-    public bool open;
+    public bool open; public InputSystem _gameInputs;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,8 @@ public class ChestManager : MonoBehaviour
         _player2 = ObjectManager._om._player2;
         _inventoryCrate = ObjectManager._om._inventoryCrate;
         _inventoryList = ObjectManager._om._inventoryList;
+        _gameInputs = new InputSystem();
+        _gameInputs.Enable();
     }
 
     // Update is called once per frame
@@ -37,7 +40,7 @@ public class ChestManager : MonoBehaviour
     {
 
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (_gameInputs.Player.inventory.WasPressedThisFrame())
         {
             if (SecoundInventoy.activeSelf == true)
             {
@@ -49,7 +52,7 @@ public class ChestManager : MonoBehaviour
         }
         if (a)
         {
-            if (!Input.GetKey(KeyCode.E))
+            if (!_gameInputs.Player.inventory.WasPressedThisFrame())
             {
                 _player2.inventoy__ = true;
                 a = false;

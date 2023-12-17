@@ -139,19 +139,19 @@ public class Have : MonoBehaviour
                 MaterialCollar(true);
 
                 worldAngle = CloneObj.transform.eulerAngles;
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                if (_gameInputs.Player.left.WasPressedThisFrame())
                 {
                     worldAngle.y += 45.0f;
                 }
-                if (Input.GetKeyDown(KeyCode.RightArrow))
+                if (_gameInputs.Player.right.WasPressedThisFrame())
                 {
                     worldAngle.y -= 45.0f;
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow))
+                if (_gameInputs.Player.up.WasPressedThisFrame())
                 {
                     worldAngle.x += 45.0f;
                 }
-                if (Input.GetKeyDown(KeyCode.DownArrow))
+                if (_gameInputs.Player.Down.WasPressedThisFrame())
                 {
                     worldAngle.x -= 45.0f;
                 }
