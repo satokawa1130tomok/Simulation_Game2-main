@@ -230,7 +230,7 @@ public class player2 : MonoBehaviour
     }
     public void inventoy_()
     {
-        if (Input.GetKeyDown(KeyCode.E) && (!inventoy.activeSelf) && (!Craft.activeSelf) && (!EscObj.activeSelf))
+        if (_gameInputs.Player.inventory.WasPressedThisFrame() && (!inventoy.activeSelf) && (!Craft.activeSelf) && (!EscObj.activeSelf))
         {
             inventoy__ = true;
             //  Debug.Log("a");
@@ -243,7 +243,7 @@ public class player2 : MonoBehaviour
             a = true;
             inve_anim.SetBool("clause", true);
         }
-        else if (Input.GetKeyDown(KeyCode.E) && (inventoy.activeSelf) && (!Craft.activeSelf) && (!EscObj.activeSelf))
+        else if (_gameInputs.Player.inventory.WasPressedThisFrame() && (inventoy.activeSelf) && (!Craft.activeSelf) && (!EscObj.activeSelf))
         {
 
             _inventoryCreate.DestroyButton();
@@ -255,7 +255,7 @@ public class player2 : MonoBehaviour
             inventoy.SetActive(false);
             inve_anim.SetBool("clause", false);
         }
-        else if (Input.GetKeyDown(KeyCode.E) && (!inventoy.activeSelf) && (Craft.activeSelf) && (!EscObj.activeSelf))
+        else if (_gameInputs.Player.inventory.WasPressedThisFrame() && (!inventoy.activeSelf) && (Craft.activeSelf) && (!EscObj.activeSelf))
         {
             inventoy__ = true;
             Recipe.SetActive(false);
@@ -274,7 +274,7 @@ public class player2 : MonoBehaviour
     }
     public void _Craft()
     {
-        if (Input.GetKeyDown(KeyCode.C) && (!Craft.activeSelf) && (!inventoy.activeSelf) && (!EscObj.activeSelf))
+        if (_gameInputs.Player.craft.WasPressedThisFrame() && (!Craft.activeSelf) && (!inventoy.activeSelf) && (!EscObj.activeSelf))
         {
             Craft_ = true;
             Craft.SetActive(true);
@@ -284,7 +284,7 @@ public class player2 : MonoBehaviour
             RecipieButton.HandCraft = true;
             _recipieButton.HnadCraft();
         }
-        else if (Input.GetKeyDown(KeyCode.C) && (Craft.activeSelf) && (!inventoy.activeSelf) && (!EscObj.activeSelf))
+        else if (_gameInputs.Player.craft.WasPressedThisFrame() && (Craft.activeSelf) && (!inventoy.activeSelf) && (!EscObj.activeSelf))
         {
             Recipe.SetActive(false);
             Craft.SetActive(false);
@@ -292,7 +292,7 @@ public class player2 : MonoBehaviour
             Cursor.visible = false;
             CameraControll.active_camera = true;
         }
-        else if (Input.GetKeyDown(KeyCode.C) && (!Craft.activeSelf) && (inventoy.activeSelf) && (!EscObj.activeSelf))
+        else if (_gameInputs.Player.craft.WasPressedThisFrame() && (!Craft.activeSelf) && (inventoy.activeSelf) && (!EscObj.activeSelf))
         {
             RecipieButton.HandCraft = true;
             Craft.SetActive(true);
@@ -318,7 +318,7 @@ public class player2 : MonoBehaviour
     {
         if (!Craft.activeSelf && !inventoy.activeSelf && !button)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (_gameInputs.Player.escape.WasPressedThisFrame())
             {
                 count += 1;
                 if (count % 2 == 1)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectManager : MonoBehaviour
 {
     public List<GameObject> obj;
+    public List<GameObject> obj2;
     public List<int> number;
     public List<float> position_x;
     public List<float> position_y;
@@ -66,6 +67,7 @@ public class ObjectManager : MonoBehaviour
     }
     public void clearat(int x)
     {
+        
         position_x.RemoveAt(x);
         position_y.RemoveAt(x);
         position_z.RemoveAt(x);
@@ -73,14 +75,21 @@ public class ObjectManager : MonoBehaviour
         rotation_y.RemoveAt(x);
         rotation_z.RemoveAt(x);
         obj.RemoveAt(x);
-        number.RemoveAt(x);
-        int int1 = 0;
         foreach (GameObject a in obj)
         {
-
+            obj2.Add(a);
+        }
+        number.RemoveAt(x);
+        int int1 = 0;
+        obj.Clear();
+        foreach (GameObject a in obj2)
+        {
+            //Debug.Log(int1);
+            obj.Add(a);
             a.GetComponent<WorldObject>().ListNumber = int1;
             int1++;
         }
+        obj2.Clear();
 
     }
 

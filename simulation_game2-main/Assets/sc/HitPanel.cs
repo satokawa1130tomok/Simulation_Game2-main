@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.InputSystem;
 public class HitPanel : MonoBehaviour
 {
     public GameObject Panel;
@@ -17,11 +17,12 @@ public class HitPanel : MonoBehaviour
     public Have have_;
     public RecipieButton _recipieButton;
     public PreviewManager _previewManager;
-
+    public InputSystem _gameInputs;
     // Start is called before the first frame update
     void Start()
     {
-
+        _gameInputs = new InputSystem();
+        _gameInputs.Enable();
     }
 
     // Update is called once per frame
@@ -41,7 +42,7 @@ public class HitPanel : MonoBehaviour
 
                     text.text = wdata.name_;
                     HitText = wdata.name_;
-                    if (Input.GetMouseButtonDown(0))
+                    if (_gameInputs.Player.pickUp.WasPressedThisFrame())
                     {
                         _InventoryList.ItemList(wdata);//インベントリに追加
                         _InventoryList.CloneText(wdata._name, 1);
@@ -59,7 +60,7 @@ public class HitPanel : MonoBehaviour
                     WorldObject RRdata = Rdata.ResourceObject.gameObject.GetComponent<WorldObject>();
                     text.text = (Rdata.name_ + " from " + RRdata.name_ + "  × " + Rdata.ResourceObjCount);
                     HitText = (Rdata.name_ + " from " + RRdata.name_ + "  × " + Rdata.ResourceObjCount);
-                    if (Input.GetMouseButtonDown(0))
+                    if (_gameInputs.Player.pickUp.WasPressedThisFrame())
                     {
                         if (Ray_.a == 2)
                         {
@@ -129,7 +130,7 @@ public class HitPanel : MonoBehaviour
                     text.text = Tdata.name + " (" + type + ")";
                     HitText = Tdata.name + " (" + type + ")";
 
-                    if (Input.GetMouseButtonDown(0))
+                    if (_gameInputs.Player.pickUp.WasPressedThisFrame())
                     {
                         _InventoryList.ToolList(Ray_._hit, Tdata);//インベントリに追加
                         _HaveTool.Have(Tdata);//プレイヤーの手に持つ
@@ -146,7 +147,7 @@ public class HitPanel : MonoBehaviour
                     Panel.SetActive(true);
                     text.text = wdata.name_;
                     HitText = wdata.name_;
-                    if (Input.GetMouseButtonDown(0))
+                    if (_gameInputs.Player.pickUp.WasPressedThisFrame())
                     {
                         bool a = true;
                         _chestManager = Ray_._hit.GetComponent<ChestManager>();
@@ -165,7 +166,7 @@ public class HitPanel : MonoBehaviour
 
                     text.text = wdata.name_;
                     HitText = wdata.name_;
-                    if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftShift))
+                    if (_gameInputs.Player.pickUp.WasPressedThisFrame() && Input.GetKey(KeyCode.LeftShift))
                     {
                         _InventoryList.ItemList(wdata);//インベントリに追加
                         _InventoryList.CloneText(wdata._name, 1);
@@ -175,7 +176,7 @@ public class HitPanel : MonoBehaviour
                         Destroy(Ray_._hit);
                         return;
                     }
-                    if (Input.GetMouseButtonDown(0) && !Input.GetKey(KeyCode.LeftShift))
+                    if (_gameInputs.Player.pickUp.WasPressedThisFrame() && !Input.GetKey(KeyCode.LeftShift))
                     {
                         player2_.Craft.SetActive(true);
                         player2_.Recipe.SetActive(false);
@@ -207,7 +208,7 @@ public class HitPanel : MonoBehaviour
                     }
                     text.text = a;
                     HitText = a;
-                    if (Input.GetMouseButtonDown(0))
+                    if (_gameInputs.Player.pickUp.WasPressedThisFrame())
                     {
                         _InventoryList.ResourceList(wdata);//インベントリに追加
                         _InventoryList.CloneText(wdata._name, wdata.ResourceObjCount);

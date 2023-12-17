@@ -74,13 +74,13 @@ public class CraftManager : MonoBehaviour
         if (craft)
         {
             var var_ = 0;
-            if (recipie.inventoryList.name.IndexOf(item) == -1)
+            if (recipie.inventoryList.name_.IndexOf(item) == -1)
             {
                 var_ = 0;
             }
             else
             {
-                var_ = recipie.inventoryList.count[recipie.inventoryList.name.IndexOf(item)];
+                var_ = recipie.inventoryList.count[recipie.inventoryList.name_.IndexOf(item)];
             }
             if (var_ == -1)//ÉAÉCÉeÉÄÇéùÇ¡ÇƒÇ¢Ç»Ç¢
             {
@@ -116,18 +116,18 @@ public class CraftManager : MonoBehaviour
     }
     public void RemoveList(string name, int count)
     {
-        var var_ = recipie.inventoryList.count[recipie.inventoryList.name.IndexOf(name)];
+        var var_ = recipie.inventoryList.count[recipie.inventoryList.name_.IndexOf(name)];
         if (var_ == count)
         {
             removeItem_ = false;
-            int a = recipie.inventoryList.name.IndexOf(name);
-            recipie.inventoryList.name.RemoveAt(a);
+            int a = recipie.inventoryList.name_.IndexOf(name);
+            recipie.inventoryList.name_.RemoveAt(a);
             recipie.inventoryList.count.RemoveAt(a);
             recipie.inventoryList.obj.RemoveAt(a);
         }
         else
         {
-            recipie.inventoryList.count[recipie.inventoryList.name.IndexOf(name)] = var_ - count;
+            recipie.inventoryList.count[recipie.inventoryList.name_.IndexOf(name)] = var_ - count;
             removeItem_ = true;
         }
     }

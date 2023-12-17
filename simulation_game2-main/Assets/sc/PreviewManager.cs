@@ -114,7 +114,7 @@ public class PreviewManager : MonoBehaviour
             CloneObject.transform.parent = GameObject.Find("clone").transform;
             GameObject textObj = CloneObject.transform.Find("clonetext").gameObject;
             Text text = textObj.gameObject.GetComponent<Text>();
-            int c = _inventoryList.name.IndexOf(a);
+            int c = _inventoryList.name_.IndexOf(a);
             if (c == -1)
             {
                 c = 0;
@@ -156,7 +156,7 @@ public class PreviewManager : MonoBehaviour
         foreach (string a in scriptable.ItemName)
         {
             HaveItem = false;
-            int b = _inventoryList.name.IndexOf(a);
+            int b = _inventoryList.name_.IndexOf(a);
             if (b == -1)
             {
                 HaveItem = true;
@@ -291,10 +291,10 @@ public class PreviewManager : MonoBehaviour
         int count = 0;
         foreach (string a in scriptable.ItemName)
         {
-            int int1 = _inventoryList.name.IndexOf(a);
+            int int1 = _inventoryList.name_.IndexOf(a);
             if (_inventoryList.count[int1] == scriptable.ItemCount[count])
             {
-                _inventoryList.name.RemoveAt(int1);
+                _inventoryList.name_.RemoveAt(int1);
                 _inventoryList.count.RemoveAt(int1);
                 _inventoryList.obj.RemoveAt(int1);
                 _inventoryList.number.RemoveAt(int1);

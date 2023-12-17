@@ -223,7 +223,7 @@ public class RecipieButton : MonoBehaviour
     {
 
         int int1;
-        int a = inventoryList.name.IndexOf(Itemname1);
+        int a = inventoryList.name_.IndexOf(Itemname1);
         if ((a == -1))
         {
             int1 = 0;
@@ -243,7 +243,7 @@ public class RecipieButton : MonoBehaviour
     {
 
         int int1;
-        int a = inventoryList.name.IndexOf(Itemname1);
+        int a = inventoryList.name_.IndexOf(Itemname1);
         if ((a == -1))
         {
             int1 = 0;
@@ -257,7 +257,7 @@ public class RecipieButton : MonoBehaviour
 
         int int2;
         // Debug.Log(inventoryList.name.IndexOf(Itemname2));
-        a = inventoryList.name.IndexOf(Itemname2);
+        a = inventoryList.name_.IndexOf(Itemname2);
         if ((a == -1))
         {
             int2 = 0;
@@ -281,7 +281,7 @@ public class RecipieButton : MonoBehaviour
     {
 
         int int1;
-        int a = inventoryList.name.IndexOf(Itemname1);
+        int a = inventoryList.name_.IndexOf(Itemname1);
         if ((a == -1))
         {
             int1 = 0;
@@ -294,7 +294,7 @@ public class RecipieButton : MonoBehaviour
         ItemText1.text = (Itemname1 + "     " + int1 + "/" + Itemcount1);
 
         int int2;
-        a = inventoryList.name.IndexOf(Itemname2);
+        a = inventoryList.name_.IndexOf(Itemname2);
         if ((a == -1))
         {
             int2 = 0;
@@ -307,7 +307,7 @@ public class RecipieButton : MonoBehaviour
         ItemText2.text = (Itemname2 + "     " + int2 + "/" + ItemCount2);
 
         int int3;
-        a = inventoryList.name.IndexOf(Itemname3);
+        a = inventoryList.name_.IndexOf(Itemname3);
         if ((a == -1))
         {
             int3 = 0;

@@ -103,7 +103,7 @@ public class save : MonoBehaviour
         write(player.transform.position.z.ToString());
         write(player.transform.eulerAngles.y.ToString());
         write("PlayerData");
-        foreach (string a in _InventoryList.name)
+        foreach (string a in _InventoryList.name_)
         {
             write(a);
         }
@@ -212,12 +212,12 @@ public class save : MonoBehaviour
         image.SetActive(true);
         road_List = File.ReadAllLines("save/" + WorldName_ + "/file.txt");
         int step = -1;
-        _InventoryList.name.Clear();
+        _InventoryList.name_.Clear();
         _InventoryList.count.Clear();
         _InventoryList.obj.Clear();
         _InventoryList.number.Clear();
         _objectManager.clear();
-        Debug.Log(_objectManager.obj.Count);
+        //Debug.Log(_objectManager.obj.Count);
         foreach (string a in road_List)
         {
             if (a == "PlayerPosition" && step == -1)
@@ -252,7 +252,7 @@ public class save : MonoBehaviour
                 }
                 else
                 {
-                    _InventoryList.name.Add(a);
+                    _InventoryList.name_.Add(a);
                 }
             }
             if (step == 1)

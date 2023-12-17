@@ -70,11 +70,11 @@ public class IncentoryCreate : MonoBehaviour
         but.Clear();
         int i = 0;
 
-        int C = _InventoryList.name.Count();
+        int C = _InventoryList.name_.Count();
         C = C - 1;
 
 
-        if (_InventoryList.name.Count() != 100)
+        if (_InventoryList.name_.Count() != 100)
         {
             for (i = 0; i < C + 1; i++)
             {
@@ -87,7 +87,7 @@ public class IncentoryCreate : MonoBehaviour
                 GameObject textObj = cloneButton.transform.Find("clonetext").gameObject;
                 Text _text = textObj.GetComponent<Text>();
 
-                string a = _InventoryList.name[i];
+                string a = _InventoryList.name_[i];
                 int b = _InventoryList.count[i];
                 _text.text = a + " Å~" + b;
 

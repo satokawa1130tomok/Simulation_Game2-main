@@ -110,7 +110,7 @@ public class ChestManager : MonoBehaviour
 
             var var1 = -100;
             var1 = ListName.IndexOf(_player2.name_);
-            var var2 = _inventoryList.name.IndexOf(_player2.name_);
+            var var2 = _inventoryList.name_.IndexOf(_player2.name_);
             // Debug.Log(var1 + _player2.name);
 
             if (var1 == -1)
@@ -140,13 +140,13 @@ public class ChestManager : MonoBehaviour
         {
 
             var var1 = -100;
-            var1 = _inventoryList.name.IndexOf(_player2.name_);
+            var1 = _inventoryList.name_.IndexOf(_player2.name_);
             var var2 = ListName.IndexOf(_player2.name_);
             // Debug.Log(var1 + _player2.name);
 
             if (var1 == -1)
             {
-                _inventoryList.name.Add(_player2.name_);
+                _inventoryList.name_.Add(_player2.name_);
                 _inventoryList.count.Add(1);
                 _inventoryList.obj.Add(ListObj[var2]);
             }
@@ -174,7 +174,7 @@ public class ChestManager : MonoBehaviour
         int int1 = _inventoryList.count[var1];
         if (int1 == 1)
         {
-            _inventoryList.name.RemoveAt(var1);
+            _inventoryList.name_.RemoveAt(var1);
             _inventoryList.count.RemoveAt(var1);
             _inventoryList.obj.RemoveAt(var1);
 
@@ -195,7 +195,7 @@ public class ChestManager : MonoBehaviour
     {
         //Debug.Log(a);
         var var1 = -100;
-        var1 = _inventoryList.name.IndexOf(a);
+        var1 = _inventoryList.name_.IndexOf(a);
         int int1 = ListCount[var1];
         if (int1 == 1)
         {

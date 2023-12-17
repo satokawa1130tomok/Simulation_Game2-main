@@ -5,7 +5,7 @@ using System.Linq;
 
 public class InventoryList : MonoBehaviour
 {
-    public List<string> name = new List<string>();
+    public List<string> name_ = new List<string>();
     public List<int> count;
     public List<GameObject> obj;
     public List<int> number;
@@ -27,11 +27,11 @@ public class InventoryList : MonoBehaviour
         ////bool1 = name.Contains(Idata.name);
         //Debug.Log(bool1);
         var var1 = -100;
-        var1 = name.IndexOf(wdata.name_);
+        var1 = name_.IndexOf(wdata.name_);
         // Debug.Log(var1);
         if (var1 == -1)
         {
-            name.Add(wdata.name_);
+            name_.Add(wdata.name_);
             count.Add(1);
             obj.Add(wdata.CloneObject);
             number.Add(wdata.ItemObjDataNumber_);
@@ -69,11 +69,11 @@ public class InventoryList : MonoBehaviour
         ////bool1 = name.Contains(Idata.name);
         //Debug.Log(bool1);
         var var1 = -100;
-        var1 = name.IndexOf(Tdata.name);
+        var1 = name_.IndexOf(Tdata.name);
         // Debug.Log(var1);
         if (var1 == -1)
         {
-            name.Add(Tdata.name);
+            name_.Add(Tdata.name);
             count.Add(1);
             obj.Add(Tdata.Toolobj);
             number.Add(Tdata.number);
@@ -95,12 +95,12 @@ public class InventoryList : MonoBehaviour
         ////bool1 = name.Contains(Idata.name);
         //   Debug.Log(obj);
         var var1 = -100;
-        var1 = name.IndexOf(name_);
+        var1 = this.name_.IndexOf(name_);
 
         // Debug.Log(var1);
         if (var1 == -1)
         {
-            name.Add(name_);
+            this.name_.Add(name_);
             count.Add(count_);
             obj.Add(obj_);
         }

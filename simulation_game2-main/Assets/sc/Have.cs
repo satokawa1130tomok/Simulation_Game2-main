@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class Have : MonoBehaviour
 {
     public ObjectManager objectManager;
@@ -23,10 +23,14 @@ public class Have : MonoBehaviour
     public RecipieButton recipie;
     private bool removeItem_;
     private GameObject child;
+    public InputSystem _gameInputs;
+    public InventoryList _InventoryList;
     // Start is called before the first frame update
     void Start()
     {
         have = -1;
+        _gameInputs = new InputSystem();
+        _gameInputs.Enable();
     }
 
     // Update is called once per frame
@@ -34,13 +38,13 @@ public class Have : MonoBehaviour
     {
         // Debug.Log(have);
         // Debug.Log(r);
-        if (have == 1 && Input.GetKeyDown(KeyCode.Z))
+        if (have == 1 && _gameInputs.Player.cancel.WasPressedThisFrame())
         {
             Destroy(obj);
             have = 0;
             player2.anim.SetBool("have", false);
         }
-        if (have == 1 && Input.GetKeyDown(KeyCode.R))
+        if (have == 1 && _gameInputs.Player.Installation.WasPressedThisFrame())
         {
             have = 0;
             //Debug.Log(CloneObj);
@@ -48,6 +52,7 @@ public class Have : MonoBehaviour
             Destroy(CloneObj.GetComponent<Rigidbody>());
             Destroy(CloneObj.GetComponent<BoxCollider>());
             Destroy(CloneObj.GetComponent<SphereCollider>());
+            Destroy(CloneObj.GetComponent<WorldObject>());
             //Debug.Log(ray.HitPosition);
             CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
             r = false;
@@ -80,11 +85,11 @@ public class Have : MonoBehaviour
         //Debug.Log(have + "" + CloneObj != null + "" + !player2_.inventoy.activeSelf);
         if (have == 0 && CloneObj != null && !player2_.inventoy.activeSelf)
         {
-            if (Input.GetKeyUp(KeyCode.R))
+            if (_gameInputs.Player.Installation.WasPressedThisFrame())
             {
                 r = true;
             }
-            if (Input.GetKeyDown(KeyCode.R) && r && ground)
+            if (_gameInputs.Player.Installation.WasPressedThisFrame() && r && ground)
             {
                 Destroy(CloneObj);
                 have = 1;
@@ -166,7 +171,7 @@ public class Have : MonoBehaviour
                 CloneObj.SetActive(false);
                 //CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
             }
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (_gameInputs.Player.cancel.WasPressedThisFrame())
             {
                 Destroy(CloneObj);
                 have = 1;
@@ -190,6 +195,7 @@ public class Have : MonoBehaviour
         CloneObj_(player2.obj);
         Destroy(CloneObj.GetComponent<Rigidbody>());
         Destroy(CloneObj.GetComponent<BoxCollider>());
+        Destroy(CloneObj.GetComponent<WorldObject>());
         Transform myTransform = CloneObj.transform;
         Vector3 scale = CloneObj.transform.localScale;
         CloneObj.gameObject.transform.parent = GameObject.FindWithTag("HavePosition").transform;
@@ -206,6 +212,8 @@ public class Have : MonoBehaviour
         {
             player2.HaveTool = player2.obj.GetComponent<WorldObject>().ResourceObjToolType;
         }
+        
+       
         have = 1;
 
 
@@ -221,53 +229,53 @@ public class Have : MonoBehaviour
     }
     public void MaterialCollar(bool b)
     {
-        if (b != mat)
-        {
-            if (b)
-            {
-                CloneObj.GetComponent<MeshRenderer>().material = green;
-                children = new Transform[CloneObj.transform.childCount];
-                //children = new Transform[CloneObj.transform.childCount];
-                for (int i = 0; i < CloneObj.transform.childCount; i++)
-                {
-                    //   Material[] ma;
-                    // ma[0]
-                    // children[i].GetComponent<MeshRenderer>().materials = green;
-                    GameObject a = children[i].gameObject;
-                    a.GetComponent<MeshRenderer>().material = green;
+        //if (b != mat)
+        //{
+        //    if (b)
+        //    {
+        //        CloneObj.GetComponent<MeshRenderer>().material = green;
+        //        children = new Transform[CloneObj.transform.childCount];
+        //        //children = new Transform[CloneObj.transform.childCount];
+        //        for (int i = 0; i < CloneObj.transform.childCount; i++)
+        //        {
+        //            //   Material[] ma;
+        //            // ma[0]
+        //            // children[i].GetComponent<MeshRenderer>().materials = green;
+        //            GameObject a = children[i].gameObject;
+        //            a.GetComponent<MeshRenderer>().material = green;
 
-                }
-            }
-            if (!b)
-            {
-                //children = new Transform[CloneObj.transform.childCount];
-                children = new Transform[CloneObj.transform.childCount];
-                CloneObj.GetComponent<MeshRenderer>().material = red;
-                for (int i = 0; i < CloneObj.transform.childCount; i++)
-                {
-                    //children[i].GetComponent<MeshRenderer>().materials = null;
-                    GameObject a = children[i].gameObject;
-                    a.GetComponent<MeshRenderer>().material = red;
-                    //  children[i].GetComponent<MeshRenderer>().materials[1] = red;
+        //        }
+        //    }
+        //    if (!b)
+        //    {
+        //        //children = new Transform[CloneObj.transform.childCount];
+        //        children = new Transform[CloneObj.transform.childCount];
+        //        CloneObj.GetComponent<MeshRenderer>().material = red;
+        //        for (int i = 0; i < CloneObj.transform.childCount; i++)
+        //        {
+        //            //children[i].GetComponent<MeshRenderer>().materials = null;
+        //            GameObject a = children[i].gameObject;
+        //            a.GetComponent<MeshRenderer>().material = red;
+        //            //  children[i].GetComponent<MeshRenderer>().materials[1] = red;
 
-                }
-            }
-            mat = b;
+        //        }
+        //    }
+        //    mat = b;
 
 
 
-        }
+        //}
     }
     public void RemoveItem(string name)
     {
 
 
-        var var_ = recipie.inventoryList.count[recipie.inventoryList.name.IndexOf(name)];
-        recipie.inventoryList.count[recipie.inventoryList.name.IndexOf(name)] -= 1;
-        if (recipie.inventoryList.count[recipie.inventoryList.name.IndexOf(name)] == 0)
+        var var_ = recipie.inventoryList.count[recipie.inventoryList.name_.IndexOf(name)];
+        recipie.inventoryList.count[recipie.inventoryList.name_.IndexOf(name)] -= 1;
+        if (recipie.inventoryList.count[recipie.inventoryList.name_.IndexOf(name)] == 0)
         {
-            int a = recipie.inventoryList.name.IndexOf(name);
-            recipie.inventoryList.name.RemoveAt(a);
+            int a = recipie.inventoryList.name_.IndexOf(name);
+            recipie.inventoryList.name_.RemoveAt(a);
             recipie.inventoryList.count.RemoveAt(a);
             recipie.inventoryList.obj.RemoveAt(a);
             removeItem_ = true;

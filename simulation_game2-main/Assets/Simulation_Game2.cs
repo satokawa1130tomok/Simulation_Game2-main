@@ -46,15 +46,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Fire"",
-                    ""type"": ""Button"",
-                    ""id"": ""da81b8ab-b1e9-479a-8588-05bf4674d48f"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""jump"",
                     ""type"": ""Button"",
                     ""id"": ""7583df5e-3e50-4033-b9f2-34ecbe713152"",
@@ -67,6 +58,69 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""name"": ""run"",
                     ""type"": ""Button"",
                     ""id"": ""710a113f-9b05-4396-94ae-fc3c90f1845e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""8f110a09-4842-4d7d-9811-a5f40f945591"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""craft"",
+                    ""type"": ""Button"",
+                    ""id"": ""763a90ce-71de-4965-a0fe-78ec8226ad1f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""8dc0d98b-335f-4016-84e4-2440b8ad7461"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""home"",
+                    ""type"": ""Button"",
+                    ""id"": ""7c54a686-021b-48be-90cb-a569f1a621f0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Installation"",
+                    ""type"": ""Button"",
+                    ""id"": ""3a3a0796-7ac0-4cf7-a2e3-da8c9be7ef65"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""pickUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""54046a0b-6414-425c-9036-1a2c6c37d2ee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""f6276f14-2d05-4bad-8102-da06e6e853a7"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -241,61 +295,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""143bb1cd-cc10-4eca-a2f0-a3664166fe91"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""05f6913d-c316-48b2-a6bb-e225f14c7960"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""886e731e-7071-4ae4-95c0-e61739dad6fd"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Touch"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee3d0cd2-254e-47a7-a8cb-bc94d9658c54"",
-                    ""path"": ""<Joystick>/trigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8255d333-5683-4943-a58a-ccb207ff1dce"",
-                    ""path"": ""<XRController>/{PrimaryAction}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""7d2b56e7-a3e3-47b6-9df3-d2e8e17cc104"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -335,6 +334,160 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74474b04-0bf9-4257-92c9-fa940c0be0d3"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad;Joystick"",
+                    ""action"": ""inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c7c8cd03-936d-4aa2-8161-0ae800f80bfc"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad;Joystick"",
+                    ""action"": ""inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79e75f51-80b1-46e9-928d-132fee688168"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad;Joystick"",
+                    ""action"": ""craft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9da9248d-01df-45b5-bc1f-fdddcb4cc4c5"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""craft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""561bad12-0243-48ce-a3bf-fef5aa78543f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28632823-565d-495d-932f-05e7409daeee"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0746781f-13ef-4107-9e2d-fb8b074981ef"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""home"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4681d0e8-6749-4871-8f04-db2e0dd0b6c9"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""home"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2685fd65-6ebe-4116-ae8b-93d0d0bcd8f5"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Installation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a094e0cc-1e52-48d8-98c1-51647937337b"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Installation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f004eb33-cbac-4ed7-8732-988980288bbe"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""badd1355-bb39-44e5-8eed-a9d011bd27eb"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75b3433e-b3c3-46be-865e-8a78ee918814"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""36a0e6c0-ca2d-46bd-8b84-3480713bd7a0"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -924,9 +1077,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_jump = m_Player.FindAction("jump", throwIfNotFound: true);
         m_Player_run = m_Player.FindAction("run", throwIfNotFound: true);
+        m_Player_inventory = m_Player.FindAction("inventory", throwIfNotFound: true);
+        m_Player_craft = m_Player.FindAction("craft", throwIfNotFound: true);
+        m_Player_escape = m_Player.FindAction("escape", throwIfNotFound: true);
+        m_Player_home = m_Player.FindAction("home", throwIfNotFound: true);
+        m_Player_Installation = m_Player.FindAction("Installation", throwIfNotFound: true);
+        m_Player_pickUp = m_Player.FindAction("pickUp", throwIfNotFound: true);
+        m_Player_cancel = m_Player.FindAction("cancel", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1002,18 +1161,30 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_jump;
     private readonly InputAction m_Player_run;
+    private readonly InputAction m_Player_inventory;
+    private readonly InputAction m_Player_craft;
+    private readonly InputAction m_Player_escape;
+    private readonly InputAction m_Player_home;
+    private readonly InputAction m_Player_Installation;
+    private readonly InputAction m_Player_pickUp;
+    private readonly InputAction m_Player_cancel;
     public struct PlayerActions
     {
         private @InputSystem m_Wrapper;
         public PlayerActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
-        public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @jump => m_Wrapper.m_Player_jump;
         public InputAction @run => m_Wrapper.m_Player_run;
+        public InputAction @inventory => m_Wrapper.m_Player_inventory;
+        public InputAction @craft => m_Wrapper.m_Player_craft;
+        public InputAction @escape => m_Wrapper.m_Player_escape;
+        public InputAction @home => m_Wrapper.m_Player_home;
+        public InputAction @Installation => m_Wrapper.m_Player_Installation;
+        public InputAction @pickUp => m_Wrapper.m_Player_pickUp;
+        public InputAction @cancel => m_Wrapper.m_Player_cancel;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1029,15 +1200,33 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
-            @Fire.started += instance.OnFire;
-            @Fire.performed += instance.OnFire;
-            @Fire.canceled += instance.OnFire;
             @jump.started += instance.OnJump;
             @jump.performed += instance.OnJump;
             @jump.canceled += instance.OnJump;
             @run.started += instance.OnRun;
             @run.performed += instance.OnRun;
             @run.canceled += instance.OnRun;
+            @inventory.started += instance.OnInventory;
+            @inventory.performed += instance.OnInventory;
+            @inventory.canceled += instance.OnInventory;
+            @craft.started += instance.OnCraft;
+            @craft.performed += instance.OnCraft;
+            @craft.canceled += instance.OnCraft;
+            @escape.started += instance.OnEscape;
+            @escape.performed += instance.OnEscape;
+            @escape.canceled += instance.OnEscape;
+            @home.started += instance.OnHome;
+            @home.performed += instance.OnHome;
+            @home.canceled += instance.OnHome;
+            @Installation.started += instance.OnInstallation;
+            @Installation.performed += instance.OnInstallation;
+            @Installation.canceled += instance.OnInstallation;
+            @pickUp.started += instance.OnPickUp;
+            @pickUp.performed += instance.OnPickUp;
+            @pickUp.canceled += instance.OnPickUp;
+            @cancel.started += instance.OnCancel;
+            @cancel.performed += instance.OnCancel;
+            @cancel.canceled += instance.OnCancel;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1048,15 +1237,33 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
-            @Fire.started -= instance.OnFire;
-            @Fire.performed -= instance.OnFire;
-            @Fire.canceled -= instance.OnFire;
             @jump.started -= instance.OnJump;
             @jump.performed -= instance.OnJump;
             @jump.canceled -= instance.OnJump;
             @run.started -= instance.OnRun;
             @run.performed -= instance.OnRun;
             @run.canceled -= instance.OnRun;
+            @inventory.started -= instance.OnInventory;
+            @inventory.performed -= instance.OnInventory;
+            @inventory.canceled -= instance.OnInventory;
+            @craft.started -= instance.OnCraft;
+            @craft.performed -= instance.OnCraft;
+            @craft.canceled -= instance.OnCraft;
+            @escape.started -= instance.OnEscape;
+            @escape.performed -= instance.OnEscape;
+            @escape.canceled -= instance.OnEscape;
+            @home.started -= instance.OnHome;
+            @home.performed -= instance.OnHome;
+            @home.canceled -= instance.OnHome;
+            @Installation.started -= instance.OnInstallation;
+            @Installation.performed -= instance.OnInstallation;
+            @Installation.canceled -= instance.OnInstallation;
+            @pickUp.started -= instance.OnPickUp;
+            @pickUp.performed -= instance.OnPickUp;
+            @pickUp.canceled -= instance.OnPickUp;
+            @cancel.started -= instance.OnCancel;
+            @cancel.performed -= instance.OnCancel;
+            @cancel.canceled -= instance.OnCancel;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1241,9 +1448,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnFire(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
+        void OnCraft(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
+        void OnHome(InputAction.CallbackContext context);
+        void OnInstallation(InputAction.CallbackContext context);
+        void OnPickUp(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
