@@ -148,6 +148,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "decision",
+                    "type": "Button",
+                    "id": "c616b6ec-5b06-42eb-98fb-c780cf858a68",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -621,6 +630,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "shift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d8296500-d1a5-4cd1-a588-c5d2ae07ca99",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "decision",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f85cb04-99d7-4db6-9255-0ced842ec140",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "decision",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

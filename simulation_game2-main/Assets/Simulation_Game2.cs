@@ -170,6 +170,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""decision"",
+                    ""type"": ""Button"",
+                    ""id"": ""c616b6ec-5b06-42eb-98fb-c780cf858a68"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -643,6 +652,28 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""shift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8296500-d1a5-4cd1-a588-c5d2ae07ca99"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""decision"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f85cb04-99d7-4db6-9255-0ced842ec140"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""decision"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1246,6 +1277,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Player_left = m_Player.FindAction("left", throwIfNotFound: true);
         m_Player_right = m_Player.FindAction("right", throwIfNotFound: true);
         m_Player_shift = m_Player.FindAction("shift", throwIfNotFound: true);
+        m_Player_decision = m_Player.FindAction("decision", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1335,6 +1367,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_left;
     private readonly InputAction m_Player_right;
     private readonly InputAction m_Player_shift;
+    private readonly InputAction m_Player_decision;
     public struct PlayerActions
     {
         private @InputSystem m_Wrapper;
@@ -1355,6 +1388,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         public InputAction @left => m_Wrapper.m_Player_left;
         public InputAction @right => m_Wrapper.m_Player_right;
         public InputAction @shift => m_Wrapper.m_Player_shift;
+        public InputAction @decision => m_Wrapper.m_Player_decision;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1412,6 +1446,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @shift.started += instance.OnShift;
             @shift.performed += instance.OnShift;
             @shift.canceled += instance.OnShift;
+            @decision.started += instance.OnDecision;
+            @decision.performed += instance.OnDecision;
+            @decision.canceled += instance.OnDecision;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1464,6 +1501,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @shift.started -= instance.OnShift;
             @shift.performed -= instance.OnShift;
             @shift.canceled -= instance.OnShift;
+            @decision.started -= instance.OnDecision;
+            @decision.performed -= instance.OnDecision;
+            @decision.canceled -= instance.OnDecision;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1662,6 +1702,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         void OnLeft(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
         void OnShift(InputAction.CallbackContext context);
+        void OnDecision(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -239,6 +239,8 @@ public class player2 : MonoBehaviour
             Cursor.visible = true;
             CameraControll.active_camera = false;
             _inventoryCreate.InventoryCreate();
+            _inventoryCreate.content.GetComponent<CursorManager>().max_X = 1;
+            _inventoryCreate.content.GetComponent<CursorManager>().max_Y[1] = 0;
             name_ = "";
             a = true;
             inve_anim.SetBool("clause", true);
@@ -265,6 +267,8 @@ public class player2 : MonoBehaviour
             Cursor.visible = true;
             CameraControll.active_camera = false;
             _inventoryCreate.InventoryCreate();
+            _inventoryCreate.content.GetComponent<CursorManager>().max_X = 1;
+            _inventoryCreate.content.GetComponent<CursorManager>().max_Y[1] = 0;
             a = true;
             inve_anim.SetBool("clause", true);
         }
