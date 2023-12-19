@@ -49,14 +49,14 @@ public class CameraControll : MonoBehaviour
         // //transform.RotateAround()‚ğ‚µ‚æ‚¤‚µ‚ÄƒƒCƒ“ƒJƒƒ‰‚ğ‰ñ“]‚³‚¹‚é
         //// mainCamera.transform.RotateAround(playerObject.transform.position, Vector3.up, angle.x);
         // mainCamera.transform.RotateAround(playerObject.transform.position, Vector3.forward, angle.y);
-       
+
         Transform myTransform = mainCamera.transform;
         Vector3 worldAngle = myTransform.eulerAngles;
         float MouseY = playerObject.GetComponent<player2>()._gameInputs.Player.Look.ReadValue<Vector2>().y * rotateSpeed * -1;
         worldAngle.x += MouseY;
         myTransform.eulerAngles = worldAngle;
-        if (mainCamera.transform.rotation.x >= max){  worldAngle.x = max;Debug.Log("m"); }
-        if (mainCamera.transform.rotation.x <= minimum) { worldAngle.x = minimum;Debug.Log("mi"); }
+        if (mainCamera.transform.rotation.x >= max) { worldAngle.x = max; Debug.Log("m"); }
+        if (mainCamera.transform.rotation.x <= minimum) { worldAngle.x = minimum; Debug.Log("mi"); }
         //Debug.Log(worldAngle.x);
         myTransform.eulerAngles = worldAngle;
 

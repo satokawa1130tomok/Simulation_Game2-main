@@ -103,14 +103,14 @@ public class IncentoryCreate : MonoBehaviour
                 // data.obj = _InventoryList.obj[i];
                 // Debug.Log(i + "  " + C);
                 //ÉJÅ[É\ÉãÇÃèàóù
-               buttonCursor cursor =  cloneButton.AddComponent<buttonCursor>();
+                buttonCursor cursor = cloneButton.AddComponent<buttonCursor>();
                 cursor._CursorManager = content.GetComponent<CursorManager>();
                 cursor.ListNumber_X = 0;
                 cursor.ListNumber_Y = i;
 
 
             }
-            content.GetComponent<CursorManager>().max_Y[0] = i-1;
+            content.GetComponent<CursorManager>().max_Y[0] = i - 1;
 
         }
 

@@ -14,7 +14,7 @@ public class Tutorial : MonoBehaviour
 
     public player2 _player2;
 
-    public static bool ray; 
+    public static bool ray;
     public InputSystem _gameInputs;
 
     //public CheckBox _checkBox;
@@ -61,8 +61,8 @@ public class Tutorial : MonoBehaviour
 
             slider_Obj.SetActive(true);
             quest.text = "WASD‚ð‰Ÿ‚µ‚ÄˆÚ“®‚µ‚æ‚¤";
-            if (_gameInputs.Player.Move.ReadValue<Vector2>().x != 0 || _gameInputs.Player.Move.ReadValue<Vector2>().y != 0) 
-            { 
+            if (_gameInputs.Player.Move.ReadValue<Vector2>().x != 0 || _gameInputs.Player.Move.ReadValue<Vector2>().y != 0)
+            {
                 slider_sli.value += 0.05f;
                 if (slider_sli.value == 10)
                 {
@@ -154,10 +154,10 @@ public class Tutorial : MonoBehaviour
         {
             slider_Obj.SetActive(false);
             quest.text = "";
-            
-                quest_obj.SetActive(false);
-                tutorial_obj.SetActive(false);
-            
+
+            quest_obj.SetActive(false);
+            tutorial_obj.SetActive(false);
+
         }
 
 

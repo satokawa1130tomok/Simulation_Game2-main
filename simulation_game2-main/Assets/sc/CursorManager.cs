@@ -26,7 +26,7 @@ public class CursorManager : MonoBehaviour
             if (CursorPosition.x > 0)
             {
                 CursorPosition.x--;
-                if(CursorPosition.y > max_Y[(int)CursorPosition.x])
+                if (CursorPosition.y > max_Y[(int)CursorPosition.x])
                 {
                     CursorPosition.y = max_Y[(int)CursorPosition.x];
                 }
@@ -37,7 +37,7 @@ public class CursorManager : MonoBehaviour
             if (CursorPosition.x < max_X)
             {
                 CursorPosition.x++;
-                 if(CursorPosition.y > max_Y[(int)CursorPosition.x])
+                if (CursorPosition.y > max_Y[(int)CursorPosition.x])
                 {
                     CursorPosition.y = max_Y[(int)CursorPosition.x];
                 }

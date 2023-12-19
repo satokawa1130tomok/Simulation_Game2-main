@@ -212,8 +212,8 @@ public class Have : MonoBehaviour
         {
             player2.HaveTool = player2.obj.GetComponent<WorldObject>().ResourceObjToolType;
         }
-        
-       
+
+
         have = 1;
 
 

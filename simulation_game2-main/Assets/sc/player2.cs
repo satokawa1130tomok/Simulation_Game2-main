@@ -57,7 +57,7 @@ public class player2 : MonoBehaviour
     public PreviewManager _previewManager;
     public InputSystem _gameInputs;
     public GameObject button;
-   
+
     // Start is called before the first frame update
 
     //“–‚½‚è”»’è
@@ -68,16 +68,16 @@ public class player2 : MonoBehaviour
         {
             isGround = true;
         }
-       
+
     }
     void Awake()
     {
         itemObjData_ = itemObjData;
         objectManager_ = objectManager;
         anim = anim_;
-       
+
     }
-   
+
     void Start()
     {
 
@@ -130,7 +130,7 @@ public class player2 : MonoBehaviour
     public void move()
     {
         Vector2 direction = _gameInputs.Player.Move.ReadValue<Vector2>();
-        Vector3 vector3 = this.transform.position;    
+        Vector3 vector3 = this.transform.position;
         if (direction.y >= 0.5 && _gameInputs.Player.run.IsInProgress() && run_sli.run_value > 0f)
         {
             direction.y *= 2;
@@ -146,7 +146,7 @@ public class player2 : MonoBehaviour
         vector3.z -= direction.y * speed * Time.deltaTime * this.transform.forward.y;
         transform.position = vector3;
         Jump();
-        if(_gameInputs.Player.Move.IsInProgress())
+        if (_gameInputs.Player.Move.IsInProgress())
         {
             anim.SetBool("walk", true);
         }
@@ -154,7 +154,7 @@ public class player2 : MonoBehaviour
         {
             anim.SetBool("walk", false);
         }
-    
+
 
         //if (Input.GetKey(KeyCode.W) && !run)
         //{
@@ -207,7 +207,7 @@ public class player2 : MonoBehaviour
 
 
     }
-    public void Jump ()
+    public void Jump()
     {
         if (_gameInputs.Player.jump.IsInProgress() && isGround)
         {
@@ -219,7 +219,7 @@ public class player2 : MonoBehaviour
         {
             anim.SetBool("jump", false);
         }
-       
+
         b = true;
     }
     public void cameramove()
@@ -241,6 +241,7 @@ public class player2 : MonoBehaviour
             _inventoryCreate.InventoryCreate();
             _inventoryCreate.content.GetComponent<CursorManager>().max_X = 1;
             _inventoryCreate.content.GetComponent<CursorManager>().max_Y[1] = 0;
+            _inventoryCreate.content.GetComponent<CursorManager>().CursorPosition = new Vector2(0, 0);
             name_ = "";
             a = true;
             inve_anim.SetBool("clause", true);

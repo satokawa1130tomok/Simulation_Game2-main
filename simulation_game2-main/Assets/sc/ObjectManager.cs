@@ -67,7 +67,7 @@ public class ObjectManager : MonoBehaviour
     }
     public void clearat(int x)
     {
-        
+
         position_x.RemoveAt(x);
         position_y.RemoveAt(x);
         position_z.RemoveAt(x);
