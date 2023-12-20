@@ -15,6 +15,7 @@ public class WorldName : MonoBehaviour
     public GameObject CloneButton;
     public GameObject panel;
     private List<GameObject> but;
+    public CursorManager _CursorManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -79,12 +80,16 @@ public class WorldName : MonoBehaviour
 
                 but.Add(cloneButton);
                 cloneButton.SetActive(true);
+                buttonCursor cursor = cloneButton.GetComponent<buttonCursor>();
+                cursor.ListNumber_X = 1;
+                cursor.ListNumber_Y = i-1;
             }
 
             i++;
 
 
         }
+        _CursorManager.max_Y[1] = i-2;
     }
     public void DestroyButton()
     {

@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 8336865139277982740}
   - component: {fileID: 1649890873358125566}
   - component: {fileID: 2980786095828355710}
+  - component: {fileID: 3502448872882615345}
   m_Layer: 0
   m_Name: glass
   m_TagString: Untagged
@@ -152,11 +153,16 @@ MonoBehaviour:
   ResourceObjNumber: 0
   ResourceObjCount: 0
   ResourceObjToolType: 0
+  ResourceObject: {fileID: 0}
+  ResourceObjNumber2: 0
+  ResourceObjCount2: 0
+  ResourceObjToolType2: 0
+  ResourceObject2: {fileID: 0}
   ResourceCount: 0
   RespawnTime: 0
-  ResourceObject: {fileID: 0}
   Time_: 0
   InitialCount: 0
+  InitialType: 
   CloneObject: {fileID: 0}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
@@ -164,6 +170,19 @@ MonoBehaviour:
   ItemObjData: {fileID: 0}
   number_: 0
   List: 0
+--- !u!65 &3502448872882615345
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8717189872897504942}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2.03, z: 3.74}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9202160658303367579
 GameObject:
   m_ObjectHideFlags: 0

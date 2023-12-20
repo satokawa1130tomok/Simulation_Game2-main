@@ -25,6 +25,7 @@ public class Have : MonoBehaviour
     private GameObject child;
     public InputSystem _gameInputs;
     public InventoryList _InventoryList;
+    public ObjectManager _ObjectManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -186,39 +187,42 @@ public class Have : MonoBehaviour
 
     public void OnClick()
     {
-        player2.anim.SetBool("have", true);
+        
         if (obj != null)
         {
             Destroy(obj);
         }
 
-        CloneObj_(player2.obj);
-        Destroy(CloneObj.GetComponent<Rigidbody>());
-        Destroy(CloneObj.GetComponent<BoxCollider>());
-        Destroy(CloneObj.GetComponent<WorldObject>());
-        Transform myTransform = CloneObj.transform;
-        Vector3 scale = CloneObj.transform.localScale;
-        CloneObj.gameObject.transform.parent = GameObject.FindWithTag("HavePosition").transform;
-        Vector3 localAngle = myTransform.localEulerAngles;
-        localAngle.x = 0.0f;
-        localAngle.y = 0.0f;
-        localAngle.z = -90.0f;
-        myTransform.localEulerAngles = localAngle; // âÒì]äpìxÇê›íË
-                                                   //  Debug.Log(CloneObj.gameObject.transform.lossyScale.x + "          " + CloneObj.gameObject.transform.lossyScale.x / 2);
-        CloneObj.transform.localPosition = new Vector3(0.04f, -0.0053f, -0.01f);
-        CloneObj.transform.localScale = scale / 70;
-        obj = CloneObj;
-        if (player2.obj.GetComponent<WorldObject>().ObjectType == "T")
+        if (player2.obj != null)
         {
-            player2.HaveTool = player2.obj.GetComponent<WorldObject>().ResourceObjToolType;
+            player2.anim.SetBool("have", true);
+            CloneObj_(player2.obj);
+            Destroy(CloneObj.GetComponent<Rigidbody>());
+            Destroy(CloneObj.GetComponent<BoxCollider>());
+            Destroy(CloneObj.GetComponent<WorldObject>());
+            Transform myTransform = CloneObj.transform;
+            Vector3 scale = CloneObj.transform.localScale;
+            CloneObj.gameObject.transform.parent = GameObject.FindWithTag("HavePosition").transform;
+            Vector3 localAngle = myTransform.localEulerAngles;
+            localAngle.x = 0.0f;
+            localAngle.y = 0.0f;
+            localAngle.z = -90.0f;
+            myTransform.localEulerAngles = localAngle; // âÒì]äpìxÇê›íË
+                                                       //  Debug.Log(CloneObj.gameObject.transform.lossyScale.x + "          " + CloneObj.gameObject.transform.lossyScale.x / 2);
+            CloneObj.transform.localPosition = new Vector3(0.04f, -0.0053f, -0.01f);
+            CloneObj.transform.localScale = scale / 70;
+            obj = CloneObj;
+            if (player2.obj.GetComponent<WorldObject>().ObjectType == "T")
+            {
+                player2.HaveTool = player2.obj.GetComponent<WorldObject>().ResourceObjToolType;
+            }
+
+
+            have = 1;
+
+
+            //   Debug.Log(player2.obj);
         }
-
-
-        have = 1;
-
-
-        //   Debug.Log(player2.obj);
-
     }
     void CloneObj_(GameObject clone)
     {
@@ -270,7 +274,7 @@ public class Have : MonoBehaviour
     {
 
 
-        var var_ = recipie.inventoryList.count[recipie.inventoryList.name_.IndexOf(name)];
+      ;
         recipie.inventoryList.count[recipie.inventoryList.name_.IndexOf(name)] -= 1;
         if (recipie.inventoryList.count[recipie.inventoryList.name_.IndexOf(name)] == 0)
         {
@@ -278,6 +282,8 @@ public class Have : MonoBehaviour
             recipie.inventoryList.name_.RemoveAt(a);
             recipie.inventoryList.count.RemoveAt(a);
             recipie.inventoryList.obj.RemoveAt(a);
+            recipie.inventoryList.number.RemoveAt(a);
+            _ObjectManager.clearat(a);
             removeItem_ = true;
 
         }
