@@ -63,6 +63,20 @@ public class InventoryList : MonoBehaviour
         //Debug.Log(string.Join(",", name.Select(name => name.ToString())));
         // Debug.Log(string.Join(",", count.Select(count => count.ToString())));
     }
+    public void ClayList(WorldObject wdata)
+    {
+        //bool bool1;
+        ////bool1 = name.Contains(Idata.name);
+        //Debug.Log(bool1);
+
+        int a = Random.Range(0, wdata.L_ResourceObject.Count());
+        WorldObject Rdata = wdata.L_ResourceObject[a].GetComponent<WorldObject>();
+        ItemList(Rdata);
+        CloneText(Rdata.name_, 1);
+
+        //Debug.Log(string.Join(",", name.Select(name => name.ToString())));
+        // Debug.Log(string.Join(",", count.Select(count => count.ToString())));
+    }
     public void ToolList(GameObject Ihit, ToolData Tdata)
     {
         //bool bool1;

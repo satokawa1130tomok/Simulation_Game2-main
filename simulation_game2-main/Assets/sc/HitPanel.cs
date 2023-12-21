@@ -210,8 +210,7 @@ public class HitPanel : MonoBehaviour
                     HitText = a;
                     if (_gameInputs.Player.pickUp.WasPressedThisFrame())
                     {
-                        _InventoryList.ResourceList(wdata);//インベントリに追加
-                        _InventoryList.CloneText(wdata._name, wdata.ResourceObjCount);
+                        _InventoryList.ClayList(wdata);//インベントリに追加
                         if (wdata.ResourceCount != 0)
                         {
                             wdata.ResourceCount--;

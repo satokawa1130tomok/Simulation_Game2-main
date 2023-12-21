@@ -32,7 +32,8 @@ public class WorldObject : MonoBehaviour
     public GameObject ResourceObject2;
     public int ResourceCount;
     public int RespawnTime;
-
+    //«C‚Ì‚İ•K{
+    public List<GameObject> L_ResourceObject;
     //«“ü—Í•s—v
     public float Time_;
     private bool Respawn;
