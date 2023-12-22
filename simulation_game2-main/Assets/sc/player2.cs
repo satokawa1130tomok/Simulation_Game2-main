@@ -99,6 +99,12 @@ public class player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 vector = this.gameObject.transform.position;
+        if(vector.y <= -10)
+        {
+            vector.y = 10;
+            this.gameObject.transform.position = vector;
+        }
         Cursor.visible = true;
         player.transform.localEulerAngles = new Vector3(0, player.transform.localEulerAngles.y, 0);
         name_text.text = name_;

@@ -11,7 +11,7 @@ public class CameraControll : MonoBehaviour
     public static bool active_camera;
     public float max = 90.0f;
     public float minimum = -90.0f;
-
+    public float po;
 
     //åƒÇ—èoÇµéûÇ…é¿çsÇ≥ÇÍÇÈä÷êî
     void Start()
@@ -53,13 +53,19 @@ public class CameraControll : MonoBehaviour
         Transform myTransform = mainCamera.transform;
         Vector3 worldAngle = myTransform.eulerAngles;
         float MouseY = playerObject.GetComponent<player2>()._gameInputs.Player.Look.ReadValue<Vector2>().y * rotateSpeed * -1;
-        worldAngle.x += MouseY;
+        worldAngle.z -= MouseY;
+       
+       
+        po = worldAngle.z;
+        if(worldAngle.z >= 350)
+        {
+            worldAngle.z += MouseY;
+        }
+        if(worldAngle.z <= 200)
+        {
+            worldAngle.z += MouseY;
+        }
         myTransform.eulerAngles = worldAngle;
-        if (mainCamera.transform.rotation.x >= max) { worldAngle.x = max; Debug.Log("m"); }
-        if (mainCamera.transform.rotation.x <= minimum) { worldAngle.x = minimum; Debug.Log("mi"); }
-        //Debug.Log(worldAngle.x);
-        myTransform.eulerAngles = worldAngle;
-
 
     }
     private void Max()
