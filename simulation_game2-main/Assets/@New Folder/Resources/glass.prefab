@@ -160,10 +160,11 @@ MonoBehaviour:
   ResourceObject2: {fileID: 0}
   ResourceCount: 0
   RespawnTime: 0
+  L_ResourceObject: []
   Time_: 0
   InitialCount: 0
   InitialType: 
-  CloneObject: {fileID: 0}
+  CloneObject: {fileID: 8717189872897504942}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
   _objectManager: {fileID: 0}

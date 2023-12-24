@@ -241,6 +241,7 @@ public class player2 : MonoBehaviour
             inventoy__ = true;
             //  Debug.Log("a");
             inventoy.SetActive(true);
+            SecondInventoy.SetActive(false);
             //  _inventoryCreate.CloneButton.SetActive(false);
             Cursor.visible = true;
             CameraControll.active_camera = false;
@@ -270,6 +271,7 @@ public class player2 : MonoBehaviour
             Recipe.SetActive(false);
             Craft.SetActive(false);
             inventoy.SetActive(true);
+            SecondInventoy.SetActive(false);
             // _inventoryCreate.CloneButton.SetActive(false);
             Cursor.visible = true;
             CameraControll.active_camera = false;

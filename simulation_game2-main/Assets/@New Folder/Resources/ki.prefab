@@ -49,7 +49,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &1071908215938823627
 BoxCollider:
@@ -62,7 +62,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 9.35, z: 1}
+  m_Size: {x: 2, y: 9.35, z: 2}
   m_Center: {x: 0, y: 4.85, z: 0}
 --- !u!114 &-873147566547590208
 MonoBehaviour:
@@ -82,11 +82,19 @@ MonoBehaviour:
   ResourceObjNumber: 14
   ResourceObjCount: 4
   ResourceObjToolType: 79
-  ResourceCount: 0
-  RespawnTime: 0
-  ResourceObject: {fileID: 0}
+  ResourceObject: {fileID: 7361834281715796460, guid: e9fba0b7c61d12b4699acafa81c387b9,
+    type: 3}
+  ResourceObjNumber2: 14
+  ResourceObjCount2: 5
+  ResourceObjToolType2: 79
+  ResourceObject2: {fileID: 349048271188826829, guid: 027af7d5f1a24e64cb4f70116dcc84a8,
+    type: 3}
+  ResourceCount: 5
+  RespawnTime: 5
+  L_ResourceObject: []
   Time_: 0
   InitialCount: 0
+  InitialType: 
   CloneObject: {fileID: 0}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
@@ -155,8 +163,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2377376760783321371, guid: 99b231066e900e14cb6e5aaa456cc5e1, type: 3}
-  - {fileID: -9130586711530211351, guid: 99b231066e900e14cb6e5aaa456cc5e1, type: 3}
+  - {fileID: 2100000, guid: 4134a05218a452d4d998314d4f7f3c26, type: 2}
+  - {fileID: 2100000, guid: 1d23d5f79ffc1434da7045ce799b1d39, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
