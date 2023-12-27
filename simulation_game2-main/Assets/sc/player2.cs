@@ -107,6 +107,14 @@ public class player2 : MonoBehaviour
         }
         Cursor.visible = true;
         player.transform.localEulerAngles = new Vector3(0, player.transform.localEulerAngles.y, 0);
+        if(obj != null)
+        {
+            name_ = obj.GetComponent<WorldObject>()._name;
+        }
+        else
+        {
+            name_text.text = "";
+        }
         name_text.text = name_;
         //if (Input.GetKeyDown(KeyCode.O))
         //{
@@ -249,7 +257,7 @@ public class player2 : MonoBehaviour
             _inventoryCreate.content.GetComponent<CursorManager>().max_X = 1;
             _inventoryCreate.content.GetComponent<CursorManager>().max_Y[1] = 0;
             _inventoryCreate.content.GetComponent<CursorManager>().CursorPosition = new Vector2(0, 0);
-            name_ = "";
+            obj = null;
             a = true;
             inve_anim.SetBool("clause", true);
         }
@@ -279,6 +287,7 @@ public class player2 : MonoBehaviour
             _inventoryCreate.content.GetComponent<CursorManager>().max_X = 1;
             _inventoryCreate.content.GetComponent<CursorManager>().max_Y[1] = 0;
             a = true;
+            obj = null;
             inve_anim.SetBool("clause", true);
         }
 

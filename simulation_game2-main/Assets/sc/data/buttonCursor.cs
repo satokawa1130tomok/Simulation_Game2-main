@@ -32,7 +32,7 @@ public class buttonCursor : MonoBehaviour
         hit = (_CursorManager.CursorPosition.x == ListNumber_X && _CursorManager.CursorPosition.y == ListNumber_Y);
         if (_CursorManager.CursorPosition.x == ListNumber_X && _CursorManager.CursorPosition.y == ListNumber_Y)
         {
-            Debug.Log(ListNumber_X + " " + ListNumber_Y);
+           // Debug.Log(ListNumber_X + " " + ListNumber_Y);
             if (!Toggle)
             {
                 ColorBlock colors = button.colors;

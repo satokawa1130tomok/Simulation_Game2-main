@@ -48,6 +48,7 @@ public class ObjectManager : MonoBehaviour
         rotation_y.Add(q.y);
         rotation_z.Add(q.z);
         obj.Add(g);
+        g.SetActive(true);
         return number.Count;
     }
     public void clear()

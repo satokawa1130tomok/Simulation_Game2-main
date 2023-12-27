@@ -46,7 +46,7 @@ public class Have : MonoBehaviour
             player2.anim.SetBool("have", false);
         }
         if (have == 1 && _gameInputs.Player.Installation.WasPressedThisFrame())
-        {
+        { //持っている状態
             have = 0;
             //Debug.Log(CloneObj);
             CloneObj_(player2.obj);
@@ -86,49 +86,9 @@ public class Have : MonoBehaviour
         //Debug.Log(have + "" + CloneObj != null + "" + !player2_.inventoy.activeSelf);
         if (have == 0 && CloneObj != null && !player2_.inventoy.activeSelf)
         {
-            if (_gameInputs.Player.Installation.WasPressedThisFrame())
-            {
-                r = true;
-            }
-            if (_gameInputs.Player.Installation.WasPressedThisFrame() && r && ground)
-            {
-                Destroy(CloneObj);
-                have = 1;
-                CloneObj_(player2.obj);
-                CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
-                CloneObj.transform.eulerAngles = worldAngle;
-                CloneObj = null;
-                RemoveItem(player2_.name_);
-                if (removeItem_)
-                {
-                    Destroy(obj);
-                    player2.anim.SetBool("have", false);
-                    have = -1;
-                }
-            }
-            //Debug.Log("a");
-            //Vector3 direction = transform.right;
-            //Vector3 origin = rayobj.transform.position;
-            //int maxDistance = 100;
-            //Ray ray = new Ray(origin, direction);
-            //Debug.DrawRay(ray.origin, ray.direction * maxDistance , Color.red);
-            //RaycastHit hit;
-            //// レイキャストを実行し、当たった場合にのみ処理を行う
-            //if (Physics.Raycast(ray, out hit, maxDistance))
-            //{
-            //    Debug.Log("b");
-            //    // ヒットした点の座標を取得
-            //    Vector3 hitPoint = hit.point;
-
-            //    // CloneObjをインスタンス化し、当たった点の座標に配置
-            //    Debug.Log(hitPoint);
-            //    CloneObj.transform.position = hitPoint;
-            //    CloneObj.GetComponent<MeshRenderer>().material = mat;
-            //}
-            // Debug.Log(ray.bool_);
-            // Debug.Log(ray.bool_ + "" + Ray_._hit != null + "" + !player2_.inventoy.activeSelf);
+            
             if (ray.bool_ && Ray_._hit != null && !player2_.inventoy.activeSelf && CloneObj != null)
-            {
+            {   //置ける状態
                 CloneObj.SetActive(true);
 
                 //if (Input.GetAxis("Mouse X") + Input.GetAxis("Mouse Y") != 0)
@@ -137,7 +97,6 @@ public class Have : MonoBehaviour
                 CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
                 //  }
                 ground = true;
-                MaterialCollar(true);
 
                 worldAngle = CloneObj.transform.eulerAngles;
                 if (_gameInputs.Player.left.WasPressedThisFrame())
@@ -161,21 +120,41 @@ public class Have : MonoBehaviour
 
             }
             else if (ray.bool_ && Ray_._hit == null && !player2_.inventoy.activeSelf)
-            {
+            {　//宙に浮いている状態
                 ground = false;
                 MaterialCollar(false);
+               // Debug.Log(CloneObj + "" + new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z));
                 CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
-
             }
             else if (!ray.bool_ && Ray_._hit != null && player2_.inventoy.activeSelf)
-            {
+            {　//表示されない時
                 CloneObj.SetActive(false);
                 //CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
             }
             if (_gameInputs.Player.cancel.WasPressedThisFrame())
+            {　//キャンセルが押された
+                Destroy(CloneObj);
+                have = 1;
+            }
+            if (_gameInputs.Player.Installation.WasReleasedThisFrame())
+            {
+                r = true;
+            }
+            if (_gameInputs.Player.Installation.WasPressedThisFrame() && r && ground)
             {
                 Destroy(CloneObj);
                 have = 1;
+                CloneObj_(player2.obj);
+                CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1.5f, ray.HitPosition.z);
+                CloneObj.transform.eulerAngles = worldAngle;
+                //CloneObj = null;
+                RemoveItem(player2_.name_);
+                if (removeItem_)
+                {
+                    Destroy(obj);
+                    player2.anim.SetBool("have", false);
+                    have = -1;
+                }
             }
 
             // CloneObj.GetComponent<MeshRenderer>().material = mat;

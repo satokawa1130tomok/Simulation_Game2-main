@@ -82,7 +82,6 @@ GameObject:
   - component: {fileID: 664838629331094813}
   - component: {fileID: 664838629331094812}
   - component: {fileID: 664838629331094811}
-  - component: {fileID: 664838629331094809}
   m_Layer: 8
   m_Name: board
   m_TagString: Item
@@ -184,39 +183,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &664838629331094809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 664838629331094808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4689cb301249cfd40acadcf169809143, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _name: "\u677F"
-  ItemObjDataNumber_: 5
-  ObjectType: I
-  ResourceObjNumber: 0
-  ResourceObjCount: 0
-  ResourceObjToolType: 0
-  ResourceObject: {fileID: 0}
-  ResourceObjNumber2: 0
-  ResourceObjCount2: 0
-  ResourceObjToolType2: 0
-  ResourceObject2: {fileID: 0}
-  ResourceCount: 0
-  RespawnTime: 0
-  L_ResourceObject: []
-  Time_: 0
-  InitialCount: 0
-  InitialType: 
-  CloneObject: {fileID: 664838629331094808}
-  rotation_: {x: 0, y: 0, z: 0}
-  position_: {x: 0, y: 0, z: 0}
-  _objectManager: {fileID: 0}
-  ItemObjData: {fileID: 0}
-  number_: 0
-  List: 0

@@ -67,6 +67,7 @@ public class WorldObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.gameObject.SetActive(false);
         InitialCount = ResourceCount;
         InitialType = ObjectType;
         Respawn = false;
@@ -137,6 +138,7 @@ public class WorldObject : MonoBehaviour
             {
                 ListNumber = _objectManager.add(ItemObjDataNumber, position, rotation, this.gameObject);
                 ListNumber -= 1;
+
             }
 
             //   Debug.Log(ResourceObject);
