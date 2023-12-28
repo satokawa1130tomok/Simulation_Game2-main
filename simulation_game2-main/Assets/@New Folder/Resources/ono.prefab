@@ -163,14 +163,18 @@ MonoBehaviour:
   _name: "\u65A7"
   ItemObjDataNumber_: 2
   ObjectType: T
-  ResourceObjNumber: 0
-  ResourceObjCount: 0
-  ResourceObjToolType: 79
+  ToolType: 79
+  ResourceObjNumber: 
+  ResourceObjCount: 
+  ResourceObjToolType: 
+  ResourceObject:
+  - {fileID: 0}
   ResourceCount: 0
   RespawnTime: 0
-  ResourceObject: {fileID: 0}
+  L_ResourceObject: []
   Time_: 0
   InitialCount: 0
+  InitialType: 
   CloneObject: {fileID: 3093018743727321424}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}

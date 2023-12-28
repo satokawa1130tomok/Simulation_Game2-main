@@ -54,14 +54,14 @@ public class CameraControll : MonoBehaviour
         Vector3 worldAngle = myTransform.eulerAngles;
         float MouseY = playerObject.GetComponent<player2>()._gameInputs.Player.Look.ReadValue<Vector2>().y * rotateSpeed * -1;
         worldAngle.z -= MouseY;
-       
-       
+
+
         po = worldAngle.z;
-        if(worldAngle.z >= 350)
+        if (worldAngle.z >= 350)
         {
             worldAngle.z += MouseY;
         }
-        if(worldAngle.z <= 200)
+        if (worldAngle.z <= 200)
         {
             worldAngle.z += MouseY;
         }

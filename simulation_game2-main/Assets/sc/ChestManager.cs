@@ -141,7 +141,7 @@ public class ChestManager : MonoBehaviour
     {
         if (_player2.MaineInventory == false)
         {
-          
+
             var var1 = -100;
             var1 = _inventoryList.name_.IndexOf(_player2.name_);
             var var2 = ListName.IndexOf(_player2.name_);

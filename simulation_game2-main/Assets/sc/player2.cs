@@ -100,14 +100,14 @@ public class player2 : MonoBehaviour
     void Update()
     {
         Vector3 vector = this.gameObject.transform.position;
-        if(vector.y <= -10)
+        if (vector.y <= -10)
         {
             vector.y = 10;
             this.gameObject.transform.position = vector;
         }
         Cursor.visible = true;
         player.transform.localEulerAngles = new Vector3(0, player.transform.localEulerAngles.y, 0);
-        if(obj != null)
+        if (obj != null)
         {
             name_ = obj.GetComponent<WorldObject>()._name;
         }

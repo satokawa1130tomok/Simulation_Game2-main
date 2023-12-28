@@ -48,16 +48,16 @@ public class InventoryList : MonoBehaviour
         // Debug.Log(string.Join(",", name.Select(name => name.ToString())));
         // Debug.Log(string.Join(",", count.Select(count => count.ToString())));
     }
-    public void ResourceList(WorldObject wdata)
+    public void ResourceList(WorldObject wdata,int count)
     {
         //bool bool1;
         ////bool1 = name.Contains(Idata.name);
         //Debug.Log(bool1);
-        WorldObject Rdata = wdata.ResourceObject.GetComponent<WorldObject>();
+       // WorldObject Rdata = wdata.ResourceObject.GetComponent<WorldObject>();
         int i;
-        for (i = 0; i <= wdata.ResourceObjCount - 1; i++)
+        for (i = 0; i <= count - 1; i++)
         {
-            ItemList(Rdata);
+            ItemList(wdata);
         }
 
         //Debug.Log(string.Join(",", name.Select(name => name.ToString())));

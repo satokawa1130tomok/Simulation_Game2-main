@@ -21,15 +21,12 @@ public class WorldObject : MonoBehaviour
     }
 
     public string ObjectType;
+    public char ToolType;
     //Å´resourceÇ∆CïKê{
-    public int ResourceObjNumber;
-    public int ResourceObjCount;
-    public char ResourceObjToolType;
-    public GameObject ResourceObject;
-    public int ResourceObjNumber2;
-    public int ResourceObjCount2;
-    public char ResourceObjToolType2;
-    public GameObject ResourceObject2;
+    public List<int> ResourceObjNumber;
+    public List<int> ResourceObjCount;
+    public List<char> ResourceObjToolType;
+    public List<GameObject> ResourceObject;
     public int ResourceCount;
     public int RespawnTime;
     //Å´CÇÃÇ›ïKê{
@@ -86,7 +83,13 @@ public class WorldObject : MonoBehaviour
             if (ObjectType == "R" || ObjectType == "L")
             {
                 //   Debug.Log(ItemObjData.obj[ResourceObjNumber]);
-                ResourceObject = ItemObjData.obj[ResourceObjNumber];
+                int i = 0;
+                foreach (int a in ResourceObjNumber)
+                {
+                    ResourceObject[i] = ItemObjData.obj[a];
+
+                    i++;
+                }
             }
 
             if (!List)
@@ -132,7 +135,13 @@ public class WorldObject : MonoBehaviour
             if (ObjectType == "R" || ObjectType == "L" || ObjectType == "K")
             {
                 //   Debug.Log(ItemObjData.obj[ResourceObjNumber]);
-                ResourceObject = ItemObjData.obj[ResourceObjNumber];
+                int i = 0;
+                foreach (int a in ResourceObjNumber)
+                {
+                    ResourceObject[i] = ItemObjData.obj[a];
+
+                    i++;
+                }
             }
             if (!List)
             {

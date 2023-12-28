@@ -79,16 +79,13 @@ MonoBehaviour:
   _name: "\u6728"
   ItemObjDataNumber_: 6
   ObjectType: R
-  ResourceObjNumber: 14
-  ResourceObjCount: 4
-  ResourceObjToolType: 79
-  ResourceObject: {fileID: 7361834281715796460, guid: e9fba0b7c61d12b4699acafa81c387b9,
-    type: 3}
-  ResourceObjNumber2: 14
-  ResourceObjCount2: 5
-  ResourceObjToolType2: 79
-  ResourceObject2: {fileID: 349048271188826829, guid: 027af7d5f1a24e64cb4f70116dcc84a8,
-    type: 3}
+  ToolType: 0
+  ResourceObjNumber: 050000000e000000
+  ResourceObjCount: 0300000001000000
+  ResourceObjToolType: 4e004f00
+  ResourceObject:
+  - {fileID: 349048271188826829, guid: 027af7d5f1a24e64cb4f70116dcc84a8, type: 3}
+  - {fileID: 7361834281715796460, guid: e9fba0b7c61d12b4699acafa81c387b9, type: 3}
   ResourceCount: 5
   RespawnTime: 5
   L_ResourceObject: []

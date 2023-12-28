@@ -44,6 +44,7 @@ public class Have : MonoBehaviour
             Destroy(obj);
             have = 0;
             player2.anim.SetBool("have", false);
+            player2.HaveTool = 'N';
         }
         if (have == 1 && _gameInputs.Player.Installation.WasPressedThisFrame())
         { //éùÇ¡ÇƒÇ¢ÇÈèÛë‘
@@ -86,7 +87,7 @@ public class Have : MonoBehaviour
         //Debug.Log(have + "" + CloneObj != null + "" + !player2_.inventoy.activeSelf);
         if (have == 0 && CloneObj != null && !player2_.inventoy.activeSelf)
         {
-            
+
             if (ray.bool_ && Ray_._hit != null && !player2_.inventoy.activeSelf && CloneObj != null)
             {   //íuÇØÇÈèÛë‘
                 CloneObj.SetActive(true);
@@ -123,7 +124,7 @@ public class Have : MonoBehaviour
             {Å@//íàÇ…ïÇÇ¢ÇƒÇ¢ÇÈèÛë‘
                 ground = false;
                 MaterialCollar(false);
-               // Debug.Log(CloneObj + "" + new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z));
+                // Debug.Log(CloneObj + "" + new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z));
                 CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
             }
             else if (!ray.bool_ && Ray_._hit != null && player2_.inventoy.activeSelf)
@@ -166,7 +167,7 @@ public class Have : MonoBehaviour
 
     public void OnClick()
     {
-        
+
         if (obj != null)
         {
             Destroy(obj);
@@ -193,7 +194,7 @@ public class Have : MonoBehaviour
             obj = CloneObj;
             if (player2.obj.GetComponent<WorldObject>().ObjectType == "T")
             {
-                player2.HaveTool = player2.obj.GetComponent<WorldObject>().ResourceObjToolType;
+                player2.HaveTool = player2.obj.GetComponent<WorldObject>().ToolType;
             }
 
 
@@ -253,7 +254,7 @@ public class Have : MonoBehaviour
     {
 
 
-      ;
+        ;
         recipie.inventoryList.count[recipie.inventoryList.name_.IndexOf(name)] -= 1;
         if (recipie.inventoryList.count[recipie.inventoryList.name_.IndexOf(name)] == 0)
         {
