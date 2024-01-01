@@ -173,7 +173,7 @@ public class HitPanel : MonoBehaviour
                         // _inventoryCreate.DestroyButton();
                         player2_.inventoy.SetActive(false);
                         RecipieButton.HandCraft = false;
-                        _recipieButton.TableCraft();
+                       // _recipieButton.TableCraft();
                         return;
                     }
                 }

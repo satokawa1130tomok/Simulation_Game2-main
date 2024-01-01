@@ -17,6 +17,9 @@ public class RecipieButton : MonoBehaviour
     public Text ItemText2;
     public GameObject ItemButton3;
     public Text ItemText3;
+    public GameObject CraftButton;
+    public GameObject ErrorMessage;
+    public RecipeButtonCreate _RecipeButtonCreate;
 
     public static bool HandCraft;
 
@@ -120,44 +123,115 @@ public class RecipieButton : MonoBehaviour
     {
 
     }
-    public void one(one scriptable)
+    public void Click(GameObject obj)
     {
-        OneButtonText(scriptable.ItemName1, scriptable.ItemCount1);
-        text(scriptable.RecipeName, scriptable.Explanation);
-        active(scriptable.ButtonCount);
-        obj = scriptable.obj;
-        name_ = scriptable.RecipeName;
-        a_ = a;
-        one_ = scriptable;
-        CraftCount = scriptable.CarftCount;
-        obj = scriptable.obj;
-        ButtonCount = scriptable.ButtonCount;
+        RecipeButtonData recipe = obj.GetComponent<RecipeButtonData>();
+        if(recipe.RecipeType == 1)
+        {
+            one(obj);
+        }
+        else if(recipe.RecipeType == 2)
+        {
+            two(obj);
+        }
+        else if(recipe.RecipeType == 3)
+        {
+            three(obj);
+        }
     }
-    public void two(Two scriptable)
+    public void one(GameObject obj)
     {
-        TwoButtonText(scriptable.ItemName1, scriptable.ItemCount1, scriptable.ItemName2, scriptable.ItemCount2);
-        text(scriptable.RecipeName, scriptable.Explanation);
-        active(scriptable.ButtonCount);
-        obj = scriptable.obj;
-        name_ = scriptable.RecipeName;
-        a_ = a;
-        ButtonCount = scriptable.ButtonCount;
-        Two_ = scriptable;
-        CraftCount = scriptable.CarftCount;
-        obj = scriptable.obj;
+        RecipeButtonData recipe = obj.GetComponent<RecipeButtonData>();
+        int Number = recipe.ListNumber;
+        ScriptableObject scriptable_ = _RecipeButtonCreate.List[Number];
+        one scriptable = (one)scriptable_;
+        if (HandCraft && scriptable.HandCraft == true)
+        {
+            OneButtonText(scriptable.ItemName1, scriptable.ItemCount1);
+            active(scriptable.ButtonCount);
+            obj = scriptable.obj;
+            name_ = scriptable.RecipeName;
+            a_ = a;
+            one_ = scriptable;
+            CraftCount = scriptable.CarftCount;
+            obj = scriptable.obj;
+            ButtonCount = scriptable.ButtonCount;
+            HandCraft_(true);
+            ErrorMessage.SetActive(false);
+        }
+        else
+        {
+            text(scriptable.RecipeName, scriptable.Explanation);
+            HandCraft_(false);
+            ErrorMessage.SetActive(true);
+
+        }
     }
-    public void three(Three scriptable)
+    public void HandCraft_(bool a)
     {
-        ThreeButtonText(scriptable.ItemName1, scriptable.ItemCount1, scriptable.ItemName2, scriptable.ItemCount2, scriptable.ItemName3, scriptable.ItemCount3);
-        text(scriptable.RecipeName, scriptable.Explanation);
-        active(scriptable.ButtonCount);
-        obj = scriptable.obj;
-        name_ = scriptable.RecipeName;
-        a_ = a;
-        ButtonCount = scriptable.ButtonCount;
-        Three_ = scriptable;
-        CraftCount = scriptable.CraftCount;
-        obj = scriptable.obj;
+        ItemButton1.SetActive(a);
+        ItemButton2.SetActive(a);
+        ItemButton3.SetActive(a);
+        CraftButton.SetActive(a);
+       
+    }
+    public void two(GameObject obj)
+    {
+        RecipeButtonData recipe = obj.GetComponent<RecipeButtonData>();
+        int Number = recipe.ListNumber;
+        ScriptableObject scriptable_ = _RecipeButtonCreate.List[Number];
+        Two scriptable = (Two)scriptable_;
+        if (HandCraft && scriptable.HandCraft == true)
+        {
+            TwoButtonText(scriptable.ItemName1, scriptable.ItemCount1, scriptable.ItemName2, scriptable.ItemCount2);
+            text(scriptable.RecipeName, scriptable.Explanation);
+            active(scriptable.ButtonCount);
+            obj = scriptable.obj;
+            name_ = scriptable.RecipeName;
+            a_ = a;
+            ButtonCount = scriptable.ButtonCount;
+            Two_ = scriptable;
+            CraftCount = scriptable.CarftCount;
+            obj = scriptable.obj;
+            HandCraft_(true);
+            ErrorMessage.SetActive(false);
+        }
+        else
+        {
+            text(scriptable.RecipeName, scriptable.Explanation);
+            HandCraft_(false);
+            ErrorMessage.SetActive(true);
+
+        }
+    }
+    public void three(GameObject obj)
+    {
+        RecipeButtonData recipe = obj.GetComponent<RecipeButtonData>();
+        int Number = recipe.ListNumber;
+        ScriptableObject scriptable_ = _RecipeButtonCreate.List[Number];
+        Three scriptable = (Three)scriptable_;
+        if (HandCraft && scriptable.HandCraft == true)
+        {
+            ThreeButtonText(scriptable.ItemName1, scriptable.ItemCount1, scriptable.ItemName2, scriptable.ItemCount2, scriptable.ItemName3, scriptable.ItemCount3);
+            text(scriptable.RecipeName, scriptable.Explanation);
+            active(scriptable.ButtonCount);
+            obj = scriptable.obj;
+            name_ = scriptable.RecipeName;
+            a_ = a;
+            ButtonCount = scriptable.ButtonCount;
+            Three_ = scriptable;
+            CraftCount = scriptable.CraftCount;
+            obj = scriptable.obj;
+            HandCraft_(true);
+            ErrorMessage.SetActive(false);
+        }
+        else
+        {
+            text(scriptable.RecipeName, scriptable.Explanation);
+            HandCraft_(false);
+            ErrorMessage.SetActive(true);
+
+        }
     }
     public void road()
     {
@@ -326,19 +400,5 @@ public class RecipieButton : MonoBehaviour
         count2 = ItemCount2;
         count3 = ItemCount3;
 
-    }
-    public void HnadCraft()
-    {
-        foreach (GameObject a in buttonObj)
-        {
-            a.SetActive(false);
-        }
-    }
-    public void TableCraft()
-    {
-        foreach (GameObject a in buttonObj)
-        {
-            a.SetActive(true);
-        }
     }
 }

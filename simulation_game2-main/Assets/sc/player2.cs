@@ -57,7 +57,7 @@ public class player2 : MonoBehaviour
     public PreviewManager _previewManager;
     public InputSystem _gameInputs;
     public GameObject button;
-
+    public RecipeButtonCreate _recipeButton;
     // Start is called before the first frame update
 
     //“–‚½‚è”»’è
@@ -301,10 +301,11 @@ public class player2 : MonoBehaviour
             Craft_ = true;
             Craft.SetActive(true);
             Recipe.SetActive(false);
+            _recipeButton.create();
             Cursor.visible = true;
             CameraControll.active_camera = false;
             RecipieButton.HandCraft = true;
-            _recipieButton.HnadCraft();
+            //_recipieButton.HnadCraft();
         }
         else if (_gameInputs.Player.craft.WasPressedThisFrame() && (Craft.activeSelf) && (!inventoy.activeSelf) && (!EscObj.activeSelf))
         {
@@ -320,7 +321,7 @@ public class player2 : MonoBehaviour
             Craft.SetActive(true);
             Recipe.SetActive(false);
             _inventoryCreate.DestroyButton();
-            _recipieButton.HnadCraft();
+           // _recipieButton.HnadCraft();
             Cursor.visible = true;
             CameraControll.active_camera = false;
             // _inventoryCreate.DestroyButton();

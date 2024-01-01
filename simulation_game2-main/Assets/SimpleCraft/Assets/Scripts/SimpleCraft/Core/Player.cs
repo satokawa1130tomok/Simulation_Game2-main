@@ -577,7 +577,8 @@
 //            if (_currType != Inventory.Type.Inventory)
 //                return;
 
-//            if (_toolHandler.CurrentTool != null)
+//            if (_tool
+//            ler.CurrentTool != null)
 //            {
 
 //                if (_currItem == _toolHandler.CurrentTool.ItemName && _inventory.Items[_currItem] == 1)
