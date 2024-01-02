@@ -74,7 +74,7 @@ public class RecipieButton : MonoBehaviour
         set { _name3 = value; }
     }
     public GameObject _obj;
-    public GameObject obj
+    public GameObject obj_
     {
         get { return _obj; }
         set { _obj = value; }
@@ -125,6 +125,10 @@ public class RecipieButton : MonoBehaviour
     }
     public void Click(GameObject obj)
     {
+        if (panel.activeSelf == false)
+        {
+            panel.SetActive(true);
+        }
         RecipeButtonData recipe = obj.GetComponent<RecipeButtonData>();
         if(recipe.RecipeType == 1)
         {
@@ -145,21 +149,22 @@ public class RecipieButton : MonoBehaviour
         int Number = recipe.ListNumber;
         ScriptableObject scriptable_ = _RecipeButtonCreate.List[Number];
         one scriptable = (one)scriptable_;
-        if (HandCraft && scriptable.HandCraft == true)
+        if (HandCraft == true && scriptable.HandCraft == true)
         {
             OneButtonText(scriptable.ItemName1, scriptable.ItemCount1);
-            active(scriptable.ButtonCount);
-            obj = scriptable.obj;
+            obj_ = scriptable.obj;
             name_ = scriptable.RecipeName;
             a_ = a;
             one_ = scriptable;
             CraftCount = scriptable.CarftCount;
-            obj = scriptable.obj;
+            obj_ = scriptable.obj;
             ButtonCount = scriptable.ButtonCount;
             HandCraft_(true);
             ErrorMessage.SetActive(false);
+            active(scriptable.ButtonCount);
+
         }
-        else
+        else if(HandCraft == true && scriptable.HandCraft == false)
         {
             text(scriptable.RecipeName, scriptable.Explanation);
             HandCraft_(false);
@@ -181,22 +186,25 @@ public class RecipieButton : MonoBehaviour
         int Number = recipe.ListNumber;
         ScriptableObject scriptable_ = _RecipeButtonCreate.List[Number];
         Two scriptable = (Two)scriptable_;
-        if (HandCraft && scriptable.HandCraft == true)
+        Debug.Log(HandCraft +" "+ scriptable.HandCraft);
+
+        if (HandCraft == true && scriptable.HandCraft == true)
         {
             TwoButtonText(scriptable.ItemName1, scriptable.ItemCount1, scriptable.ItemName2, scriptable.ItemCount2);
             text(scriptable.RecipeName, scriptable.Explanation);
-            active(scriptable.ButtonCount);
-            obj = scriptable.obj;
+            obj_ = scriptable.obj;
             name_ = scriptable.RecipeName;
             a_ = a;
             ButtonCount = scriptable.ButtonCount;
             Two_ = scriptable;
             CraftCount = scriptable.CarftCount;
-            obj = scriptable.obj;
+            obj_ = scriptable.obj;
             HandCraft_(true);
             ErrorMessage.SetActive(false);
+            active(scriptable.ButtonCount);
+
         }
-        else
+        else if(HandCraft == true && scriptable.HandCraft == false)
         {
             text(scriptable.RecipeName, scriptable.Explanation);
             HandCraft_(false);
@@ -210,22 +218,22 @@ public class RecipieButton : MonoBehaviour
         int Number = recipe.ListNumber;
         ScriptableObject scriptable_ = _RecipeButtonCreate.List[Number];
         Three scriptable = (Three)scriptable_;
-        if (HandCraft && scriptable.HandCraft == true)
+        if (HandCraft == true && scriptable.HandCraft == true)
         {
             ThreeButtonText(scriptable.ItemName1, scriptable.ItemCount1, scriptable.ItemName2, scriptable.ItemCount2, scriptable.ItemName3, scriptable.ItemCount3);
             text(scriptable.RecipeName, scriptable.Explanation);
-            active(scriptable.ButtonCount);
-            obj = scriptable.obj;
+            obj_ = scriptable.obj;
             name_ = scriptable.RecipeName;
             a_ = a;
             ButtonCount = scriptable.ButtonCount;
             Three_ = scriptable;
             CraftCount = scriptable.CraftCount;
-            obj = scriptable.obj;
+            obj_ = scriptable.obj;
             HandCraft_(true);
             ErrorMessage.SetActive(false);
+            active(scriptable.ButtonCount);
         }
-        else
+        else if(HandCraft == true && scriptable.HandCraft == false)
         {
             text(scriptable.RecipeName, scriptable.Explanation);
             HandCraft_(false);
@@ -267,7 +275,7 @@ public class RecipieButton : MonoBehaviour
 
     public void active(int count)
     {
-        // Debug.Log(count);
+         Debug.Log(count);
         if (panel.activeSelf == false) { panel.SetActive(true); }
         ItemButton1.SetActive(true);
         if (count == 1)
@@ -275,12 +283,12 @@ public class RecipieButton : MonoBehaviour
             ItemButton2.SetActive(false);
             ItemButton3.SetActive(false);
         }
-        if (count == 2)
+        else if (count == 2)
         {
             ItemButton2.SetActive(true);
             ItemButton3.SetActive(false);
         }
-        if (count == 3)
+        else if (count == 3)
         {
             ItemButton2.SetActive(true);
             ItemButton3.SetActive(true);
@@ -304,7 +312,7 @@ public class RecipieButton : MonoBehaviour
         }
         else
         {
-            Debug.Log(a);
+            //Debug.Log(a);
             int1 = inventoryList.count[a];
         }
         ItemText1.text = (Itemname1 + "     " + int1 + "/" + Itemcount1);
@@ -324,7 +332,7 @@ public class RecipieButton : MonoBehaviour
         }
         else
         {
-            Debug.Log(a);
+            //Debug.Log(a);
             int1 = inventoryList.count[a];
         }
         ItemText1.text = (Itemname1 + "     " + (int1) + "/" + Itemcount1);
@@ -338,7 +346,7 @@ public class RecipieButton : MonoBehaviour
         }
         else
         {
-            Debug.Log(a);
+            //Debug.Log(a);
             int2 = inventoryList.count[a];
         }
         ItemText2.text = (Itemname2 + "     " + (int2) + "/" + ItemCount2);
@@ -362,7 +370,7 @@ public class RecipieButton : MonoBehaviour
         }
         else
         {
-            Debug.Log(a);
+            //Debug.Log(a);
             int1 = inventoryList.count[a];
         }
         ItemText1.text = (Itemname1 + "     " + int1 + "/" + Itemcount1);
@@ -375,7 +383,7 @@ public class RecipieButton : MonoBehaviour
         }
         else
         {
-            Debug.Log(a);
+            //Debug.Log(a);
             int2 = inventoryList.count[a];
         }
         ItemText2.text = (Itemname2 + "     " + int2 + "/" + ItemCount2);
@@ -388,7 +396,7 @@ public class RecipieButton : MonoBehaviour
         }
         else
         {
-            Debug.Log(a);
+            //Debug.Log(a);
             int3 = inventoryList.count[a];
         }
         ItemText3.text = (Itemname3 + "     " + int3 + "/" + ItemCount3);

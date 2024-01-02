@@ -217,7 +217,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!65 &1929111238424785210
 BoxCollider:
@@ -289,14 +289,18 @@ MonoBehaviour:
   _name: "\u679D"
   ItemObjDataNumber_: 0
   ObjectType: I
-  ResourceObjNumber: 0
-  ResourceObjCount: 0
-  ResourceObjToolType: 0
+  ToolType: 0
+  ResourceObjNumber: 
+  ResourceObjCount: 
+  ResourceObjToolType: 
+  ResourceObject:
+  - {fileID: 0}
   ResourceCount: 0
   RespawnTime: 0
-  ResourceObject: {fileID: 0}
+  L_ResourceObject: []
   Time_: 0
   InitialCount: 0
+  InitialType: 
   CloneObject: {fileID: 0}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}

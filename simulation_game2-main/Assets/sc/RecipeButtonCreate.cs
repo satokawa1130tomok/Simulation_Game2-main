@@ -12,10 +12,12 @@ public class RecipeButtonCreate : MonoBehaviour
     public one one;
     public Two Two;
     public Three Three;
+
+    public bool CreateButton;
     // Start is called before the first frame update
     void Start()
     {
-        
+        CreateButton = false;
     }
 
     // Update is called once per frame
@@ -26,13 +28,14 @@ public class RecipeButtonCreate : MonoBehaviour
 
     public void create()
     {
+        
         int i = 0;
         foreach(ScriptableObject a in List)
         {
             Vector3 vector = new Vector3(0, 0, 0);
             GameObject CloneObj = Instantiate(CloneButton);
             CloneObj.transform.SetParent(content.transform, false);
-            CloneObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 138-(i*60));
+            CloneObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 138-(i*40));
             int int1 = 0;
             try
             {
@@ -74,6 +77,7 @@ public class RecipeButtonCreate : MonoBehaviour
 
             i++;
         }
+        CreateButton = true;
     }
     public void Destroy()
     {

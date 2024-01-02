@@ -146,7 +146,7 @@ public class HitPanel : MonoBehaviour
                         HitText = "";
                     }
                 }
-                else if (Ray_.a == 5)
+                else if (Ray_.a == 5)//cr
                 {
                     Panel.SetActive(true);
 
@@ -164,16 +164,23 @@ public class HitPanel : MonoBehaviour
                     }
                     if (_gameInputs.Player.pickUp.WasPressedThisFrame() && !_gameInputs.Player.shift.WasPressedThisFrame())
                     {
+                        // player2_.Craft.SetActive(true);
+                        // player2_.Recipe.SetActive(false);
+                        // player2_._inventoryCreate.DestroyButton();
+                        // if (player2_._recipeButton.CreateButton == false) {player2_._recipeButton.create(); }
+                        // Cursor.visible = true;
+                        // CameraControll.active_camera = false;
+                        // // _inventoryCreate.DestroyButton();
+                        // player2_.inventoy.SetActive(false);
+                        // RecipieButton.HandCraft = false;
+                        // _recipieButton.TableCraft();
+                        player2_.Craft_ = true;
                         player2_.Craft.SetActive(true);
                         player2_.Recipe.SetActive(false);
-                        player2_._inventoryCreate.DestroyButton();
-
+                        if (player2_._recipeButton.CreateButton == false) { player2_._recipeButton.create(); }
                         Cursor.visible = true;
                         CameraControll.active_camera = false;
-                        // _inventoryCreate.DestroyButton();
-                        player2_.inventoy.SetActive(false);
                         RecipieButton.HandCraft = false;
-                       // _recipieButton.TableCraft();
                         return;
                     }
                 }

@@ -107,7 +107,7 @@ public class InventoryList : MonoBehaviour
     {
         //bool bool1;
         ////bool1 = name.Contains(Idata.name);
-        //   Debug.Log(obj);
+        Debug.Log(obj_);
         var var1 = -100;
         var1 = this.name_.IndexOf(name_);
 
@@ -117,6 +117,11 @@ public class InventoryList : MonoBehaviour
             this.name_.Add(name_);
             count.Add(count_);
             obj.Add(obj_);
+            WorldObject world = obj_.GetComponent<WorldObject>();
+            if (world != null)
+            {
+                number.Add(world.ItemObjDataNumber);
+            }
         }
         else
         {

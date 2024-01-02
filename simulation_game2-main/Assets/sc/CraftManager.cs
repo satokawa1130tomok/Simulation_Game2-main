@@ -26,7 +26,7 @@ public class CraftManager : MonoBehaviour
         craft = true;
         if (recipie.ButtonCount == 1)//ボタンの数が1
         {
-            Debug.Log("A");
+            //Debug.Log("A");
             check(recipie.name1, recipie.count1);
         }
         if (recipie.ButtonCount == 2)//ボタンの数が2
@@ -112,7 +112,7 @@ public class CraftManager : MonoBehaviour
     }
     public void Craft()
     {
-        recipie.inventoryList.CraftItem(recipie.name_, recipie.CraftCount, recipie.obj);
+        recipie.inventoryList.CraftItem(recipie.name_, recipie.CraftCount, recipie.obj_);
     }
     public void RemoveList(string name, int count)
     {
@@ -124,6 +124,7 @@ public class CraftManager : MonoBehaviour
             recipie.inventoryList.name_.RemoveAt(a);
             recipie.inventoryList.count.RemoveAt(a);
             recipie.inventoryList.obj.RemoveAt(a);
+            recipie.inventoryList.number.RemoveAt(a);
         }
         else
         {

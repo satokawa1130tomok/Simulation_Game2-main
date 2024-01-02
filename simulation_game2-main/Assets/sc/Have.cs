@@ -203,6 +203,7 @@ public class Have : MonoBehaviour
 
             //   Debug.Log(player2.obj);
         }
+        Debug.LogError("HaveItemError");
     }
     void CloneObj_(GameObject clone)
     {

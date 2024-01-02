@@ -301,7 +301,7 @@ public class player2 : MonoBehaviour
             Craft_ = true;
             Craft.SetActive(true);
             Recipe.SetActive(false);
-            _recipeButton.create();
+            if (_recipeButton.CreateButton == false) { _recipeButton.create(); }
             Cursor.visible = true;
             CameraControll.active_camera = false;
             RecipieButton.HandCraft = true;

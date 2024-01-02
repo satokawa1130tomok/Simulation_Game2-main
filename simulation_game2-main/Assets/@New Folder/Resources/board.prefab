@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 948978458213472649}
   - component: {fileID: 8745977096337388736}
+  - component: {fileID: 738853710759384939}
   m_Layer: 0
   m_Name: board
   m_TagString: Untagged
@@ -48,14 +49,12 @@ MonoBehaviour:
   _name: "\u677F"
   ItemObjDataNumber_: 5
   ObjectType: I
-  ResourceObjNumber: 0
-  ResourceObjCount: 0
-  ResourceObjToolType: 0
-  ResourceObject: {fileID: 0}
-  ResourceObjNumber2: 0
-  ResourceObjCount2: 0
-  ResourceObjToolType2: 0
-  ResourceObject2: {fileID: 0}
+  ToolType: 0
+  ResourceObjNumber: 
+  ResourceObjCount: 
+  ResourceObjToolType: 
+  ResourceObject:
+  - {fileID: 0}
   ResourceCount: 0
   RespawnTime: 0
   L_ResourceObject: []
@@ -69,6 +68,22 @@ MonoBehaviour:
   ItemObjData: {fileID: 0}
   number_: 0
   List: 0
+--- !u!54 &738853710759384939
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349048271188826829}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &664838629331094808
 GameObject:
   m_ObjectHideFlags: 0
