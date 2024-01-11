@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -87,7 +86,16 @@ public class ObjectManager : MonoBehaviour
         {
             //Debug.Log(int1);
             obj.Add(a);
-            a.GetComponent<WorldObject>().ListNumber = int1;
+            try
+            {
+                a.GetComponent<WorldObject>().ListNumber = int1;
+
+            }
+            catch
+            {
+                Debug.LogError("missing");
+                Debug.Log(a.GetComponent<WorldObject>().ListNumber);
+            }
             int1++;
         }
         obj2.Clear();

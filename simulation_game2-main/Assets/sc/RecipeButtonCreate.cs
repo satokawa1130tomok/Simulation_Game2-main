@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,19 +22,19 @@ public class RecipeButtonCreate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void create()
     {
-        
+
         int i = 0;
-        foreach(ScriptableObject a in List)
+        foreach (ScriptableObject a in List)
         {
             Vector3 vector = new Vector3(0, 0, 0);
             GameObject CloneObj = Instantiate(CloneButton);
             CloneObj.transform.SetParent(content.transform, false);
-            CloneObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 138-(i*40));
+            CloneObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 138 - (i * 40));
             int int1 = 0;
             try
             {
@@ -55,7 +54,7 @@ public class RecipeButtonCreate : MonoBehaviour
                     int1 = 3;
                 }
             }
-            string NameText ="";
+            string NameText = "";
             if (int1 == 1)
             {
                 NameText = one.RecipeName;

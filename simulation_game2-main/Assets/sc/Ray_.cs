@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ray_ : MonoBehaviour
@@ -76,7 +74,6 @@ public class Ray_ : MonoBehaviour
                 }
                 else if (wdata.ObjectType == "Cr")
                 {
-                    //Debug.Log("A");
                     a = 5;
                     bool_ = true;
                 }
@@ -119,19 +116,5 @@ public class Ray_ : MonoBehaviour
 
 
         }
-
-
-        //Debug.Log(wdata.ObjectType);
-
     }
-    //else
-    //{
-    //    //Debug.Log(HitPosition);
-    //    _hit = null;
-    //    a = 0;
-    //    bool_ = true;
-    //    HitPosition = ray.GetPoint(maxDistance);
-
-    //}
-
 }

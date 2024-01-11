@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using SimpleCraft.Core;
 using UnityEngine;
-using UnityEngine.UI;
 using System.Linq;
 
 public class inventoy_list : MonoBehaviour

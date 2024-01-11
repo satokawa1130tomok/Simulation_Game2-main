@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -116,6 +115,7 @@ public class RecipieButton : MonoBehaviour
     void Start()
     {
         panel.SetActive(false);
+        HandCraft = true;
     }
 
     // Update is called once per frame
@@ -130,15 +130,15 @@ public class RecipieButton : MonoBehaviour
             panel.SetActive(true);
         }
         RecipeButtonData recipe = obj.GetComponent<RecipeButtonData>();
-        if(recipe.RecipeType == 1)
+        if (recipe.RecipeType == 1)
         {
             one(obj);
         }
-        else if(recipe.RecipeType == 2)
+        else if (recipe.RecipeType == 2)
         {
             two(obj);
         }
-        else if(recipe.RecipeType == 3)
+        else if (recipe.RecipeType == 3)
         {
             three(obj);
         }
@@ -149,22 +149,23 @@ public class RecipieButton : MonoBehaviour
         int Number = recipe.ListNumber;
         ScriptableObject scriptable_ = _RecipeButtonCreate.List[Number];
         one scriptable = (one)scriptable_;
-        if (HandCraft == true && scriptable.HandCraft == true)
+        if (!HandCraft || (HandCraft && scriptable.HandCraft))
         {
             OneButtonText(scriptable.ItemName1, scriptable.ItemCount1);
+            text(scriptable.RecipeName, scriptable.Explanation);
             obj_ = scriptable.obj;
             name_ = scriptable.RecipeName;
             a_ = a;
+            ButtonCount = scriptable.ButtonCount;
             one_ = scriptable;
             CraftCount = scriptable.CarftCount;
             obj_ = scriptable.obj;
-            ButtonCount = scriptable.ButtonCount;
             HandCraft_(true);
             ErrorMessage.SetActive(false);
             active(scriptable.ButtonCount);
 
         }
-        else if(HandCraft == true && scriptable.HandCraft == false)
+        else 
         {
             text(scriptable.RecipeName, scriptable.Explanation);
             HandCraft_(false);
@@ -178,7 +179,7 @@ public class RecipieButton : MonoBehaviour
         ItemButton2.SetActive(a);
         ItemButton3.SetActive(a);
         CraftButton.SetActive(a);
-       
+
     }
     public void two(GameObject obj)
     {
@@ -186,9 +187,7 @@ public class RecipieButton : MonoBehaviour
         int Number = recipe.ListNumber;
         ScriptableObject scriptable_ = _RecipeButtonCreate.List[Number];
         Two scriptable = (Two)scriptable_;
-        Debug.Log(HandCraft +" "+ scriptable.HandCraft);
-
-        if (HandCraft == true && scriptable.HandCraft == true)
+        if (!HandCraft || (HandCraft && scriptable.HandCraft))
         {
             TwoButtonText(scriptable.ItemName1, scriptable.ItemCount1, scriptable.ItemName2, scriptable.ItemCount2);
             text(scriptable.RecipeName, scriptable.Explanation);
@@ -202,9 +201,8 @@ public class RecipieButton : MonoBehaviour
             HandCraft_(true);
             ErrorMessage.SetActive(false);
             active(scriptable.ButtonCount);
-
         }
-        else if(HandCraft == true && scriptable.HandCraft == false)
+        else
         {
             text(scriptable.RecipeName, scriptable.Explanation);
             HandCraft_(false);
@@ -218,7 +216,7 @@ public class RecipieButton : MonoBehaviour
         int Number = recipe.ListNumber;
         ScriptableObject scriptable_ = _RecipeButtonCreate.List[Number];
         Three scriptable = (Three)scriptable_;
-        if (HandCraft == true && scriptable.HandCraft == true)
+        if (!HandCraft || (HandCraft && scriptable.HandCraft))
         {
             ThreeButtonText(scriptable.ItemName1, scriptable.ItemCount1, scriptable.ItemName2, scriptable.ItemCount2, scriptable.ItemName3, scriptable.ItemCount3);
             text(scriptable.RecipeName, scriptable.Explanation);
@@ -233,7 +231,7 @@ public class RecipieButton : MonoBehaviour
             ErrorMessage.SetActive(false);
             active(scriptable.ButtonCount);
         }
-        else if(HandCraft == true && scriptable.HandCraft == false)
+        else
         {
             text(scriptable.RecipeName, scriptable.Explanation);
             HandCraft_(false);
@@ -275,7 +273,6 @@ public class RecipieButton : MonoBehaviour
 
     public void active(int count)
     {
-         Debug.Log(count);
         if (panel.activeSelf == false) { panel.SetActive(true); }
         ItemButton1.SetActive(true);
         if (count == 1)

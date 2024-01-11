@@ -22,8 +22,8 @@ public class WorldObject : MonoBehaviour
 
     public string ObjectType;
     public char ToolType;
+    public GameObject CloneObject;
     //Å´resourceÇ∆CïKê{
-    public List<int> ResourceObjNumber;
     public List<int> ResourceObjCount;
     public List<char> ResourceObjToolType;
     public List<GameObject> ResourceObject;
@@ -37,7 +37,6 @@ public class WorldObject : MonoBehaviour
     private int Initial;
     public int InitialCount;
     public string InitialType;
-    public GameObject CloneObject;
     public Vector3 rotation_;
     public Vector3 rotation
     {
@@ -60,7 +59,7 @@ public class WorldObject : MonoBehaviour
     }
     public bool List;
     private int ListNumber_;
-
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -80,17 +79,6 @@ public class WorldObject : MonoBehaviour
             ItemObjData = player2.itemObjData_;
             CloneObject = ItemObjData.obj[ItemObjDataNumber];
             _objectManager = player2.objectManager_;
-            if (ObjectType == "R" || ObjectType == "L")
-            {
-                //   Debug.Log(ItemObjData.obj[ResourceObjNumber]);
-                int i = 0;
-                foreach (int a in ResourceObjNumber)
-                {
-                    ResourceObject[i] = ItemObjData.obj[a];
-
-                    i++;
-                }
-            }
 
             if (!List)
             {
@@ -132,17 +120,7 @@ public class WorldObject : MonoBehaviour
             ItemObjData = player2.itemObjData_;
             CloneObject = ItemObjData.obj[ItemObjDataNumber];
             _objectManager = player2.objectManager_;
-            if (ObjectType == "R" || ObjectType == "L" || ObjectType == "K")
-            {
-                //   Debug.Log(ItemObjData.obj[ResourceObjNumber]);
-                int i = 0;
-                foreach (int a in ResourceObjNumber)
-                {
-                    ResourceObject[i] = ItemObjData.obj[a];
 
-                    i++;
-                }
-            }
             if (!List)
             {
                 ListNumber = _objectManager.add(ItemObjDataNumber, position, rotation, this.gameObject);
@@ -151,6 +129,11 @@ public class WorldObject : MonoBehaviour
             }
 
             //   Debug.Log(ResourceObject);
+        }
+
+        if(ObjectType == "I")
+        {
+            
         }
 
         if (ObjectType == "R" || ObjectType == "NR" || ObjectType == "K")
