@@ -10,6 +10,7 @@ public class WorldName : MonoBehaviour
     public GameObject fast;
     public GameObject second;
     public GameObject second_r;
+    public GameObject settings;
     private string[] road_List;
     public GameObject CloneButton;
     public GameObject panel;
@@ -22,6 +23,7 @@ public class WorldName : MonoBehaviour
         second.SetActive(false);
         second_r.SetActive(false);
         inputField = inputField.GetComponent<InputField>();
+        settings.SetActive(false);
     }
 
     // Update is called once per frame
@@ -55,6 +57,14 @@ public class WorldName : MonoBehaviour
         fast.SetActive(true);
         second.SetActive(false);
         second_r.SetActive(false);
+        settings.SetActive(false);
+    }
+    public void setting()
+    {
+        fast.SetActive(false);
+        second.SetActive(false);
+        second_r.SetActive(false);
+        settings.SetActive(true);
     }
     public void NameList()
     {
