@@ -28,7 +28,7 @@ public class buttonCursor : MonoBehaviour
     void Update()
     {
         hit = (_CursorManager.CursorPosition.x == ListNumber_X && _CursorManager.CursorPosition.y == ListNumber_Y);
-        if (_CursorManager.CursorPosition.x == ListNumber_X && _CursorManager.CursorPosition.y == ListNumber_Y)
+        if (_CursorManager.CursorPosition.x == ListNumber_X && _CursorManager.CursorPosition.y == ListNumber_Y && _CursorManager.checkBox.bool1_d)
         {
             // Debug.Log(ListNumber_X + " " + ListNumber_Y);
             if (!Toggle)

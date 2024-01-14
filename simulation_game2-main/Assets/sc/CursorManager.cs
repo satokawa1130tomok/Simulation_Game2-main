@@ -7,7 +7,7 @@ public class CursorManager : MonoBehaviour
     //public GameObject[,] button;
     public Vector2 CursorPosition;
     public InputSystem _gameInputs;
-
+    public CheckBox checkBox;
     // Start is called before the first frame update
     void Start()
     {
