@@ -78,7 +78,7 @@ public class IncentoryCreate : MonoBehaviour
 
                 GameObject cloneButton = Instantiate(CloneButton_) as GameObject;
                 cloneButton.transform.SetParent(content.transform, false);
-                cloneButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 160+(-(i + 1) * 40));
+                cloneButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, (-(i + 1) * 40));
                 
                 GameObject textObj = cloneButton.transform.Find("clonetext").gameObject;
                 Text _text = textObj.GetComponent<Text>();
