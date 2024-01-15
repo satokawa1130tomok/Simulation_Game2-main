@@ -23,7 +23,7 @@ public class save : MonoBehaviour
     {
         if (WorldName.text == null)
         {
-            //SceneManager.LoadScene("start");
+           SceneManager.LoadScene("start");
             WorldName.text = "a";
 
         }
