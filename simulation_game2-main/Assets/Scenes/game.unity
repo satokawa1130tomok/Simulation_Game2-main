@@ -11766,6 +11766,7 @@ MonoBehaviour:
   max_X: 0
   max_Y: 000000000000000000000000
   CursorPosition: {x: 0, y: 0}
+  checkBox: {fileID: 0}
 --- !u!224 &1967663644 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224771122883764374, guid: 05f32eddd3e41fd4597ada617b785928,
@@ -19306,7 +19307,7 @@ PrefabInstance:
     - target: {fileID: 7861133682871327570, guid: 7647b1de679d55345bbce8fcaa4bdc3e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0000008053128
+      value: 0.0004916439
       objectReference: {fileID: 0}
     - target: {fileID: 7861192924286825972, guid: 7647b1de679d55345bbce8fcaa4bdc3e,
         type: 3}
@@ -19736,7 +19737,7 @@ PrefabInstance:
     - target: {fileID: 7862105653261583628, guid: 7647b1de679d55345bbce8fcaa4bdc3e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000030093845
+      value: 0.0005178138
       objectReference: {fileID: 0}
     - target: {fileID: 7926343578154052128, guid: 7647b1de679d55345bbce8fcaa4bdc3e,
         type: 3}

@@ -9,9 +9,6 @@ public class IncentoryCreate : MonoBehaviour
     public GameObject content;
     public InventoryList _InventoryList;
     public int interval;
-    public GameObject text;
-    private Text _text;
-    public Canvas canvas;
     public List<GameObject> but;
     public bool ButtonClause;
     public bool CanvasClause;
@@ -81,8 +78,8 @@ public class IncentoryCreate : MonoBehaviour
 
                 GameObject cloneButton = Instantiate(CloneButton_) as GameObject;
                 cloneButton.transform.SetParent(content.transform, false);
-                cloneButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -(i + 1) * 60);
-
+                cloneButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 160+(-(i + 1) * 40));
+                
                 GameObject textObj = cloneButton.transform.Find("clonetext").gameObject;
                 Text _text = textObj.GetComponent<Text>();
 
@@ -106,6 +103,7 @@ public class IncentoryCreate : MonoBehaviour
                 cursor._CursorManager = content.GetComponent<CursorManager>();
                 cursor.ListNumber_X = 0;
                 cursor.ListNumber_Y = i;
+                CloneButton.SetActive(true);
 
 
             }

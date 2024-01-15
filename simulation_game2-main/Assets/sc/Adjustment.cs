@@ -34,6 +34,8 @@ public class Adjustment : MonoBehaviour
                 Vector3 vector3 = new Vector3(x, y, z);
                 GameObject CloneObj = Instantiate(this.gameObject, vector3, Quaternion.identity);
                 Adjustment ad = CloneObj.AddComponent<Adjustment>();
+                WorldObject w = this.gameObject.GetComponent<WorldObject>();
+                w._objectManager.clearat(w.ListNumber);
                 Destroy(this.gameObject);
             }
 
