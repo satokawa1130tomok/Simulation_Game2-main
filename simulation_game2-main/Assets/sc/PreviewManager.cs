@@ -110,7 +110,7 @@ public class PreviewManager : MonoBehaviour
         int int1 = 0;
         foreach (string a in scriptable_.ItemName)
         {
-            Vector3 vector3 = new Vector3(240, 370 - 30 * int1, 0);
+            Vector3 vector3 = new Vector3(260, 370 - 30 * int1, 0);
             GameObject CloneObject = Instantiate(CloneButton, vector3, Quaternion.identity);
             CloneObject.transform.parent = GameObject.Find("clone").transform;
             GameObject textObj = CloneObject.transform.Find("clonetext").gameObject;
@@ -146,11 +146,6 @@ public class PreviewManager : MonoBehaviour
     }
     public void Craft()
     {
-
-
-
-
-
         int int1 = 0;
         bool HaveItem = false;
         bool check = false;
@@ -182,7 +177,12 @@ public class PreviewManager : MonoBehaviour
         }
         if (!check)
         {
+            DestroyButton();
 
+            ImageObject.SetActive(false);
+            UIObject.SetActive(false);
+            Cursor.visible = false;
+            CameraControll.active_camera = true;
 
             player2.obj = scriptable.obj;
             have = true;
@@ -206,12 +206,7 @@ public class PreviewManager : MonoBehaviour
             //  CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
 
         }
-        DestroyButton();
-
-        ImageObject.SetActive(false);
-        UIObject.SetActive(false);
-        Cursor.visible = false;
-        CameraControll.active_camera = true;
+       
     }
     public void Have()
     {
