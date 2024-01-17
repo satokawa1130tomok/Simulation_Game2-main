@@ -80,7 +80,7 @@ MonoBehaviour:
   ItemObjDataNumber_: 6
   ObjectType: R
   ToolType: 0
-  ResourceObjNumber: 050000000e000000
+  CloneObject: {fileID: 153481953417366659}
   ResourceObjCount: 0300000001000000
   ResourceObjToolType: 4e004f00
   ResourceObject:
@@ -92,7 +92,6 @@ MonoBehaviour:
   Time_: 0
   InitialCount: 0
   InitialType: 
-  CloneObject: {fileID: 0}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
   _objectManager: {fileID: 0}

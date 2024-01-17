@@ -33,8 +33,9 @@ public class RecipeButtonCreate : MonoBehaviour
         {
             Vector3 vector = new Vector3(0, 0, 0);
             GameObject CloneObj = Instantiate(CloneButton);
+            CloneButton.SetActive(true);
             CloneObj.transform.SetParent(content.transform, false);
-            CloneObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 138 - (i * 40));
+            CloneObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0,   (i * 100)-30);
             int int1 = 0;
             try
             {

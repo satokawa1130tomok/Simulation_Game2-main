@@ -113,18 +113,23 @@ MonoBehaviour:
   _name: "\u9244\u9271\u77F3"
   ItemObjDataNumber_: 12
   ObjectType: L
-  ResourceObjNumber: 13
-  ResourceObjCount: 3
-  ResourceObjToolType: 78
+  ToolType: 0
+  CloneObject: {fileID: 4352357494097770501}
+  ResourceObjCount: 
+  ResourceObjToolType: 
+  ResourceObject:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ResourceCount: 10
   RespawnTime: 3
-  ResourceObject: {fileID: 7745077400433487812, guid: 32aaec3fba5bec547be64975f3ea4f2a,
-    type: 3}
+  L_ResourceObject: []
   Time_: 0
   InitialCount: 0
-  CloneObject: {fileID: 0}
+  InitialType: 
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
   _objectManager: {fileID: 0}
   ItemObjData: {fileID: 0}
   number_: 0
+  List: 0

@@ -155,20 +155,18 @@ MonoBehaviour:
   _name: "\u30D5\u30A3\u30AE\u30A2"
   ItemObjDataNumber_: 17
   ObjectType: I
-  ResourceObjNumber: 0
-  ResourceObjCount: 0
-  ResourceObjToolType: 0
-  ResourceObject: {fileID: 0}
-  ResourceObjNumber2: 0
-  ResourceObjCount2: 0
-  ResourceObjToolType2: 0
-  ResourceObject2: {fileID: 0}
+  ToolType: 0
+  CloneObject: {fileID: 3853527863289507243}
+  ResourceObjCount: 
+  ResourceObjToolType: 
+  ResourceObject:
+  - {fileID: 0}
   ResourceCount: 0
   RespawnTime: 0
+  L_ResourceObject: []
   Time_: 0
   InitialCount: 0
   InitialType: 
-  CloneObject: {fileID: 0}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
   _objectManager: {fileID: 0}

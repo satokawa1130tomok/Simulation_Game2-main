@@ -113,18 +113,23 @@ MonoBehaviour:
   _name: "\u7802"
   ItemObjDataNumber_: 8
   ObjectType: L
-  ResourceObjNumber: 11
-  ResourceObjCount: 3
-  ResourceObjToolType: 78
+  ToolType: 0
+  CloneObject: {fileID: 2573544547593140943}
+  ResourceObjCount: 
+  ResourceObjToolType: 
+  ResourceObject:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ResourceCount: 5
   RespawnTime: 3
-  ResourceObject: {fileID: 7061106813760998066, guid: 00c2fde0eb22c9e4cabf02793515cb7d,
-    type: 3}
+  L_ResourceObject: []
   Time_: 0
   InitialCount: 0
-  CloneObject: {fileID: 0}
+  InitialType: 
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
   _objectManager: {fileID: 0}
   ItemObjData: {fileID: 0}
   number_: 0
+  List: 0
