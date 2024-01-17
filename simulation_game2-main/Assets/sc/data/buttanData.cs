@@ -33,6 +33,7 @@ public class buttanData : MonoBehaviour
         get { return ButtonPo_; }
         set { ButtonPo_ = value; }
     }
+    public bool Former = false;
 
 
 
@@ -57,6 +58,14 @@ public class buttanData : MonoBehaviour
         //    Destroy(thisButton);
         //    a = true;
         //}
+        if (Former)
+        {
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            this.gameObject.SetActive(true);
+        }
         if (_player2.name_ == name_)
         {
             Outline a = this.GetComponent<Outline>();

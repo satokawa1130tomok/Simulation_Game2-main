@@ -92,6 +92,8 @@ public class IncentoryCreate : MonoBehaviour
 
 
                 buttanData data = cloneButton.GetComponent<buttanData>();
+                data.enabled = true;
+                data.Former = false;
                 data.number = i;
                 data.name_ = a;
                 data.obj = _InventoryList.obj[i];
