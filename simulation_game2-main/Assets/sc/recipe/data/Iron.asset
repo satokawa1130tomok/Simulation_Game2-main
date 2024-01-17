@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b9e186c2321bab4ca83d7914b765d29, type: 3}
-  m_Name: StoneChair
+  m_Name: Iron
   m_EditorClassIdentifier: 
-  RecipeName: "\u77F3\u306E\u6905\u5B50"
-  ItemName1: "\u77F3"
-  ItemCount1: 3
-  Explanation: "\u77F3\u306E\u6905\u5B50\u3067\u3059"
+  RecipeName: "\u9244\u30A4\u30F3\u30B4\u30C3\u30C8"
+  ItemName1: "\u9244\u9271\u77F3"
+  ItemCount1: 1
+  Explanation: 
   HandCraft: 0
   ButtonCount: 1
   CarftCount: 1
-  obj: {fileID: 2028628799016704809, guid: ede59da8f71bd1d42b742e073c76f203, type: 3}
+  obj: {fileID: 7745077400433487812, guid: 32aaec3fba5bec547be64975f3ea4f2a, type: 3}
