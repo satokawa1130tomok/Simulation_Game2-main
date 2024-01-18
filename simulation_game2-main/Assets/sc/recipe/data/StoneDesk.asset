@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b9e186c2321bab4ca83d7914b765d29, type: 3}
-  m_Name: Gold
+  m_Name: StoneDesk
   m_EditorClassIdentifier: 
-  RecipeName: "\u91D1\u30A4\u30F3\u30B4\u30C3\u30C8"
-  ItemName1: "\u91D1\u9271\u77F3"
-  ItemCount1: 1
+  RecipeName: "\u77F3\u306E\u30C6\u30FC\u30D6\u30EB"
+  ItemName1: "\u77F3"
+  ItemCount1: 10
   Explanation: 
   HandCraft: 0
   ButtonCount: 1
   CarftCount: 1
-  obj: {fileID: 7745077400433487812, guid: 75e14c31b402eac4d89bdba08ff2bc6d, type: 3}
+  obj: {fileID: 5074469621167563957, guid: 843e483e7f84b5e4db56463cee94f6f1, type: 3}

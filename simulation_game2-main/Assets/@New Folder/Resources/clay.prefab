@@ -113,10 +113,10 @@ MonoBehaviour:
   _name: "\u6CE5"
   ItemObjDataNumber_: 8
   ObjectType: L
-  ToolType: 0
+  ToolType: 
   CloneObject: {fileID: 1286469570802966538}
   ResourceObjCount: 
-  ResourceObjToolType: 
+  ResourceObjToolType: []
   ResourceObject:
   - {fileID: 0}
   - {fileID: 0}

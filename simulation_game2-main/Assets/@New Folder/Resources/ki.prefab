@@ -79,12 +79,16 @@ MonoBehaviour:
   _name: "\u6728"
   ItemObjDataNumber_: 6
   ObjectType: R
-  ToolType: 0
+  ToolType: 
   CloneObject: {fileID: 153481953417366659}
-  ResourceObjCount: 0300000001000000
-  ResourceObjToolType: 4e004f00
+  ResourceObjCount: 030000000100000005000000
+  ResourceObjToolType:
+  - N
+  - O
+  - IO
   ResourceObject:
   - {fileID: 349048271188826829, guid: 027af7d5f1a24e64cb4f70116dcc84a8, type: 3}
+  - {fileID: 7361834281715796460, guid: e9fba0b7c61d12b4699acafa81c387b9, type: 3}
   - {fileID: 7361834281715796460, guid: e9fba0b7c61d12b4699acafa81c387b9, type: 3}
   ResourceCount: 5
   RespawnTime: 5

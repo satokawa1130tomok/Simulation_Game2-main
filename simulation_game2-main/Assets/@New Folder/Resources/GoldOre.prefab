@@ -80,10 +80,10 @@ MonoBehaviour:
   _name: "\u91D1\u9271\u77F3"
   ItemObjDataNumber_: 20
   ObjectType: I
-  ToolType: 0
+  ToolType: 
   CloneObject: {fileID: 1108502402904949518}
   ResourceObjCount: 
-  ResourceObjToolType: 
+  ResourceObjToolType: []
   ResourceObject: []
   ResourceCount: 0
   RespawnTime: 0

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b9e186c2321bab4ca83d7914b765d29, type: 3}
-  m_Name: Gold
+  m_Name: IronDesk
   m_EditorClassIdentifier: 
-  RecipeName: "\u91D1\u30A4\u30F3\u30B4\u30C3\u30C8"
-  ItemName1: "\u91D1\u9271\u77F3"
-  ItemCount1: 1
+  RecipeName: "\u9244\u306E\u30C6\u30FC\u30D6\u30EB"
+  ItemName1: "\u9244\u30A4\u30F3\u30B4\u30C3\u30C8"
+  ItemCount1: 10
   Explanation: 
   HandCraft: 0
   ButtonCount: 1
   CarftCount: 1
-  obj: {fileID: 7745077400433487812, guid: 75e14c31b402eac4d89bdba08ff2bc6d, type: 3}
+  obj: {fileID: 1180323565782518966, guid: 72c80bceb1e1c5146b55b3718b3c51e4, type: 3}

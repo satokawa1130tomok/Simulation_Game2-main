@@ -441,10 +441,10 @@ MonoBehaviour:
   _name: "\u30C1\u30A7\u30B9\u30C8"
   ItemObjDataNumber_: 3
   ObjectType: C
-  ToolType: 0
+  ToolType: 
   CloneObject: {fileID: 6229869123425712091}
   ResourceObjCount: 
-  ResourceObjToolType: 
+  ResourceObjToolType: []
   ResourceObject:
   - {fileID: 0}
   ResourceCount: 0

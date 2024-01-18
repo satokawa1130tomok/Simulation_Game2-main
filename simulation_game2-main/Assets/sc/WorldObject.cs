@@ -21,11 +21,11 @@ public class WorldObject : MonoBehaviour
     }
 
     public string ObjectType;
-    public char ToolType;
+    public string ToolType;
     public GameObject CloneObject;
     //Å´resourceÇ∆CïKê{
     public List<int> ResourceObjCount;
-    public List<char> ResourceObjToolType;
+    public List<string> ResourceObjToolType;
     public List<GameObject> ResourceObject;
     public int ResourceCount;
     public int RespawnTime;

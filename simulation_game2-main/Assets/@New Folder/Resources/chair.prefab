@@ -566,13 +566,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4689cb301249cfd40acadcf169809143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: "\u6905\u5B50"
+  _name: "\u6728\u306E\u6905\u5B50"
   ItemObjDataNumber_: 16
   ObjectType: I
-  ToolType: 0
-  ResourceObjNumber: 
+  ToolType: 
+  CloneObject: {fileID: 8216228753544305303}
   ResourceObjCount: 
-  ResourceObjToolType: 
+  ResourceObjToolType: []
   ResourceObject:
   - {fileID: 0}
   ResourceCount: 0
@@ -581,7 +581,6 @@ MonoBehaviour:
   Time_: 0
   InitialCount: 0
   InitialType: 
-  CloneObject: {fileID: 8216228753544305303}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
   _objectManager: {fileID: 0}

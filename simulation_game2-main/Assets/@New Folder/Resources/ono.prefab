@@ -133,7 +133,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!65 &2751125398619581220
 BoxCollider:
@@ -163,19 +163,17 @@ MonoBehaviour:
   _name: "\u65A7"
   ItemObjDataNumber_: 2
   ObjectType: T
-  ToolType: 79
-  ResourceObjNumber: 
+  ToolType: O
+  CloneObject: {fileID: 3093018743727321424}
   ResourceObjCount: 
-  ResourceObjToolType: 
-  ResourceObject:
-  - {fileID: 0}
+  ResourceObjToolType: []
+  ResourceObject: []
   ResourceCount: 0
   RespawnTime: 0
   L_ResourceObject: []
   Time_: 0
   InitialCount: 0
   InitialType: 
-  CloneObject: {fileID: 3093018743727321424}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
   _objectManager: {fileID: 0}

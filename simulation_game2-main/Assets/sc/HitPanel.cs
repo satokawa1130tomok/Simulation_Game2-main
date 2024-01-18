@@ -52,7 +52,7 @@ public class HitPanel : MonoBehaviour
                     int i = 0;
                     int ListNumber = 0;
                     WorldObject RRdata = null;
-                    foreach (char a in wdata.ResourceObjToolType)
+                    foreach (string a in wdata.ResourceObjToolType)
                     {
                         if (player2.HaveTool == a)
                         {

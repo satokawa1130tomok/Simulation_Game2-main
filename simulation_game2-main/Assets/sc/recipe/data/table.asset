@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c0a7ba44f5535498a7b12f894c9957, type: 3}
   m_Name: table
   m_EditorClassIdentifier: 
-  RecipeName: "\u30C6\u30FC\u30D6\u30EB"
+  RecipeName: "\u6728\u306E\u30C6\u30FC\u30D6\u30EB"
   ItemName1: "\u679D"
   ItemCount1: 4
   ItemName2: "\u677F"

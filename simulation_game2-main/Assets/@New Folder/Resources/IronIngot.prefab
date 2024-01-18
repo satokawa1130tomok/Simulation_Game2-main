@@ -67,10 +67,10 @@ MonoBehaviour:
   _name: "\u9244\u30A4\u30F3\u30B4\u30C3\u30C8"
   ItemObjDataNumber_: 13
   ObjectType: I
-  ToolType: 0
+  ToolType: 
   CloneObject: {fileID: 7745077400433487812}
   ResourceObjCount: 
-  ResourceObjToolType: 
+  ResourceObjToolType: []
   ResourceObject:
   - {fileID: 0}
   ResourceCount: 0

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9e186c2321bab4ca83d7914b765d29, type: 3}
   m_Name: IronChair
   m_EditorClassIdentifier: 
-  RecipeName: 
-  ItemName1: 
-  ItemCount1: 0
+  RecipeName: "\u9244\u306E\u6905\u5B50"
+  ItemName1: "\u9244\u30A4\u30F3\u30B4\u30C3\u30C8"
+  ItemCount1: 8
   Explanation: 
   HandCraft: 0
   ButtonCount: 1
   CarftCount: 1
-  obj: {fileID: 0}
+  obj: {fileID: 2867168591609131988, guid: 79f69987fc6190a40b0c4e79cdeb33d1, type: 3}

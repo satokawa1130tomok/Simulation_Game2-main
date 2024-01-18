@@ -233,10 +233,10 @@ MonoBehaviour:
   _name: "\u30AF\u30E9\u30D5\u30C8\u30C6\u30FC\u30D6\u30EB"
   ItemObjDataNumber_: 7
   ObjectType: Cr
-  ToolType: 0
-  ResourceObjNumber: 
+  ToolType: 
+  CloneObject: {fileID: 6928975325916272747}
   ResourceObjCount: 
-  ResourceObjToolType: 
+  ResourceObjToolType: []
   ResourceObject:
   - {fileID: 0}
   ResourceCount: 0
@@ -245,7 +245,6 @@ MonoBehaviour:
   Time_: 0
   InitialCount: 0
   InitialType: 
-  CloneObject: {fileID: 6928975325916272747}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
   _objectManager: {fileID: 0}

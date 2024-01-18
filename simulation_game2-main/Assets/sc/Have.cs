@@ -103,7 +103,7 @@ public class Have : MonoBehaviour
             Destroy(obj);
             have = 0;
             player2.anim.SetBool("have", false);
-            player2.HaveTool = 'N';
+            player2.HaveTool = "";
         }
         if (have == 1 && _gameInputs.Player.Installation.WasPressedThisFrame())
         { //‚Á‚Ä‚¢‚éó‘Ô

@@ -177,10 +177,10 @@ MonoBehaviour:
   _name: "\u77F3"
   ItemObjDataNumber_: 1
   ObjectType: I
-  ToolType: 0
-  ResourceObjNumber: 
+  ToolType: 
+  CloneObject: {fileID: 5982423999581654689}
   ResourceObjCount: 
-  ResourceObjToolType: 
+  ResourceObjToolType: []
   ResourceObject:
   - {fileID: 0}
   ResourceCount: 0
@@ -189,7 +189,6 @@ MonoBehaviour:
   Time_: 0
   InitialCount: 0
   InitialType: 
-  CloneObject: {fileID: 5982423999581654689}
   rotation_: {x: 0, y: 0, z: 0}
   position_: {x: 0, y: 0, z: 0}
   _objectManager: {fileID: 0}

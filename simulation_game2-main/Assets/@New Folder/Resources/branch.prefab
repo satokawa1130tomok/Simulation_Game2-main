@@ -289,10 +289,10 @@ MonoBehaviour:
   _name: "\u679D"
   ItemObjDataNumber_: 0
   ObjectType: I
-  ToolType: 0
+  ToolType: 
   CloneObject: {fileID: 1929111238424785201}
   ResourceObjCount: 
-  ResourceObjToolType: 
+  ResourceObjToolType: []
   ResourceObject:
   - {fileID: 0}
   ResourceCount: 0

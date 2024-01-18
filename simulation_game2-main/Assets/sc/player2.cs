@@ -12,7 +12,7 @@ public class player2 : MonoBehaviour
     public GameObject inventoy;//インベントリ
     public GameObject SecondInventoy;//チェストのinventory
     public IncentoryCreate _inventoryCreate;//クラス取得
-    public static char HaveTool = 'N';//持っているツールの種類
+    public static string HaveTool = "N";//持っているツールの種類
     public static bool a;//inndenntorinoboolstatic
     public ChestManager _chestManager;
     public GameObject Craft;

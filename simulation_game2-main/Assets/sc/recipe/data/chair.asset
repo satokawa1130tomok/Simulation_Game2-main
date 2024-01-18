@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c0a7ba44f5535498a7b12f894c9957, type: 3}
   m_Name: chair
   m_EditorClassIdentifier: 
-  RecipeName: "\u6905\u5B50"
+  RecipeName: "\u6728\u306E\u6905\u5B50"
   ItemName1: "\u679D"
   ItemCount1: 4
   ItemName2: "\u677F"
