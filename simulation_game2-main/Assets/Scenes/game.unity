@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 860960087}
-  m_IndirectSpecularColor: {r: 0.44765806, g: 0.4976341, b: 0.57537806, a: 1}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.44676054, g: 0.496625, b: 0.5749277, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1864,7 +1864,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.10969663, y: 0.066}
   m_AnchorMax: {x: 0.88600004, y: 0.94500005}
-  m_AnchoredPosition: {x: -22.979471, y: 17.97403}
+  m_AnchoredPosition: {x: -22.979622, y: 17.97403}
   m_SizeDelta: {x: 47, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &321343619
@@ -3511,8 +3511,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 914586870}
   m_HandleRect: {fileID: 914586869}
   m_Direction: 0
-  m_Value: -0.0062506916
-  m_Size: 0.97926
+  m_Value: -0.0049784267
+  m_Size: 0.9915979
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9218,14 +9218,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860960086}
-  m_LocalRotation: {x: 0.6517013, y: -0.39838272, z: -0.12172768, w: 0.63384473}
+  m_LocalRotation: {x: 0.6610184, y: -0.382724, z: -0.106573395, w: 0.6365683}
   m_LocalPosition: {x: 0, y: 3.5837073, z: -0.00000023841858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 46.817, y: -104.111, z: -79.821}
+  m_LocalEulerAnglesHint: {x: 49.463, y: -104.875, z: -80.846}
 --- !u!1 &877170132
 GameObject:
   m_ObjectHideFlags: 0
@@ -13061,18 +13061,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   List:
   - {fileID: 11400000, guid: c08300502b44f584296351b16eadfae7, type: 2}
+  - {fileID: 11400000, guid: c08300502b44f584296351b16eadfae7, type: 2}
   - {fileID: 11400000, guid: 45b8a76af2bfdd34ea0251d6f9ec436d, type: 2}
   - {fileID: 11400000, guid: e77b7d831c5e1bb42bd7aa5d425c2353, type: 2}
   - {fileID: 11400000, guid: d0c45ba384d333c45ac88c884fc9d9e5, type: 2}
-  - {fileID: 11400000, guid: 6d9f3a472b6f42944b807fc446130de3, type: 2}
   - {fileID: 11400000, guid: 98a206e21608e8f4aae2aec0001086bb, type: 2}
   - {fileID: 11400000, guid: 0f2d6988d31935e4a9dc9467923112f3, type: 2}
   - {fileID: 11400000, guid: 9bb37e71a2c1aeb4390c179275500736, type: 2}
+  - {fileID: 11400000, guid: 403f91c8542dd974cb73d3c65a327753, type: 2}
   - {fileID: 11400000, guid: ae360cae4555f9042a1770dcdab14ad6, type: 2}
   - {fileID: 11400000, guid: 54cc7e08dca02fe4ea34837bf6514de2, type: 2}
   - {fileID: 11400000, guid: a6aa70e35c77315499d61fb828880c66, type: 2}
+  - {fileID: 11400000, guid: 6d9f3a472b6f42944b807fc446130de3, type: 2}
   - {fileID: 11400000, guid: 92e2952c16aba834e92ff57975b59145, type: 2}
   - {fileID: 11400000, guid: aba9b5e39a4c2da4a9d44fb532f86355, type: 2}
+  - {fileID: 11400000, guid: c5a823142eafffc43a1abe9c51622882, type: 2}
+  - {fileID: 11400000, guid: 4b2cd33f6026823468a0917b1edd33d0, type: 2}
   CloneButton: {fileID: 392419194}
   content: {fileID: 321343616}
   _recipieButton: {fileID: 1799462556}
@@ -14274,7 +14278,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u65A7"
+  m_Text: clonebutton
 --- !u!222 &2068650923
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15952,7 +15956,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 238451826278762945}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999981
+  m_Size: 0.9963624
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -17108,7 +17112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0003318765, y: 0.00008319354}
+  m_AnchoredPosition: {x: 0.0003318765, y: 0.00093290285}
   m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &237719242247140115
@@ -21952,7 +21956,7 @@ PrefabInstance:
         type: 3}
       propertyPath: L_ResourceObject.Array.data[0]
       value: 
-      objectReference: {fileID: 8717189872897504942, guid: 00c2fde0eb22c9e4cabf02793515cb7d,
+      objectReference: {fileID: 4836862898947569501, guid: 3588afc553b1be44da1f88093d94f256,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e959e41eab42cda4aa329b2ca7a36948, type: 3}

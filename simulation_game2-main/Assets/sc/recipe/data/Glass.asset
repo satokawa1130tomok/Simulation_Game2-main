@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9e186c2321bab4ca83d7914b765d29, type: 3}
+  m_Name: Glass
+  m_EditorClassIdentifier: 
+  RecipeName: "\u30AC\u30E9\u30B9"
+  ItemName1: "\u7802"
+  ItemCount1: 2
+  Explanation: 
+  HandCraft: 0
+  ButtonCount: 1
+  CarftCount: 1
+  obj: {fileID: 8717189872897504942, guid: 00c2fde0eb22c9e4cabf02793515cb7d, type: 3}

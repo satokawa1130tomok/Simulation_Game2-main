@@ -78,6 +78,7 @@ public class RecipeButtonCreate : MonoBehaviour
             i++;
         }
         CreateButton = true;
+        CloneButton.SetActive(false);
     }
     public void Destroy()
     {
