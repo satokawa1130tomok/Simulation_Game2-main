@@ -58,16 +58,20 @@ public class Have : MonoBehaviour
             }
 
             CloneObj.transform.eulerAngles = worldAngle; // 回転角度を設定
+            Debug.Log("a");
 
         }
-        else if (ray.bool_ && Ray_._hit == null && !player2_.inventoy.activeSelf)
+        else if (Ray_._hit == null && !player2_.inventoy.activeSelf)
         { //宙に浮いている状態
             ground = false;
             CloneObj.transform.position = new Vector3(ray.HitPosition.x, ray.HitPosition.y += 1, ray.HitPosition.z);
+            Debug.Log("b");
         }
         else if (!ray.bool_ && Ray_._hit != null && player2_.inventoy.activeSelf)
         { //表示されない時
             CloneObj.SetActive(false);
+            Debug.Log("c");
+
         }
         if (_gameInputs.Player.cancel.WasPressedThisFrame())
         { //キャンセルが押された
@@ -78,6 +82,7 @@ public class Have : MonoBehaviour
         {
             r = true;
         }
+        Debug.Log(_gameInputs.Player.Installation.WasPressedThisFrame() + "" + r + "" + ground + "+"+ Ray_._hit);
         if (_gameInputs.Player.Installation.WasPressedThisFrame() && r && ground)
         {
             Destroy(CloneObj);

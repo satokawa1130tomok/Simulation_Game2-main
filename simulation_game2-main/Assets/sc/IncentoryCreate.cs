@@ -74,23 +74,16 @@ public class IncentoryCreate : MonoBehaviour
         {
             for (i = 0; i < C + 1; i++)
             {
-                // Debug.Log(i);
-
                 GameObject cloneButton = Instantiate(CloneButton_) as GameObject;
                 cloneButton.transform.SetParent(content.transform, false);
                 cloneButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, (-(i + 1) * 40));
-                
                 GameObject textObj = cloneButton.transform.Find("clonetext").gameObject;
                 Text _text = textObj.GetComponent<Text>();
-
                 string a = _InventoryList.name_[i];
                 int b = _InventoryList.count[i];
                 _text.text = a + " Å~" + b;
-
                 but.Add(cloneButton);
                 cloneButton.SetActive(true);
-
-
                 buttanData data = cloneButton.GetComponent<buttanData>();
                 data.enabled = true;
                 data.Former = false;
@@ -98,16 +91,11 @@ public class IncentoryCreate : MonoBehaviour
                 data.name_ = a;
                 data.obj = _InventoryList.obj[i];
                 data.ButtonPo = true;
-                // data.obj = _InventoryList.obj[i];
-                // Debug.Log(i + "  " + C);
-                //ÉJÅ[É\ÉãÇÃèàóù
                 buttonCursor cursor = cloneButton.AddComponent<buttonCursor>();
                 cursor._CursorManager = content.GetComponent<CursorManager>();
                 cursor.ListNumber_X = 0;
                 cursor.ListNumber_Y = i;
                 CloneButton.SetActive(true);
-
-
             }
             content.GetComponent<CursorManager>().max_Y[0] = i - 1;
 

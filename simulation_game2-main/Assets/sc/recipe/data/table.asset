@@ -16,9 +16,9 @@ MonoBehaviour:
   ItemName1: "\u679D"
   ItemCount1: 4
   ItemName2: "\u677F"
-  ItemCount2: 2
+  ItemCount2: 3
   Explanation: 
-  HandCraft: 0
+  HandCraft: 1
   ButtonCount: 2
   CarftCount: 1
   obj: {fileID: 8507797450475823381, guid: 3f53739d19d872848a1e91f04b2fa771, type: 3}

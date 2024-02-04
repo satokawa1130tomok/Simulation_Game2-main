@@ -32,7 +32,6 @@ public class CraftManager : MonoBehaviour
         craft = true;
         if (recipie.ButtonCount == 1)//ボタンの数が1
         {
-            //Debug.Log("A");
             check(recipie.name1, recipie.count1, recipie.ItemButton1);
         }
         if (recipie.ButtonCount == 2)//ボタンの数が2
@@ -47,7 +46,6 @@ public class CraftManager : MonoBehaviour
             check(recipie.name2, recipie.count2, recipie.ItemButton2);
             check(recipie.name3, recipie.count3, recipie.ItemButton3);
         }
-       // Debug.Log(craft);
         if (craft)//全部持っていたら
         {
             Craft();
@@ -69,7 +67,6 @@ public class CraftManager : MonoBehaviour
             }
             recipie.road();
         }
-
     }
     public void return_()
     { 

@@ -99,7 +99,7 @@ public class WorldObject : MonoBehaviour
         //{
         //    ToolData toolData = this.GetComponent<ToolData>();
         //    ObjNumber = toolData.number;
-        //}
+        
         //if (type == "C")
         //{
         //    chestdata ChestData = this.GetComponent<chestdata>();

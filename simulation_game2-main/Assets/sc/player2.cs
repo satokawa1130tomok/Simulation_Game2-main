@@ -175,6 +175,7 @@ public class player2 : MonoBehaviour
             _inventoryCreate.content.GetComponent<CursorManager>().max_Y[1] = 0;
             a = true;
             obj = null;
+            name_ = null; 
             inve_anim.SetBool("clause", true);
         }
         else if (_gameInputs.Player.inventory.WasPressedThisFrame() && (inventoy.activeSelf) && (!Craft.activeSelf) && (!EscObj.activeSelf))
@@ -186,6 +187,7 @@ public class player2 : MonoBehaviour
             _inventoryCreate.DestroyButton();
             inventoy.SetActive(false);
             inve_anim.SetBool("clause", false);
+            name_ = null;
         }
     }
     public void _Craft()
